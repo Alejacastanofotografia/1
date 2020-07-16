@@ -10,7 +10,6 @@ function preloader(){
 			} else {
 				num--;
 				preloader.style.height = num + '%';
-				console.log(num);
 			}
 		}
     }, 1200)
