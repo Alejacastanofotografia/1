@@ -11,10 +11,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 
-	<!--librerias 360-->
-	<script src="scripts/sphoords.js"></script>
-	<script src="scripts/photo-sphere-viewer.min.js"></script>
-	<script src="scripts/three.min.js"></script>
+	
 </head>
 <body onload="nuevoVisitante()">
     <header id="header">
@@ -110,23 +107,6 @@
 			360 grados y panorámicas 180, para que ningún detalle se escape.
 		</p>
 		</div>
-		    	<script>
-			var div = document.getElementById('Imagen360');
-			var PSV = new PhotoSphereViewer({
-					panorama: 'https://edcas804.github.io/360/1.jpg',
-					container: div,
-					time_anim: 10,
-					navbar: true,
-					navbar_style: {
-						backgroundColor: 'rgba(0,0,0, 0.3)',
-						buttonsColor: '#fff',
-						activeButtonsBackgroundColor: 'rgba(58, 67, 77, 0.6)'
-					},
-					buttonsHeight: '30',
-					autorotateThickness: '0',
-					
-				});
-		      </script>
 	</div>
 	<div class="sobreMi contenidoScroll" id="sobreMi">
 	    <div class="sobreMiItem">
@@ -368,25 +348,25 @@ Susan Sontag
 	    </div>
 	<ul class="galeria">
 	    <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img1.jpg'" >
-		                                                                               <img   loading="lazy" src="Imagenes/Galerias/Pcomunion/img1.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img1.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img2.jpg'" >
-		                                                                               <img   loading="lazy" src="Imagenes/Galerias/Pcomunion/img2.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img2.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img3.jpg'" >
-		                                                                               <img   loading="lazy" src="Imagenes/Galerias/Pcomunion/img3.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img3.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img4.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img4.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img4.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img5.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img5.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img5.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img6.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img6.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img6.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img7.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img7.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img7.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img8.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img8.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img8.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img9.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img9.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img9.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 		 <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img10.jpg'" >
-		                                                                               <img  loading="lazy"  src="Imagenes/Galerias/Pcomunion/img10.jpg" ><div class="new" ><img  src="flechas.png"></div></a></li>
+		                                                                               <img    data-src="Imagenes/Galerias/Pcomunion/img10.jpg" class="lazyload"><div class="new" ><img  src="flechas.png"></div></a></li>
 			
 	
 	</ul>
@@ -885,13 +865,34 @@ Berenice Abbott
 	
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!-- Firebase links --><!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js" async></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js" async></script>
 <!-- Fin Firebase links -->
     <script src="scripts/cod.js"></script>
-    <script src="scripts/contacto.js"></script>	
+    <script src="scripts/contacto.js" async></script>	
+		    	<!--librerias 360-->
+	<script  src="scripts/sphoords.js" ></script>
+	<script  src="scripts/photo-sphere-viewer.min.js" ></script>
+	<script  src="scripts/three.min.js" ></script>
+				<script async>
+			var div = document.getElementById('Imagen360');
+			var PSV = new PhotoSphereViewer({
+					panorama: 'https://edcas804.github.io/360/1.jpg',
+					container: div,
+					time_anim: 10,
+					navbar: true,
+					navbar_style: {
+						backgroundColor: 'rgba(0,0,0, 0.3)',
+						buttonsColor: '#fff',
+						activeButtonsBackgroundColor: 'rgba(58, 67, 77, 0.6)'
+					},
+					buttonsHeight: '30',
+					autorotateThickness: '0',
+					
+				});
+		      </script>
 </body>
 </html>
