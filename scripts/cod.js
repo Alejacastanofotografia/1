@@ -1,3 +1,22 @@
+function preloader(){
+    setTimeout(function(){
+		var num = 100;
+		var Interval = setInterval(opacidad, 5);
+		var preloader = document.getElementById('preloader');
+		function opacidad(){
+			if(num <= 0){
+				clearInterval(Interval);
+				preloader.style.display = 'none';
+			} else {
+				num--;
+				preloader.style.height = num + '%';
+				console.log(num);
+			}
+		}
+    }, 1200)
+}
+preloader();
+
 function navegacion(evt, ventana, header){
 	var ventanas = document.getElementsByClassName('ventanas');
 	var links = document.getElementsByClassName('tabs');
