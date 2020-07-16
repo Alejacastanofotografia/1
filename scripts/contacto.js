@@ -121,5 +121,4 @@ function nuevoVisitante(){
 	.catch(function(error){
 		console.log(error);
 	})
-	
 }
