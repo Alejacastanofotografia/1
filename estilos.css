@@ -48,6 +48,23 @@ header {
     width: 100%;
 	cursor: pointer;
 }
+#preloader{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	background: rgba(0, 0, 0, 0.9);
+}   #preloader img {
+	    animation: rotarloader 3s infinite linear;
+    }
+	@keyframes rotarloader {
+		from{transform: rotate(0deg)}
+		to{transform: rotate(360deg)}
+	}
 #imgSlider {
 	position: relative;
 	justify-content: center;
