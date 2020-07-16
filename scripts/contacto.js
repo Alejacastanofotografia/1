@@ -14,8 +14,8 @@ var firebaseConfig = {
     firebase.analytics();
 var firestore = firebase.firestore();
 
-var db = firestore.collection("Contacto");
-var dbVisitantes = firestore.collection("Visitante");
+// var db = firestore.collection("Contacto");
+// var dbVisitantes = firestore.collection("Visitante");
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
@@ -105,6 +105,13 @@ formulario.addEventListener('submit', function(evt){
 	
 });
 function nuevoVisitante(){
+	// datos device
+	var agente = navigator.userAgent.toLowerCase();
+	var vendor = navigator.vendor;
+	console.log(navigator);
+	alert(agente);
+	console.log(vendor);
+	
 	let fecha = new Date();
 	let width = screen.width;
 	let height = screen.height;
@@ -121,4 +128,5 @@ function nuevoVisitante(){
 	.catch(function(error){
 		console.log(error);
 	})
+	
 }
