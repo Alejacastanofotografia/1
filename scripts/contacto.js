@@ -14,8 +14,8 @@ var firebaseConfig = {
     firebase.analytics();
 var firestore = firebase.firestore();
 
-var db = firestore.collection("Contacto");
-var dbVisitantes = firestore.collection("Visitante");
+//var db = firestore.collection("Contacto");
+//var dbVisitantes = firestore.collection("Visitante");
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
