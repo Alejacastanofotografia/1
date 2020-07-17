@@ -34,6 +34,8 @@ formulario.addEventListener('submit', function(evt){
 	let emailUsuario = email.value;
 	let mensajeUsuario = mensaje.value;
 	let fechaMensaje = new Date();
+	let width = screen.width;
+	let height = screen.height;
 	
 	// validar datos del formulario
 	if(nombreUsuario === null || nombreUsuario === ''){
@@ -60,6 +62,7 @@ formulario.addEventListener('submit', function(evt){
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
 			e_fechaMensaje : fechaMensaje,
+		    f_Dimensiones :[width, height],
 		})
 		.then(function(){
 			console.log('Data Saved');// resetando los campos...// Confirmacion de registro
