@@ -4,17 +4,19 @@
 }
 :root {
 	--main-backgroundMain: #000;
+	--main-backgroundmenuHeader: #000;
 	--main-backgroundregba: rgba(0,0,0, .8);
 	--main-color: #bbb;
 	--main-colorMenu: #bbb;
 	--main-border-radius: 1rem;
 	--main-font-family: 'Della Respira';
 	--main-font-sizeParrafos: 1.3rem;
-	--main-font-sizeTitulos: 1.8rem;
+	--main-font-sizeTitulos: 1.8rem; 
 }
 @media(max-width:600px){
 	:root{
 		--main-backgroundMain: #fafafa;
+	    --main-backgroundmenuHeader: #e8e8e8;
 	    --main-color: #202020;
 	    --main-colorMenu: #a1a1a1;
 	    --main-font-family: 'Della Respira';
@@ -86,7 +88,7 @@ header {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: var(--main-backgroundregba);
+	background: rgba(0, 0, 0, 0.9);
 }
 .itemImg {
 	width: 100%;
@@ -269,7 +271,12 @@ header {
 	text-align: center;
 	font-weight: bold;
 	color: var(--main-color);
+	background: var(--main-backgroundMain);
 }
+/* .beforeParrafos { */
+	/* padding: .2rem; */
+	/* background: linear-gradient(to bottom right, #fff, #fff, #fff, #fff, #aaa); */
+/* } */
 .titulos, .galeriasH {
 	font-size: var(--main-font-sizeTitulos);
 	font-family: var(--main-font-family);
@@ -277,7 +284,7 @@ header {
 	line-height: 1rem;
 	text-align: center;
 	font-weight: bold;
-	color: var(--main-color);	
+	color: var(--main-color);
 }
 /*Sobre mi*/
 .sobreMi {
@@ -423,6 +430,9 @@ header {
 @keyframes rotar {
 	from{transform:rotateY(0deg)}
     to{transform:rotateY(360deg)}
+}
+.c360, .sobreMi, .contacto, .contenidos{
+	padding: 0 1rem;
 }
 /*book*/
 .contenedorBook {
@@ -691,7 +701,7 @@ footer{
 	position: fixed;
 	width: 100%;
 	height: auto;
-	background: var(--main-backgroundMain);
+	background: var(--main-backgroundmenuHeader);
 	top: 0;
 	left: 0;
 	z-index: 20;
