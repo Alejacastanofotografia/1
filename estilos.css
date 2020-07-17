@@ -79,7 +79,7 @@ header {
 .imgagenesSlider {
 	background: #303030;
 	height: 100%;
-}
+}   .imgagenesSlider:nth-child(4){display: none;}
 .afterimgSlider {
 	position: absolute;
 	top: 0;
@@ -92,6 +92,14 @@ header {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+@media (max-width:600px){
+	#imgSlider{
+	grid-template-columns: repeat(2, 1fr);
+	}
+	.imgagenesSlider:nth-child(4){
+		display: block;
+	}
 }
 .contenedorSlider {
 	position: absolute;
