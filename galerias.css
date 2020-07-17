@@ -165,7 +165,7 @@ h4 {
 	padding: 12px 5px 10px 5px;
 	color: var(--main-color); 
 	font-family:FreeMono, monospace;
-	font-size: .9rem;
+	font-size: .8rem;
 	border-bottom: 1px solid #aaa;
 }
 .menuMovil2 .botonesMovil {
@@ -536,7 +536,6 @@ h4 {
 	left: 0;
 	background: rgba(0, 0, 0, 0.9);
 	z-index:50;
-	border:2px solid #fff;
 }
 .imagenLight, .imagenLightHori {
     width:100%;
