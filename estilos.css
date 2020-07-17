@@ -1,4 +1,4 @@
-* {
+* {  
 	margin: 0;
 	padding: 0;
 }
@@ -365,6 +365,7 @@ header {
 	font-family: var(--main-font-family);
 	border-radius: .3rem;
 	color: #fff;
+	
 }
 #mensajesFormularioGrave {
 	color: #ff0000;
@@ -373,15 +374,18 @@ header {
 #mensajeExitoso {
 	font-size: 2rem;
 	color: #00ff00;	
+	text-align: center;
 }
 .error {
 	padding: .3rem;
 	background: #ff0000;
+	text-align: center;
 }
 .EnvioExitoso{
 	padding: .5rem;
 	background: #00ff00;
 	color: #303030;
+	text-align: center;
 	
 }
 /* contenido 360 */
@@ -668,6 +672,9 @@ footer{
 @media (max-width: 400px){
 	.h1Main {
 	font-size: 1.5rem;
+	}
+	.contactoItem form {
+		padding: 0 1rem;
 	}
 }
 
