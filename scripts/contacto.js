@@ -1,5 +1,4 @@
- // Your web app's Firebase configuration
-var firebaseConfig = {
+firebase.initializeApp({
     apiKey: "AIzaSyBq-VhsTf1ip5Le7FDIAXJA-qBpQ_91W4g",
     authDomain: "contacto-de-usuarios.firebaseapp.com",
     databaseURL: "https://contacto-de-usuarios.firebaseio.com",
@@ -8,14 +7,10 @@ var firebaseConfig = {
     messagingSenderId: "38625858230",
     appId: "1:38625858230:web:44ad53d6d12d043d134c17",
     measurementId: "G-0GSH2MDHRG"
-};
-  // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-var firestore = firebase.firestore();
-
-var db = firestore.collection("Contacto");
-// var dbVisitantes = firestore.collection("Visitante");
+});
+var db = firebase.firestore();
+var contacto = db.collection('Contacto');
+var Visitante = db.collection('Visitante');
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
@@ -56,7 +51,7 @@ formulario.addEventListener('submit', function(evt){
 		nombre.style.border = 'none';
 	}
 	else{	
-	    db.doc(nombreUsuario).set({
+	    contacto.doc(nombreUsuario).set({
 			a_nombre : nombreUsuario,
 			b_télefono : telefonoUsuario,
 			c_correo : emailUsuario,
@@ -105,23 +100,70 @@ formulario.addEventListener('submit', function(evt){
         
         
 	}
-	
+		
 });
+	   
+
 function nuevoVisitante(){
 	let fecha = new Date();
 	let width = screen.width;
 	let height = screen.height;
 	let widthDisponible = screen.availWidth;
 	let heightDisponible = screen.availHeight;
-	
-	dbVisitantes.doc().set({
-		a_fecha : fecha,
-		b_Dimensiones :[width, height],
-	})
-	.then(function(){
-		console.log('nuevo user');
-	})
-	.catch(function(error){
-		console.log(error);
-	})
+	if(width === 360 || width === 1440){
+			alert('welcome Ed')
+		}
+	else{
+	    Visitante.doc().set({
+			a_fecha : fecha,
+			dimensiones : [width , height]
+		})
+		.then(function(){
+			console.log('guardada ');
+		})
+		.catch(function(error){
+			console.log(error);
+		});
+	}
 }
+
+
+//*******agregando coleccion desde cero
+// db.collection("nombreDeColeccion").add({
+    // first: "Ada",
+    // last: "Lovelace",
+    // born: 1815
+// })
+// .then(function(docRef) {
+    // console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+    // console.error("Error adding document: ", error);
+// }); 
+
+//***** enviado con variable
+// var contacto = db.collection('contactoprueba'); //global
+// contacto.doc().set({
+			// name : 'laila',
+			// age : '20',
+		// })
+		// .then(function(){
+			// console.log('guardada ');
+		// })
+		// .catch(function(error){
+			// console.log(error);
+		// });
+		
+
+//******especificando el nombre del id de documento
+// var contacto = db.collection('contactoprueba'); //global
+// contacto.doc('idDocumento').set({
+			// name : 'laila',
+			// age : '20',
+		// })
+		// .then(function(){
+			// console.log('guardada ');
+		// })
+		// .catch(function(error){
+			// console.log(error);
+		// });
