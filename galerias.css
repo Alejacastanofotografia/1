@@ -165,7 +165,7 @@ h4 {
 	color: var(--main-colorMenu); 
 	font-family:FreeMono, monospace;
 	font-size: .8rem;
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid #404040;
 }
 .menuMovil2 .botonesMovil {
 	padding: 1rem 0;

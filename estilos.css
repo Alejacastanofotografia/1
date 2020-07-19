@@ -532,7 +532,6 @@ footer{
 	color: var(--main-color);
 	color: #909090;
 	background: var(--main-backgroundmenuHeader);
-	background: #000;
 	font-size:18px;
 	text-align: center;
 	font-style: italic;
@@ -620,7 +619,7 @@ footer{
 }
 /*Estilos active para navegacion con Js*/
 .activeMain {
-	border-bottom: 2px solid #303030;
+	border-bottom: 2px solid #808080;
 }
 #menuGalerias ul li.active {
 	background: rgba(255,255,255,0.3);
@@ -720,7 +719,7 @@ footer{
 	}
 	.contenedorBook {
 		height: auto;
-	    padding: 6rem 0 2rem 0; 
+	    padding: 6.5rem 0 2rem 0; 
 	}
 	.navegacionBooks{
 		bottom: -2rem;
