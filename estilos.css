@@ -443,6 +443,7 @@ header {
 	grid-template-columns: 35% 1fr;																	;
 }
 .booksContainer {
+	position: relative;
 	padding: 0 0 2rem 0;
 	height: auto;
 	display:flex;
@@ -484,6 +485,8 @@ td {
 }
 .navegacionBooks {
     padding: 1rem 0;
+	position: absolute;
+	bottom: 2rem;
 }
 .navegacionBooks ul{
 	list-style: none;
@@ -702,6 +705,10 @@ footer{
 	}
 	.contenedorBook {
 		height: auto;
+	    padding: 6rem 0 2rem 0; 
+	}
+	.navegacionBooks{
+		bottom: -2rem;
 	}
 }
 
