@@ -12,15 +12,17 @@
 	--main-font-family: 'Della Respira';
 	--main-font-sizeParrafos: 1.3rem;
 	--main-font-sizeTitulos: 1.8rem; 
+	
+	
 }
 @media(max-width:600px){
 	:root{
 		--main-backgroundMain: #fafafa;
-	    --main-backgroundmenuHeader: #e8e8e8;
 	    --main-color: #202020;
-	    --main-colorMenu: #a1a1a1;
-	    --main-font-family: 'Della Respira';
-	}
+	    /* --main-colorMenu: #a1a1a1; */
+	    --main-backgroundmenuHeader: #151515;
+	/* } */
+    }
 }
 
 @media(max-width:600px){
@@ -272,11 +274,15 @@ header {
 	font-weight: bold;
 	color: var(--main-color);
 	background: var(--main-backgroundMain);
-}     
-/* .beforeParrafos { */
-	/* padding: .2rem; */
-	/* background: linear-gradient(to bottom right, #fff, #fff, #fff, #fff, #aaa); */
-/* } */
+}
+.tituloParrafoSobreMi, .tituloParrafo360{
+	position: relative;
+	background: var(--main-backgroundMain);
+	background: linear-gradient(to bottom left, #151515, #000, #000, #000 , #000, #151515);
+	padding: .2rem;
+}
+.tituloParrafoSobreMi{left: 3rem;}
+.tituloParrafo360{right: 3rem;}
 .titulos, .galeriasH {
 	font-size: var(--main-font-sizeTitulos);
 	font-family: var(--main-font-family);
@@ -285,6 +291,9 @@ header {
 	text-align: center;
 	font-weight: bold;
 	color: var(--main-color);
+}
+.titulos{
+	background: var(--main-backgroundMain);
 }
 /*Sobre mi*/
 .sobreMi {
@@ -521,7 +530,9 @@ footer{
 	margin: auto;
 	margin-top: 1rem;
 	color: var(--main-color);
+	color: #909090;
 	background: var(--main-backgroundmenuHeader);
+	background: #000;
 	font-size:18px;
 	text-align: center;
 	font-style: italic;
@@ -565,12 +576,7 @@ footer{
 	right: 50px;
     z-index: 5;
 }
-#irAbajo{
-	position: fixed;
-	bottom: 0;
-    left: 48%;	
-}
-.irArriba i, .irAbajo i{
+.irArriba i{
 	color: var(--main-color);
 	background: var(--main-backgroundMain);
 	font-size: 2rem;
@@ -675,26 +681,34 @@ footer{
 	}	
 	.sobreMiItem:nth-child(2){
 	    grid-row: 1/2;
-	 }
+	}
+	.tituloParrafoSobreMi, .tituloParrafo360{
+	position: relative;
+	background: none;
+	padding: none;
+    }
+    .tituloParrafoSobreMi{left: 0;}
+    .tituloParrafo360{right: 0;}
+
 	.contacto {
 		grid-template-columns: 1fr;		
 	}
     .contactoItem form input:hover, .contactoItem form textarea:hover {
 	    filter: none;
     }
+	.titulos{
+		background: var(--main-backgroundMain);
+	    width: 70%;
+	    margin: auto;
+		position: relative;
+		top: -1rem;
+		z-index: 10;
+    }
 }
 @media (max-width:800px){
 	.irArriba i{
 	right: 10px;
 	padding: 0.2rem 0.5rem;
-	}
-	.irAbajo i{
-	padding: 0rem 0.3rem;
-	left: 46%;
-	background: #000;
-	color: #606060;
-	font-size: 1.5rem;
-		
 	}
 }
 @media (max-width: 400px){
@@ -747,7 +761,7 @@ footer{
 	transition: 0.5s;
 }
 .contenedorSliderScroll .items li a{
-	color: var(--main-color);
+	color: var(--main-colorMenu);
 }
 .contenedorSliderScroll .items li:hover{
 		transform: scale(0.95);

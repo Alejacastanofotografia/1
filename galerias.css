@@ -162,7 +162,7 @@ h4 {
 	outline: none;
 	width:100%;
 	padding: 12px 5px 10px 5px;
-	color: var(--main-color); 
+	color: var(--main-colorMenu); 
 	font-family:FreeMono, monospace;
 	font-size: .8rem;
 	border-bottom: 1px solid #aaa;

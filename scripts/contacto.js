@@ -111,10 +111,10 @@ function nuevoVisitante(){
 	let height = screen.height;
 	let widthDisponible = screen.availWidth;
 	let heightDisponible = screen.availHeight;
+	
 	if(width === 360 || width === 1440){
 			alert('welcome Ed')
-		}
-	else{
+	}else{
 	    Visitante.doc().set({
 			a_fecha : fecha,
 			dimensiones : [width , height]
@@ -131,16 +131,6 @@ function nuevoVisitante(){
 		    Total : firebase.firestore.FieldValue.increment(1)
 	    });
 	}
-  
-	// NumeroVisitante.doc('Nvisitante').set({
-		    // Visitante: 1,
-		// })
-		// .then(function(){
-			// console.log('guardada ');
-		// })
-		// .catch(function(error){
-			// console.log(error);
-		// });
 }
 
 

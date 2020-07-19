@@ -222,12 +222,10 @@ function irArriba(){
 	if(scrollTop > 400){
 		document.querySelector('#irArriba').style.display = 'block';
 		
-		if(scrollTop > 1)document.querySelector('#irAbajo').style.display = 'none';
 	}
 	else{
 		document.querySelector('#irArriba').style.display = 'none';		
-		document.querySelector('#irArriba').classList.add('positionBotonIrTop');
-		document.querySelector('#irAbajo').style.display = 'block';		
+		document.querySelector('#irArriba').classList.add('positionBotonIrTop');	
 	}
 }
 window.addEventListener("scroll", irArriba);
@@ -480,7 +478,7 @@ function frases(){
         var write5 = document.getElementById('write5');
         var write6 = document.getElementById('write6');
         var write7 = document.getElementById('write7');
-			num1 = 0; num2 = 0; num3 = 0; num4 = 0; num5 = 0; num6 = 0; num7 = 0;
+		num1 = 0; num2 = 0; num3 = 0; num4 = 0; num5 = 0; num6 = 0; num7 = 0;
 		var interval = setInterval(escribir, 100);
 		var interval2 = setInterval(escribir2, 100);
 		var interval3 = setInterval(escribir3, 100);
