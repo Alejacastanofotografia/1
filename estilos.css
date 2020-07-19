@@ -519,6 +519,7 @@ td {
 footer{
 	width:100%;
 	margin: auto;
+	margin-top: 1rem;
 	color: var(--main-color);
 	background: var(--main-backgroundmenuHeader);
 	font-size:18px;
@@ -742,7 +743,7 @@ footer{
 .
 .textoLogoHome {font-size: 1.5rem}
 .contenedorSliderScroll .items li{
-	padding: 1rem 2rem;	
+	padding: 2rem 2rem;	
 	transition: 0.5s;
 }
 .contenedorSliderScroll .items li a{
