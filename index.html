@@ -1,11 +1,11 @@
 <DOCTYPE html>
 <html>
 <head>
-    <meta charset="UFT-8">
+    <meta charset="utf-8">
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Aleja Castaño Fotografía</title>
-	<link rel="shortcut icon" type="image/x-icon"href="favicon.ico">	
+	<link rel="shortcut icon" type="image/x-icon"href="favicon.ico"/>	
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon"href="favicon.ico"/>	
 	<link rel="icon" type="image/x-icon"href="favicon.ico"/>	
 	<link rel="stylesheet" href="estilos.css">
@@ -41,9 +41,9 @@
 			        <li class="tabs" onclick="navegacion(event, 'book', 'noHead'); window.scroll(0,0)"><a href="#">Books</a></li>  
 		     	</div>
 		        <div class="items" >
-			        <li class="tabs" onclick="navegacion(event, 'Galerias', 'noHead'); window.scroll(0,0)"><a href="#">Sesiones</a></li>  
+			        <li class="tabs" onclick="navegacion(event, 'Galerias', 'noHead'); window.scroll(0,0)" ><a href="#">Sesiones</a></li>  
 			    </div>
-		        <h1 class="h1Main tabs" id="defaultClick" onclick="navegacion(event, 'principal', 'Head'); window.scroll(0,0)">Aleja Castaño<br>
+		        <h1 class="h1Main tabs"  id="defaultClick"onclick="navegacion(event, 'principal', 'Head'); window.scroll(0,0)">Aleja Castaño<br>
 		            <span>F</span>
 		            <span>o</span>
 		            <span>t</span>
@@ -280,12 +280,10 @@
 	      	<!--++++++++++++++Menu para moviles+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 	<section  id="infantil" class="galerias Ventanas2">
 	 <article>
-
-
 		<div class="contenido">
-	<p class="frase"> “Hoy todo existe para culminar en una fotografía”.
-Susan Sontag
-<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write1"></span>|
+		    </p>
 	    </div>
 	<ul class="galeriaV">
 	    <li><a href="#" onclick="abrirlight('lightInfantil');document.getElementById('imgInfantil').src = 'Imagenes/Galerias/Infantil/img1.jpg'">							
@@ -347,8 +345,9 @@ Susan Sontag
 	 </section>      		
 	<section id="primeraComunion" class="galerias Ventanas2">
 		<div class="contenido">
-	<p class="frase">“ La fotografía es el único medio de expresión que fija siempre el instante preciso y fugitivo”  Cartier Bresson.<span class="classspan">&#160;
-	</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write2"></span>|
+		    </p>
 	    </div>
 	<ul class="galeria">
 	    <li><a onclick="abrirlight('lightComunion');document.getElementById('imgComunion').src = 'Imagenes/Galerias/Pcomunion/img1.jpg'" >
@@ -405,11 +404,10 @@ Susan Sontag
 	<!--***************************************************************************************************-->
 	<section id="Prequinces" class="galerias Ventanas2">
 	<article >
-
 		<div class="contenido">
-	<p class="frase">"Si pudiera decirlo con palabras, no iría todos los días cargado con mi cámara”.
-Lewis Hine
-<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write3"></span>|
+		    </p>
 	    </div>
 	<ul class="galeria">
 	    <li><a onclick="abrirlight('lightPrequinces');document.getElementById('imgPrequinces').src = 'Imagenes/Galerias/Prequinces/img1.jpg'" >
@@ -462,13 +460,10 @@ Lewis Hine
 	</section>
 	<section id="Quinces" class="galerias Ventanas2">
 		<article >
-
 		<div class="contenido">
-	<p class="frase">“La fotografía es el único lenguaje que puede ser entendido y comprendido en todo el mundo”.
-Bruno Barbey
-
-
-	<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write4"></span>|
+		    </p>
 	    </div>
 	<ul class="galeria">
 	    <li><a onclick="abrirlight('lightQuinces');document.getElementById('imgQuinces').src = 'Imagenes/Galerias/Quinces/img1.jpg'" >
@@ -520,12 +515,10 @@ Bruno Barbey
 	<!--*****************************************VERTICALES***********************************************************************************-->
 	<section id="boda" class="galerias Ventanas2">
 	<article >
-
 		<div class="contenido">
-	<p class="frase">“El corazón y la mente son la verdadera lente de la cámara”.
-Yousuf Karsh
-
-	<span>&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write5"></span>|
+		    </p>
 	    </div>
 	<ul class="galeriaV">
 	    <li><a href="#" onclick="abrirlight('lightBoda');document.getElementById('imgBoda').src = 'Imagenes/Galerias/Boda/img1.jpg'">							
@@ -582,10 +575,9 @@ Yousuf Karsh
     <section id="adulto" class="galerias Ventanas2">
 	 <article >
 		<div class="contenido">
-	<p class="frase">
- “La fotografía ayuda a las personas a ver”.
-Berenice Abbott
-	<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write6"></span>|
+		    </p>
 	    </div>
 	<ul class="galeriaV">
 	     <li><a href="#" onclick="abrirlight('lightAdulto');document.getElementById('imgAdulto').src = 'Imagenes/Galerias/Adulto/img1.jpg'">							
@@ -643,10 +635,10 @@ Berenice Abbott
 	<!--*****************************************************************-->
 	<section id="Colecciones" class="galerias Ventanas2 ">
 		<article >
-
 		<div class="contenido">
-	<p class="frase">“La tierra es arte, el fotógrafo es solo un testigo" Arthus-Bertrand
-	<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write7"></span>|
+		    </p>
 	    </div>
 	<ul class="galeria">
 	    <li><a onclick="abrirlight('lightAnimales');document.getElementById('imgAnimales').src = 'Imagenes/Galerias/Animales/img1.jpg'" >
@@ -865,28 +857,18 @@ Berenice Abbott
 		
 	
    </footer>
-    <script src="scripts/lazysizes.min.js" async></script>
-	
-	<script src='https://kit.fontawesome.com/a076d05399.js' async></script>
-<!-- Firebase links --><!-- The core Firebase JS SDK is always required and must be listed first -->
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js" ></script> -->
-<!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js" ></script> -->
-<!-- <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js" ></script> -->
-
-
-
+<script src="scripts/lazysizes.min.js" async></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' async></script>
 <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js" async></script>
 <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js" async></script>
 <!-- Fin Firebase links -->
-    <script src="scripts/cod.js" async></script>
-    <script src="scripts/contacto.js" async></script>	
+<script src="scripts/cod.js" async></script>
+<script src="scripts/contacto.js" async></script>	
 		    	<!--librerias 360-->
-	<script  src="scripts/sphoords.js" ></script>
-	<script  src="scripts/photo-sphere-viewer.min.js" ></script>
-	<script  src="scripts/three.min.js" ></script>
-				<script async>
+<script  src="scripts/sphoords.js" ></script>
+<script  src="scripts/photo-sphere-viewer.min.js" ></script>
+<script  src="scripts/three.min.js" ></script>
+        <script async>
 			var div = document.getElementById('Imagen360');
 			var PSV = new PhotoSphereViewer({
 					panorama: 'https://edcas804.github.io/360/1.jpg',
@@ -902,6 +884,6 @@ Berenice Abbott
 					autorotateThickness: '0',
 					
 				});
-		      </script>
+		</script>
 </body>
 </html>

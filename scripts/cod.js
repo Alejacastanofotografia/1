@@ -12,7 +12,7 @@ function preloader(){
 				preloader.style.height = num + '%';
 			}
 		}
-    }, 1200)
+    }, 200)
 }
 preloader();
 
@@ -45,7 +45,8 @@ function navegacion(evt, ventana, header){
 	}
 }
 document.getElementById('defaultClick').click();
-function cambiarVentana2(evt, cityName) {
+
+function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
   for (i = 0; i < tabcontent.length; i++) {
@@ -57,8 +58,11 @@ function cambiarVentana2(evt, cityName) {
 
   }
   
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(ventanaNombre).style.display = "block";
   evt.currentTarget.className += " active";
+       
+		
+  
 }
 function cambiarVentana3(evt, cityName) {
   var i, tabcontent, tablinks, ocultarul;
@@ -84,6 +88,7 @@ function cambiarVentana3(evt, cityName) {
   for(i = 0; 1 < ocultarul.length; i++) {
 	  ocultarul[i].style.display = 'none';
   }
+     
 }
 document.getElementById("defaultOpen2").click();
 
@@ -160,8 +165,8 @@ function cambiarVentana(evt, cityName) {
 
 //mostrar navegacion al hacer scroll
 
-let contenedor = document.getElementsByClassName('contenidoScroll');;
-let sobreMi = document.getElementsByClassName('sobreMi');;
+let contenedor = document.getElementsByClassName('contenidoScroll');
+let sobreMi = document.getElementsByClassName('sobreMi');
 let ContendedorHMenu = document.getElementsByClassName('contenedorSlider');
 let itemsMenuMain = document.getElementsByClassName('items');
 var scrollTop;
@@ -459,3 +464,100 @@ function stop(){
 	}
 }
 parrafosi();
+
+function frases(){	
+
+        var frase1 = ' “Hoy todo existe para culminar en una fotografía”.Susan Sontag                  ';
+        var frase2 = ' “La fotografía es el único medio de expresión que fija siempre el instante preciso y fugitivo”. Cartier Bresson              '; 
+        var frase3 = ' "Si pudiera decirlo con palabras, no iría todos los días cargado con mi cámara”. Lewis Hine           ';
+        var frase4 = ' “La fotografía es el único lenguaje que puede ser entendido y comprendido en todo el mundo”. Bruno Barbey                 ';
+        var frase5 = ' “El corazón y la mente son la verdadera lente de la cámara”. Yousuf Karsh                   ';
+        var frase6 = ' “La fotografía ayuda a las personas a ver”. Berenice Abbott              ';
+        var frase7 = ' “La tierra es arte, el fotógrafo es solo un testigo". Arthus-Bertrand              ';
+        var write1 = document.getElementById('write1');
+        var write2 = document.getElementById('write2');
+        var write3 = document.getElementById('write3');
+        var write4 = document.getElementById('write4');
+        var write5 = document.getElementById('write5');
+        var write6 = document.getElementById('write6');
+        var write7 = document.getElementById('write7');
+			num1 = 0; num2 = 0; num3 = 0; num4 = 0; num5 = 0; num6 = 0; num7 = 0;
+		var interval = setInterval(escribir, 100);
+		var interval2 = setInterval(escribir2, 100);
+		var interval3 = setInterval(escribir3, 100);
+		var interval4 = setInterval(escribir4, 100);
+		var interval5 = setInterval(escribir5, 100);
+		var interval6 = setInterval(escribir6, 100);
+		var interval7 = setInterval(escribir7, 100);
+		function escribir(){
+		    if(num1 >= frase1.length - 1){
+				num1 = 0;
+				write1.innerHTML = ' ';
+		    }
+		    else{
+				++num1;
+				write1.innerHTML += frase1[num1];	
+		    }
+		}		
+		function escribir2(){
+		    if(num2 >= frase2.length - 1){
+				num2 = 0;
+				write2.innerHTML = ' ';
+		    }
+		    else{
+				++num2;
+				write2.innerHTML += frase2[num2];	
+		    }
+		}		
+		function escribir3(){
+		    if(num3 >= frase3.length - 1){
+				num3 = 0;
+				write3.innerHTML = ' ';
+		    }
+		    else{
+				++num3;
+				write3.innerHTML += frase3[num3];	
+		    }
+		}		
+		function escribir4(){
+		    if(num4 >= frase4.length - 1){
+				num4 = 0;
+				write4.innerHTML = ' ';
+		    }
+		    else{
+				++num4;
+				write4.innerHTML += frase4[num4];	
+		    }
+		}		
+		function escribir5(){
+		    if(num5 >= frase5.length - 1){
+				num5 = 0;
+				write5.innerHTML = ' ';
+		    }
+		    else{
+				++num5;
+				write5.innerHTML += frase5[num5];	
+		    }
+		}		
+		function escribir6(){
+		    if(num6 >= frase6.length - 1){
+				num6 = 0;
+				write6.innerHTML = ' ';
+		    }
+		    else{
+				++num6;
+				write6.innerHTML += frase6[num6];	
+		    }
+		}		
+		function escribir7(){
+		    if(num7 >= frase7.length - 1){
+				num7 = 0;
+				write7.innerHTML = ' ';
+		    }
+		    else{
+				++num7;
+				write7.innerHTML += frase7[num7];	
+		    }
+		}
+}
+frases();

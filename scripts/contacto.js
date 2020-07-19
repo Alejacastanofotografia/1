@@ -11,7 +11,6 @@ firebase.initializeApp({
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
 var Visitante = db.collection('Visitante');
-var godbye = db.collection('Godbye');
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
