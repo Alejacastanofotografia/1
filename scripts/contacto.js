@@ -11,6 +11,7 @@ firebase.initializeApp({
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
 var Visitante = db.collection('Visitante');
+var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
@@ -124,7 +125,22 @@ function nuevoVisitante(){
 		.catch(function(error){
 			console.log(error);
 		});
+		
+		// contar el número de personas que visitan la pagina...
+	    NumeroVisitante.update({
+		    Total : firebase.firestore.FieldValue.increment(1)
+	    });
 	}
+  
+	// NumeroVisitante.doc('Nvisitante').set({
+		    // Visitante: 1,
+		// })
+		// .then(function(){
+			// console.log('guardada ');
+		// })
+		// .catch(function(error){
+			// console.log(error);
+		// });
 }
 
 
