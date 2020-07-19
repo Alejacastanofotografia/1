@@ -464,7 +464,6 @@ function stop(){
 	}
 }
 parrafosi();
-
 function frases(){	
 
         var frase1 = ' “Hoy todo existe para culminar en una fotografía”.Susan Sontag                  ';

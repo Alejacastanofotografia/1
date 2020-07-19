@@ -216,7 +216,7 @@ header {
 	font-family: var(--main-font-family);
 	text-align: center;
 	font-weight: bold;
-	color: var(--main-color);
+	color: #ddd;
 	background: rgba(0, 0, 0, .7);
 	overflow: hidden;
 	transition: 0.5s;
@@ -444,7 +444,7 @@ header {
 }
 .booksContainer {
 	padding: 0 0 2rem 0;
-	height: 100%;
+	height: auto;
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -517,10 +517,11 @@ footer{
 	width:100%;
 	margin: auto;
 	color: var(--main-color);
+	background: var(--main-backgroundmenuHeader);
 	font-size:18px;
 	text-align: center;
 	font-style: italic;
-	z-index:1;
+	z-index:5;
 	padding: 1rem 0 0 0;
 	display: flex;
 	justify-content: center;
@@ -667,9 +668,10 @@ footer{
 	}
 	.sobreMi, .c360, .contenedorBook {
 		grid-template-columns: 1fr;
-	}	.sobreMiItem:nth-child(2){
-		    grid-row: 1/2;
-	    }
+	}	
+	.sobreMiItem:nth-child(2){
+	    grid-row: 1/2;
+	 }
 	.contacto {
 		grid-template-columns: 1fr;		
 	}
@@ -697,6 +699,9 @@ footer{
 	}
 	.contactoItem form {
 		padding: 0 1rem; 
+	}
+	.contenedorBook {
+		height: auto;
 	}
 }
 
