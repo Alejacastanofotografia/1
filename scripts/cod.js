@@ -464,13 +464,13 @@ function stop(){
 parrafosi();
 function frases(){	
 
-        var frase1 = ' “Hoy todo existe para culminar en una fotografía”. Susan Sontag                  ';
-        var frase2 = ' “La fotografía es el único medio de expresión que fija siempre el instante preciso y fugitivo”. Cartier Bresson              '; 
-        var frase3 = ' "Si pudiera decirlo con palabras, no iría todos los días cargado con mi cámara”. Lewis Hine           ';
-        var frase4 = ' “La fotografía es el único lenguaje que puede ser entendido y comprendido en todo el mundo”. Bruno Barbey                 ';
-        var frase5 = ' “El corazón y la mente son la verdadera lente de la cámara”. Yousuf Karsh                   ';
-        var frase6 = ' “La fotografía ayuda a las personas a ver”. Berenice Abbott              ';
-        var frase7 = ' “La tierra es arte, el fotógrafo es solo un testigo". Arthus-Bertrand              ';
+        var frase1 = ' “Hoy todo existe para culminar en una fotografía”. Susan Sontag                              ';
+        var frase2 = ' “La fotografía es el único medio de expresión que fija siempre el instante preciso y fugitivo”. Cartier Bresson                           '; 
+        var frase3 = ' "Si pudiera decirlo con palabras, no iría todos los días cargado con mi cámara”. Lewis Hine                           ';
+        var frase4 = ' “La fotografía es el único lenguaje que puede ser entendido y comprendido en todo el mundo”. Bruno Barbey                           ';
+        var frase5 = ' “El corazón y la mente son la verdadera lente de la cámara”. Yousuf Karsh                               ';
+        var frase6 = ' “La fotografía ayuda a las personas a ver”. Berenice Abbott                        ';
+        var frase7 = ' “La tierra es arte, el fotógrafo es solo un testigo". Arthus-Bertrand                              ';
         var write1 = document.getElementById('write1');
         var write2 = document.getElementById('write2');
         var write3 = document.getElementById('write3');
