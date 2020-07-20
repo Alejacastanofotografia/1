@@ -299,7 +299,7 @@ header {
 	padding: 1rem;
 	line-height: 2rem;
 	text-align: center;
-	font-weight: bold;
+	/* font-weight: bold; */
 	color: var(--main-color);
 	background: var(--main-backgroundMain);
 }
@@ -589,7 +589,7 @@ footer{
 .irArriba i{
 	color: #fff;
 	background: var(--main-backgroundMain);
-	background: #400000;
+	background: #900000;
 	font-size: 2rem;
 	cursor: pointer;
 	padding: 0.5rem 1rem;
@@ -749,7 +749,7 @@ footer{
 @media (max-width:800px){
 	.irArriba i{
 	right: 10px;
-	padding: 0.2rem 0.5rem;
+	padding: 0.2rem 0.6rem;
 	}
 	.navegacionBooks{
 		bottom: -3rem;

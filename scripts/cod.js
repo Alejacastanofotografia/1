@@ -166,7 +166,6 @@ function cambiarVentana(evt, cityName) {
 //mostrar navegacion al hacer scroll
 
 let contenedor = document.getElementsByClassName('contenidoScroll');
-let sobreMi = document.getElementsByClassName('sobreMi');
 let ContendedorHMenu = document.getElementsByClassName('contenedorSlider');
 let itemsMenuMain = document.getElementsByClassName('items');
 var scrollTop;
@@ -185,17 +184,6 @@ function mostrarScroll(){
 		}
 	}
 	
-	
-	for(var i = 0; i < sobreMi.length; i++){
-		let alturaAnimado = sobreMi[i].offsetTop;
-		if(alturaAnimado - 600 < scrollTop){
-			sobreMi[i].classList.add("position");
-		}
-		else{
-			sobreMi[i].classList.remove("position");
-		}
-	}
-	
 	for(var i = 0; i < ContendedorHMenu.length; i++){
 		let alturaAnimado = ContendedorHMenu[i].offsetTop;
 		if(alturaAnimado < scrollTop){
@@ -207,7 +195,7 @@ function mostrarScroll(){
 	}
 	for(var i = 0; i < ContendedorHMenu.length; i++){
 		let alturaAnimado = ContendedorHMenu[i].offsetTop;
-		if(scrollTop > 1000){
+		if(scrollTop > 2800){
 			ContendedorHMenu[i].classList.add("positionMenu");
 		}
 		else{
