@@ -210,17 +210,7 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 		var fotos = document.getElementById(cambiar);
 		    fotos.src =carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num ;
-	var numopaci = 60;
-	var opacidadFoto = setInterval(opacidad, 10);
-	function opacidad(){
-	    if(numopaci == 100){
-		    clearInterval(opacidadFoto);
-		}
-		else{
-		   numopaci++;
-		   document.getElementById(cambiar).style.opacity =  numopaci+'%';
-		}
-	}
+	
 }
 //**************************************//
 function prev(cambiar, numeroT, numerofoto, carpeta){
@@ -232,32 +222,25 @@ function prev(cambiar, numeroT, numerofoto, carpeta){
 		var fotos = document.getElementById(cambiar);
 		    fotos.src = carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num;
-    var numopaci = 60;
-	var opacidadFoto = setInterval(opacidad, 10);
-	function opacidad(){
-	    if(numopaci == 100){
-		    clearInterval(opacidadFoto);
-			document.getElementById(cambiar).style.opacity =  numopaci+'%'
-		}
-		else{
-		   numopaci++;
-		   document.getElementById(cambiar).style.opacity =  numopaci+'%';
-		}
-	}
 }
 
 //cambiaticamente
 var automatico; //para controlar que las imagenes ar foto automcambien automaticamente.
 var barraestado; // para controlar la barra de estado.
+var playy = document.getElementsByClassName('activeFotos');
+var stopp = document.getElementsByClassName('activeFotos2');
 function playfotos(totalfotos, cambiar){
    var total= document.getElementById(totalfotos).value;
    var num = 0;
-   var activecambiar;
-    
+   
+        for(var i = 0; i < playy.length; i++){
+            playy[i].style.display = 'none'; 
+        }
+		for(var i = 0; i < stopp.length; i++){
+            stopp[i].style.display = 'block'; 
+        }
    automatico = setInterval(cambiarSola, 2500);
-   
-   activecambiar =  document.getElementsByClassName('activeFotos');
-   
+  
    function cambiarSola(){
        if( num == total){
 	      clearInterval(automatico);
@@ -304,10 +287,16 @@ function playfotos(totalfotos, cambiar){
 function Stopfotos(){  
     clearInterval(barraestado); 
     clearInterval(automatico);  
-   var defatulbarra =  document.getElementsByClassName('barrausuario');
-   for(var i = 0; i < defatulbarra.length; i++){
+    var defatulbarra =  document.getElementsByClassName('barrausuario');
+    for(var i = 0; i < playy.length; i++){
+        playy[i].style.display = 'block'; 
+    }
+	for(var i = 0; i < stopp.length; i++){
+        stopp[i].style.display = 'none'; 
+        }
+    for(var i = 0; i < defatulbarra.length; i++){
        defatulbarra[i].style.width = '1px';
-   }
+    }
   
 }
 

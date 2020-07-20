@@ -348,8 +348,8 @@
 		    <div class="imagenLight">
 				<img id="imgInfantil"src="Imagenes/Galerias/Infantil/img1.jpg" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil')">
 			</div>
-		<div class="back" onclick="prev('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil')">&#60; </div>	
-		<div class="go" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil')"> > </div>
+		<div class="back" onclick="prev('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Infantil" id="carpetaInfantil">
 	    <nav class="navLight">
 		    <ul>
@@ -403,23 +403,20 @@
 		    <div class="imagenLightHori">
 				<img  loading="lazy" id="imgComunion"src="Imagenes/Galerias/Pcomunion/img1.jpg" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion')">
 			</div>
-		<div class="back" onclick="prev('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion')">&#60; </div>	
-		<div class="go" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion')"> > </div>
+		<div class="back" onclick="prev('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Pcomunion" id="carpetaComunion">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('ComunionTotal', 'imgComunion')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>  	
 	</div>
-					
-   
+  
 	<!--*********************************************************************-->
-
-
-	</section>
+    </section>
 	<!--***************************************************************************************************-->
 	<section id="Prequinces" class="galerias Ventanas2">
 	<article >
@@ -462,13 +459,13 @@
 		    <div class="imagenLightHori">
 				<img id="imgPrequinces"src="Imagenes/Galerias/Prequinces/img1.jpg" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces')">
 			</div>
-		<div class="back" onclick="prev('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces')">&#60; </div>	
-		<div class="go" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces')"> > </div>
+		<div class="back" onclick="prev('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Prequinces" id="carpetaPrequinces">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('PreqincesTotal', 'imgPrequinces')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>  
@@ -518,13 +515,13 @@
 		    <div class="imagenLightHori">
 				<img  loading="lazy" id="imgQuinces"src="Imagenes/Galerias/Quinces/img1.jpg" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces')">
 			</div>
-		<div class="back" onclick="prev('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces')">&#60; </div>	
-		<div class="go" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces')"> > </div>
+		<div class="back" onclick="prev('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Quinces" id="carpetaQuinces">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('QuincesTotal', 'imgQuinces')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>  
@@ -576,13 +573,13 @@
 		    <div class="imagenLight">
 				<img  loading="lazy" id="imgBoda"src="Imagenes/Galerias/Boda/img1.jpg" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda')">
 			</div>
-		<div class="back" onclick="prev('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda')">&#60; </div>	
-		<div class="go" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda')"> > </div>
+		<div class="back" onclick="prev('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Boda" id="carpetaBoda">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('BodaTotal', 'imgBoda')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>
@@ -636,13 +633,13 @@
 		    <div class="imagenLight">
 				<img  loading="lazy" id="imgAdulto"src="Imagenes/Galerias/Adulto/img1.jpg" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto')">
 			</div>
-		<div class="back" onclick="prev('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto')">&#60; </div>	
-		<div class="go" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto')"> > </div>
+		<div class="back" onclick="prev('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Adulto" id="carpetaadulto">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas'onclick="playfotos('adultoTotal', 'imgAdulto')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>
@@ -736,13 +733,13 @@
 		    <div class="imagenLightHori">
 				<img  loading="lazy" id="imgAnimales"src="Imagenes/Galerias/Animales/img1.jpg" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales')">
 			</div>
-		<div class="back" onclick="prev('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales')">&#60; </div>	
-		<div class="go" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales')"> > </div>
+		<div class="back" onclick="prev('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Animales" id="carpetaAnimales">
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('AnimalesTotal', 'imgAnimales')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>  
@@ -757,13 +754,13 @@
 		    <div class="imagenLight">
 				<img  loading="lazy" id="imgFlores"src="Imagenes/Galerias/flores/img1.jpg" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores')">
 			</div>
-		<div class="back" onclick="prev('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores')">&#60; </div>	
-		<div class="go" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores')"> > </div>
+		<div class="back" onclick="prev('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/flores" id="carpetafores">
 		    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('floreslTotal', 'imgFlores')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div> 
@@ -779,13 +776,13 @@
 		    <div class="imagenLightHori">
 				<img  loading="lazy" id="imgPaisajes"src="Imagenes/Galerias/Paisajes/img1.jpg" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes')">
 			</div>
-		<div class="back" onclick="prev('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes')">&#60; </div>	
-		<div class="go" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes')"> > </div>
+		<div class="back" onclick="prev('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes'); Stopfotos()">&#60; </div>	
+		<div class="go" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes'); Stopfotos()"> > </div>
 		<input class="carpetastitulo" type="button" value="Imagenes/Galerias/Paisajes" id="carpetaPaisajes">
 		    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('PaisajeTotal', 'imgPaisajes')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()">&#xf04c;</i></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div> 
