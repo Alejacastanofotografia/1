@@ -172,8 +172,6 @@ var scrollTop;
 let scrollMain = window.pageYOffset;
 window.onscroll = function(){
 	let desplazamiento_actual = window.pageYOffset;
-    if(screen.width >= 700){
-		
 		if(scrollMain >= desplazamiento_actual){
 	      	ContendedorHMenu[0].style.transform = 'translate(0, 0)';
 	    	// document.querySelector('#irArriba').style.opacity = '1';
@@ -182,33 +180,13 @@ window.onscroll = function(){
 	    	// document.querySelector('#irArriba').style.opacity = '0';	
 	    }	
 	    scrollMain = desplazamiento_actual;		
-		
-	}
-    else{
-		if(scrollMain >= desplazamiento_actual){
-	      	ContendedorHMenu[0].style.transform = 'translate(0, 0)';
-	    	// document.querySelector('#irArriba').style.opacity = '1';
-	    }else {
-	     	ContendedorHMenu[0].style.transform = 'translate(-100%, 0)';
-	    	// document.querySelector('#irArriba').style.opacity = '0';	
-	    }	
-	    scrollMain = desplazamiento_actual;		
-	}
+	
 } 
 function mostrarScroll(){
 	
 	scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	for(var i = 0; i < contenedor.length; i++){
 		let alturaAnimado = contenedor[i].offsetTop;
-		// if(alturaAnimado - 600 < scrollTop & screen.width > 400){
-			// contenedor[i].classList.add("position");
-		// }
-		// else if(screen.width < 400){
-			// contenedor[i].style.opacity = '1';
-		// }
-		// else{
-			// contenedor[i].classList.remove("position");
-		// }
 		if(alturaAnimado - 600 < scrollTop){
 			contenedor[i].classList.add("position");
 		}
