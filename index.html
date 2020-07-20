@@ -37,12 +37,20 @@
 	    </div>	
 		<nav>
 		    <div class="contenedorSlider" >
-			    <div class="items" ><li class="tabs" onclick="navegacion(event, 'principal', 'Head'); window.scroll(10,800)"><a class='fas'>&#xf015; <span id="textoInicio">Inicio</span></a></li></div>
+			    <div class="items" >
+				    <li class="tabs" onclick="navegacion(event, 'principal', 'Head'); window.scroll(10,800)">
+				    	<a class='fas'>&#xf015; <span id="textoInicio">Inicio</span></a>
+					</li>
+				</div>
 		        <div class="items"  >
-			        <li class="tabs" onclick="navegacion(event, 'book', 'noHead'); window.scroll(0,0)"><a href="#">Books</a></li>  
+			        <li class="tabs" onclick="navegacion(event, 'book', 'noHead'); window.scroll(0,0)">
+					    <a href="#">Books</a>
+				    </li>  
 		     	</div>
 		        <div class="items" >
-			        <li class="tabs" onclick="navegacion(event, 'Galerias', 'noHead'); window.scroll(0,0)" ><a href="#">Sesiones</a></li>  
+			        <li class="tabs" onclick="navegacion(event, 'Galerias', 'noHead'); window.scroll(0,0)" >
+					    <a href="#">Sesiones</a>
+					</li>  
 			    </div>
 		        <h1 class="h1Main tabs"  id="defaultClick"onclick="navegacion(event, 'principal', 'Head'); window.scroll(0,0)">Aleja Castaño<br>
 		            <span>F</span>
@@ -57,12 +65,20 @@
 		            <span>a</span>
 		        </h1>
 		        <div class="items" >
-			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')"><a href="#sobreMi" id="linkSobreMi">Sobre Mí</a></li>  
+			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')">
+					    <a href="#sobreMi" id="linkSobreMi">Sobre Mí</a>
+					</li>  
 			    </div>
 		        <div class="items" >
-			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')"><a href="#contacto">Contacto</a></li>  
+			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')">
+					    <a href="#contacto">Contacto</a>
+					</li>  
 			    </div>
-			    <div class="items" ><li class="material-icons tabs"><a>&#xe5d2;</a></li></div>
+			    <div class="items" >
+				    <li class="material-icons tabs">
+					    <a>&#xe5d2;</a>
+					</li>
+			    </div>
 		    </div>
 		</nav>
     </header>
@@ -244,7 +260,7 @@
 </section>
 	<!--Efecto Book-->
 	<section id="Galerias" class="ventanas">
-	    <div id="menuGalerias">
+	    <nav id="menuGalerias">
 		    <div class="menuGaleriasAfter"	>
             <ul>
 			    <h3 class="galeriasH">Galerias</h3>
@@ -258,38 +274,28 @@
 			    <li class="tablinks2" onclick="cambiarVentana2(event, 'Colecciones')">Colecciones</li>
 		    </ul>	
             </div>			
-        </div><!--++++++++++++++Menu para moviles+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-  		
-            <div class="menuMovil1">
-			    <button class="botonesMovil " onclick="MostrarRetratos()"><img  data-src="Imagenes/Iconos/retratosicon.png" class="lazyload"><br>Retratos</button>
-			    <button class="botonesMovil" onclick="MostrarQuinces()"><img  data-src="Imagenes/Iconos/15.png" class="lazyload"><br>Quinces</button>
-			    <button class="botonesMovil" onclick="MostrarPaisajes()"><img  data-src="Imagenes/Iconos/paisajeicon.png" class="lazyload"><br>Colecciones</button>
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'boda')"           ><img  data-src="Imagenes/Iconos/anillosicon.png" class="lazyload"><br>Boda</button>
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'primeraComunion')"><img  data-src="Imagenes/Iconos/comunionicon.png" class="lazyload"><br>Comunión</button>
-			</div>	
-			<div class="menuMovil2" id="Retratosmov">
-			    
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'AlejandraCastano')" id="menu2Alejandra" >Alejandra Castaño</button> 
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'infantil')"  id="defaultOpen2">Retrato infantil</button> 
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'adulto')"                     >Retrato Adulto</button> 
-			    <button class="botonesMovil cerrarBotonesMovil" onclick="ocultarventanas()"><i style='font-size:24px' class='fas'>&#xf107;</i></button>
-			</div>
-			<div class="menuMovil2" id="Quincesmov">
-			    
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'Prequinces')"  >Prequinces</button> 
-			    <button class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'Quinces')"          >Quinces</button> 
-			    <button class="botonesMovil cerrarBotonesMovil" onclick="ocultarventanas()"><i style='font-size:24px' class='fas'>&#xf107;</i></button>
-			</div>
-			<div class="menuMovil2" id="Paisajesmov">
-			    
-			    <button  class="tablinks3 botonesMovil" onclick="cambiarVentana3(event, 'Colecciones')" >Colecciones</button>
-				<!--
-			    <button  class="tablinks2 botonesMovil" onclick="cambiarVentana3(event, '360galeria')">360° <div  class='fas logo360'>&#xf0ac;</div></button> 
-			    -->
-			   <button class="botonesMovil cerrarBotonesMovil" onclick="ocultarventanas()"><i style='font-size:24px' class='fas'>&#xf107;</i>	</button>
-			</div>
-			
-			
+        </nav>
+		<nav class="navMovil">
+		    <ul> 
+		        <li >
+				    <a  id="retratosMovil" class="opcionesMovil"><img  data-src="Imagenes/Iconos/retratosicon.png" class="lazyload">Retratos</a>
+				    <ul>
+					    <li><a  onclick="cambiarVentana3(event, 'infantil', 'retratosMovil')">Retrato infantil</a></li>
+					    <li><a  onclick="cambiarVentana3(event, 'adulto' , 'retratosMovil')">Retrato Adulto</a></li>
+				    </ul>
+				</li>
+		        <li >
+				    <a id="quincesMovil" class="opcionesMovil"><img  data-src="Imagenes/Iconos/15.png" class="lazyload">Quinces</a>
+				    <ul>
+					    <li><a  onclick="cambiarVentana3(event, 'Prequinces', 'quincesMovil')">Prequinces</a></li>
+					    <li><a  onclick="cambiarVentana3(event, 'Quinces', 'quincesMovil')" >Quinces</a></li>
+				    </ul>				   
+				</li>
+		        <li ><a id="bodaMovil" class="opcionesMovil" onclick="cambiarVentana3(event, 'boda', 'bodaMovil')"><img  data-src="Imagenes/Iconos/anillosicon.png" class="lazyload">Boda</a></li>
+		        <li ><a id="comunionMovil" class="opcionesMovil"onclick="cambiarVentana3(event, 'primeraComunion', 'comunionMovil')"><img  data-src="Imagenes/Iconos/comunionicon.png" class="lazyload">Comunión</a></li>
+		        <li ><a id="coleccionesMovil" class="opcionesMovil" onclick="cambiarVentana3(event, 'Colecciones', 'coleccionesMovil')"><img  data-src="Imagenes/Iconos/paisajeicon.png" class="lazyload">Colecciones</a></li>
+	    	</ul>
+		</nav>			
 	      	<!--++++++++++++++Menu para moviles+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 	<section  id="infantil" class="galerias Ventanas2">
 	 <article>
@@ -348,7 +354,7 @@
 	    <nav class="navLight">
 		    <ul>
 			    <li class="activeFotos"><i class='fas cambiarsola'onclick="playfotos('intantilTotal', 'imgInfantil')">&#xf04b;</i></li>
-			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()" >&#xf04d;</i></li>				
+			    <li class="activeFotos2"><i class='fas cambiarsola2'onclick="Stopfotos()" >&#xf04c;</i></li>		
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>

@@ -130,62 +130,79 @@ h4 {
 
 
 /**Menu movil************************************************************++*/
-/*Menu movil con botonoes*/
-.menuMovil1 {
+.navMovil{
+	display: none;
+	position: relative;
 	position: fixed;
 	bottom:0;
-	display:none;
-	justify-content: space-around;
-	align-items: center;
 	width:100%;
-	z-index:3;
+	z-index:3; 
 	background: var(--main-backgroundmenuHeader);
 }
-.menuMovil2 {
-	height: 0%;
-	opacity: 0;
-	position: fixed;
-    display:flex;
+.navMovil ul {
+	display:flex;
 	justify-content: space-around;
-	flex-direction: column;
 	align-items: center;
-	width:100%;
-	z-index:3;
-	bottom:59px;
-	overflow-y: hidden;
 	background: var(--main-backgroundmenuHeader);
-	transition: 1s;
+	padding: .5rem 0 0 0;
+	list-style: none;
+	transition: .6s;
 }
-.botonesMovil {
-	border: none;
-	background: none;
-	outline: none;
-	width:100%;
-	padding: 12px 5px 10px 5px;
-	color: var(--main-colorMenu); 
+.navMovil li a{
+	color: #909090; 
 	font-family:FreeMono, monospace;
 	font-size: .8rem;
-	border-bottom: 1px solid #404040;
+	padding:  0 0 .5rem 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;	
+	filter: grayscale(100%);
+	text-decoration: none;
 }
-.menuMovil2 .botonesMovil {
-	padding: 1rem 0;
+@media(min-width:450px) {
+	.navMovil li a{
+		font-size: 1rem;	
+    }
 }
-.botonesMovil:hover {
+.navMovil li ul {
+	position: absolute;
+	bottom: 99%;
+	left: 0;
+	width: 100%;
+	height: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow:hidden;
+	opacity: 0;
+	transition: .6s;
+}
+.navMovil li:hover ul{
+	display: flex;	
+	height: auto;
+	transition: .6s;
+	opacity: 1;
+}
+.navMovil li ul li{
+	width: 100%;	
+}
+.navMovil li ul li a {
+	padding: 1.5rem;
+	border-bottom: 1px solid #303030;
+}
+.navMovil li ul:hover {
+	opacity: 0;
+}
+#retratosMovil {
 	filter: grayscale(0);
-	border: none;
+	color: #fff;
 }
-.cerrarBotonesMovil {
-	padding: 0;
-	color: #a1a1a1;
-	border-bottom: none;
-}
-
 /*--iconoa menu movil------------------*/
 .iconos {
 	display:flex;
 	justify-content:center;
-	
-	
 }
 .iconos2 {
 	display:flex;
@@ -193,10 +210,6 @@ h4 {
 }
 
 /**Fin menu movil**************************************************++*/
-
-
-
-
 /*parrafos*/
     .contenido {
 	padding: 120px 1rem 0 1rem;
@@ -243,20 +256,17 @@ h4 {
 /*generales de todas las galerias*/
 .galerias {
 	width: 75%;
-	margin: auto;
-	padding:0px 0px 0px 0px;   
+	margin: auto; 
 }
 
 
 /*estilos de la galeria*/
-
-
     @media(max-width:800px){
 		.galerias{
 			width:100%;
 		}
-		.menuMovil1 {
-			display:flex;
+		.navMovil {
+			display:block;
 		}
 	     #menuGalerias{
 			display:none;
@@ -631,22 +641,17 @@ h4 {
 	background: rgba(0,0,0, 0.8);
 }
 .navLight ul {
-	padding: 0px 5px 0px 5px;
 	display: flex;
 	justify-content: center;
 	align-items:center;
-	background: linear-gradient(to bottom, #202020, #101010);
 }
 .navLight ul li {
 	position: relative;
     display: inline-block;
-	font-size:11px;
+	font-size:1rem;
 	color: #505050;
-	background: #101010;
-	border: 2px solid #202020;
-	border-style: outset;
-	margin: 5px;	
-	border-radius: 10px;
+	color: #00ff00;
+	margin: 5px;
 }
 
 .navLight ul li i {
@@ -655,9 +660,6 @@ h4 {
 }
 .navLight ul li:hover {
 	color: #a1a1a1;
-}
-.playplay {
-	transform: scale(0.9);
 }
 .barrausuario {
 	position:absolute; 

@@ -625,6 +625,7 @@ footer{
 /*Estilos active para navegacion con Js*/
 .activeMain {
 	border-bottom: 2px solid #808080;
+	color: #fff;
 }
 #menuGalerias ul li.active {
 	background: rgba(255,255,255,0.3);
@@ -636,10 +637,6 @@ footer{
 		color:#d1d1d1;
         border-radius:0px;
 		
-}
-.active3 {
-	filter: grayscale(1%);
-	color: #00ff00;
 }
 /*solo responsive*/
 @media (max-width:1000px){
@@ -800,8 +797,9 @@ footer{
 .contenedorSliderScroll .items li{
 	padding: 2rem 2rem;	
 	transition: 0.5s;
-}
+} 
 .contenedorSliderScroll .items li a{
+	text-decoration: none;
 	color: var(--main-colorMenu);
 }
 .contenedorSliderScroll .items li:hover{

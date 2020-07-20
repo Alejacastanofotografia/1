@@ -29,6 +29,10 @@ function navegacion(evt, ventana, header){
 	document.getElementById(ventana).style.display = 'block';
 	evt.currentTarget.className += ' activeMain';
 	
+	
+	
+	
+	
 	if(header === 'noHead'){
 		document.getElementById('imgSlider').style.display = 'none';
 		document.getElementById('header').style.height = 'auto';
@@ -45,7 +49,6 @@ function navegacion(evt, ventana, header){
 	}
 }
 document.getElementById('defaultClick').click();
-
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
@@ -57,111 +60,26 @@ function cambiarVentana2(evt, ventanaNombre) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
 
   }
-  
-  document.getElementById(ventanaNombre).style.display = "block";
+    document.getElementById(ventanaNombre).style.display = "block";
   evt.currentTarget.className += " active";
-       
-		
-  
 }
-function cambiarVentana3(evt, cityName) {
-  var i, tabcontent, tablinks, ocultarul;
+function cambiarVentana3(evt, nombreVentana, opcionMenu) {
+  var i, tabcontent, opcionesMovil;
   tabcontent = document.getElementsByClassName("Ventanas2");
+  opcionesMovil = document.getElementsByClassName("opcionesMovil");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablinks3");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active3", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active3";
+  document.getElementById(nombreVentana).style.display = "block";
   
-   document.querySelector('#Retratosmov').style.height = '0%';
-	document.querySelector('#Retratosmov').style.opacity = '0';
-	document.querySelector('#Quincesmov').style.height = '0%';
-	document.querySelector('#Quincesmov').style.opacity = '0';
-	document.querySelector('#Paisajesmov').style.height = '0%';
-	document.querySelector('#Paisajesmov').style.opacity = '0';
-	
-  ocultarul = document.getElementsByClassName("1");
-  for(i = 0; 1 < ocultarul.length; i++) {
-	  ocultarul[i].style.display = 'none';
-  }
-     
+    for (i = 0; i < opcionesMovil.length; i++) {
+         opcionesMovil[i].style.filter = 'grayscale(100%)'; 
+         opcionesMovil[i].style.color = '#909090';	
+	}
+	 document.getElementById(opcionMenu).style.filter = 'grayscale(0)';	 
+	 document.getElementById(opcionMenu).style.color = '#fff';	 
 }
 document.getElementById("defaultOpen2").click();
-
-function mostrarUl1(){
-	document.getElementsByClassName("1")[0].style.display = 'block';
-	document.getElementsByClassName("1")[1].style.display = 'none';
-	document.getElementsByClassName("1")[2].style.display = 'none';
-	document.getElementsByClassName("filter")[0].style.filter = 'grayscale(0%)';
-	
-	
-}
-function mostrarUl2(){
-	document.getElementsByClassName("1")[1].style.display = 'block';
-	document.getElementsByClassName("1")[0].style.display = 'none';
-	document.getElementsByClassName("1")[2].style.display = 'none';
-	document.getElementsByClassName("filter")[1].style.filter = 'grayscale(0%)';
-}
-function mostrarUl3(){
-	document.getElementsByClassName("1")[2].style.display = 'block';
-	document.getElementsByClassName("1")[0].style.display = 'none';
-	document.getElementsByClassName("1")[1].style.display = 'none';
-	document.getElementsByClassName("filter")[2].style.filter = 'grayscale(0%)';
-}
-/*navegar menu galerias movil*/
-/*navegar menu galerias movil*/
-function MostrarRetratos(){
-    document.querySelector('#Retratosmov').style.height = 'auto';
-    document.querySelector('#Retratosmov').style.opacity = '1';
-	document.querySelector('#Quincesmov').style.height = '0%';
-	document.querySelector('#Quincesmov').style.opacity = '0';
-	document.querySelector('#Paisajesmov').style.height = '0%';
-	document.querySelector('#Paisajesmov').style.opacity = '0';
-}
-function MostrarQuinces(){
-    document.querySelector('#Quincesmov').style.height = 'auto';
-    document.querySelector('#Quincesmov').style.opacity = '1';
-	document.querySelector('#Retratosmov').style.height = '0%';
-	document.querySelector('#Retratosmov').style.opacity = '0';
-	document.querySelector('#Paisajesmov').style.height = '0%';
-	document.querySelector('#Paisajesmov').style.opacity = '0';
-}
-function MostrarPaisajes(){
-    document.querySelector('#Paisajesmov').style.height = 'auto';
-    document.querySelector('#Paisajesmov').style.opacity = '1';
-	document.querySelector('#Retratosmov').style.height = '0%';
-	document.querySelector('#Retratosmov').style.opacity = '0';
-	document.querySelector('#Quincesmov').style.height = '0%';
-	document.querySelector('#Quincesmov').style.opacity = '0';
-}
-function ocultarventanas(){
-    document.querySelector('#Retratosmov').style.height = '0%';
-	document.querySelector('#Retratosmov').style.opacity = '0';
-	document.querySelector('#Quincesmov').style.height = '0%';
-	document.querySelector('#Quincesmov').style.opacity = '0';
-	document.querySelector('#Paisajesmov').style.height = '0%';
-	document.querySelector('#Paisajesmov').style.opacity = '0';
-}
-//**************
-function cambiarVentana(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("Ventanas");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active2", "");
-  }
-  
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active2"; 
-}
-//++++++++++++++
 
 //mostrar navegacion al hacer scroll
 
@@ -328,8 +246,8 @@ function prev(cambiar, numeroT, numerofoto, carpeta){
 	}
 }
 
-//cambiar foto automaticamente
-var automatico; //para controlar que las imagenes cambien automaticamente.
+//cambiaticamente
+var automatico; //para controlar que las imagenes ar foto automcambien automaticamente.
 var barraestado; // para controlar la barra de estado.
 function playfotos(totalfotos, cambiar){
    var total= document.getElementById(totalfotos).value;
@@ -339,13 +257,7 @@ function playfotos(totalfotos, cambiar){
    automatico = setInterval(cambiarSola, 2500);
    
    activecambiar =  document.getElementsByClassName('activeFotos');
-   for(var i = 0; i < activecambiar.length; i++){
-       activecambiar[i].classList.add("playplay");
-   }
-   var activecambiar2 =  document.getElementsByClassName('activeFotos2');
-   for(var i = 0; i < activecambiar2.length; i++){
-       activecambiar2[i].classList.remove("playplay");
-   }
+   
    function cambiarSola(){
        if( num == total){
 	      clearInterval(automatico);
@@ -357,9 +269,6 @@ function playfotos(totalfotos, cambiar){
 		      for(var i = 0; i < cerrarautomatico.length; i++){
 				 cerrarautomatico[i].click(); 
 			  }
-              for(var i = 0; i < activecambiar.length; i++){
-                 activecambiar[i].classList.remove("playplay");
-              }
 		  var porcentajedebarra =  document.getElementsByClassName('barrausuario');
               for(var i = 0; i < porcentajedebarra.length; i++){
                  porcentajedebarra[i].style.width = '0%'; 
@@ -390,21 +299,11 @@ function playfotos(totalfotos, cambiar){
 	    }
    }
  /*    */ 
-   
-   
-  
+ 
 }
 function Stopfotos(){  
     clearInterval(barraestado); 
-    clearInterval(automatico);
-	var activecambiar =  document.getElementsByClassName('activeFotos');
-   for(var i = 0; i < activecambiar.length; i++){
-       activecambiar[i].classList.remove("playplay");
-   }
-   var activecambiar2 =  document.getElementsByClassName('activeFotos2');
-   for(var i = 0; i < activecambiar2.length; i++){
-       activecambiar2[i].classList.add("playplay");
-   }
+    clearInterval(automatico);  
    var defatulbarra =  document.getElementsByClassName('barrausuario');
    for(var i = 0; i < defatulbarra.length; i++){
        defatulbarra[i].style.width = '1px';
