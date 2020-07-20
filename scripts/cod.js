@@ -464,7 +464,7 @@ function stop(){
 parrafosi();
 function frases(){	
 
-        var frase1 = ' “Hoy todo existe para culminar en una fotografía”.Susan Sontag                  ';
+        var frase1 = ' “Hoy todo existe para culminar en una fotografía”. Susan Sontag                  ';
         var frase2 = ' “La fotografía es el único medio de expresión que fija siempre el instante preciso y fugitivo”. Cartier Bresson              '; 
         var frase3 = ' "Si pudiera decirlo con palabras, no iría todos los días cargado con mi cámara”. Lewis Hine           ';
         var frase4 = ' “La fotografía es el único lenguaje que puede ser entendido y comprendido en todo el mundo”. Bruno Barbey                 ';
