@@ -169,15 +169,48 @@ let contenedor = document.getElementsByClassName('contenidoScroll');
 let ContendedorHMenu = document.getElementsByClassName('contenedorSlider');
 let itemsMenuMain = document.getElementsByClassName('items');
 var scrollTop;
+let scrollMain = window.pageYOffset;
+window.onscroll = function(){
+	let desplazamiento_actual = window.pageYOffset;
+    if(screen.width >= 700){
+		
+		if(scrollMain >= desplazamiento_actual){
+	      	ContendedorHMenu[0].style.transform = 'translate(0, 0)';
+	    	// document.querySelector('#irArriba').style.opacity = '1';
+	    }else {
+	     	ContendedorHMenu[0].style.transform = 'translate(0, -100%)';
+	    	// document.querySelector('#irArriba').style.opacity = '0';	
+	    }	
+	    scrollMain = desplazamiento_actual;		
+		
+	}
+    else{
+		if(scrollMain >= desplazamiento_actual){
+	      	ContendedorHMenu[0].style.transform = 'translate(0, 0)';
+	    	// document.querySelector('#irArriba').style.opacity = '1';
+	    }else {
+	     	ContendedorHMenu[0].style.transform = 'translate(-100%, 0)';
+	    	// document.querySelector('#irArriba').style.opacity = '0';	
+	    }	
+	    scrollMain = desplazamiento_actual;		
+	}
+} 
 function mostrarScroll(){
+	
 	scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	for(var i = 0; i < contenedor.length; i++){
 		let alturaAnimado = contenedor[i].offsetTop;
-		if(alturaAnimado - 600 < scrollTop & screen.width > 400){
+		// if(alturaAnimado - 600 < scrollTop & screen.width > 400){
+			// contenedor[i].classList.add("position");
+		// }
+		// else if(screen.width < 400){
+			// contenedor[i].style.opacity = '1';
+		// }
+		// else{
+			// contenedor[i].classList.remove("position");
+		// }
+		if(alturaAnimado - 600 < scrollTop){
 			contenedor[i].classList.add("position");
-		}
-		else if(screen.width < 400){
-			contenedor[i].style.opacity = '1';
 		}
 		else{
 			contenedor[i].classList.remove("position");
@@ -193,27 +226,17 @@ function mostrarScroll(){
 			ContendedorHMenu[i].classList.remove("contenedorSliderScroll");
 		}
 	}
-	for(var i = 0; i < ContendedorHMenu.length; i++){
-		let alturaAnimado = ContendedorHMenu[i].offsetTop;
-		if(scrollTop > 2800){
-			ContendedorHMenu[i].classList.add("positionMenu");
-		}
-		else{
-			ContendedorHMenu[i].classList.remove("positionMenu");
-		}
-	}
 }
 
 window.addEventListener('scroll', mostrarScroll);
 function irArriba(){
 	scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	if(scrollTop > 400){
-		document.querySelector('#irArriba').style.display = 'block';
+		document.querySelector('#irArriba').style.opacity = '1';
 		
 	}
 	else{
-		document.querySelector('#irArriba').style.display = 'none';		
-		document.querySelector('#irArriba').classList.add('positionBotonIrTop');	
+		document.querySelector('#irArriba').style.opacity = '0';		
 	}
 }
 window.addEventListener("scroll", irArriba);

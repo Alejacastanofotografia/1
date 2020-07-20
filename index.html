@@ -35,6 +35,7 @@
 	   <!--titulo y menu en absolute">-->
 	        <div class="afterimgSlider"></div>
 	    </div>	
+		<nav>
 		    <div class="contenedorSlider" >
 			    <div class="items" ><li class="tabs" onclick="navegacion(event, 'principal', 'Head'); window.scroll(10,800)"><a class='fas'>&#xf015; <span id="textoInicio">Inicio</span></a></li></div>
 		        <div class="items"  >
@@ -63,7 +64,7 @@
 			    </div>
 			    <div class="items" ><li class="material-icons tabs"><a>&#xe5d2;</a></li></div>
 		    </div>
-		
+		</nav>
     </header>
 	<div id="preloader">
 	    <img src="Imagenes/Iconos/loader.png">
@@ -71,8 +72,6 @@
 	<div id="irArriba" class="irArriba" onclick="window.scroll(0, 0)">
         <i class='fas'>&#xf106;</i>
 	</div>	
-	
-
 	<section class="ventanas" id="principal">
 	<div   class="fraseHome">
 	    <p class="frasehomeP">
@@ -84,13 +83,17 @@
 	    <div   class="contenidoMain contenidoScroll">
 		</div>
 	    <div class="contenidoMain contenidoScroll">
-		    <p class="parrafos">Retrato tus momentos especiales, atenta a cada detalle que asegure maravillosos recuerdos plasmados en cada
-			fotografía.</p>
+     		<div class="afterContenedores">   
+	     	   <p class="parrafos">Retrato tus momentos especiales, atenta a cada detalle que asegure maravillosos recuerdos plasmados en cada
+		    	fotografía.</p>
+			</div>	
 		</div>
 	    <div   class="contenidoMain contenidoScroll">
 		</div>
 	    <div class="contenidoMain contenidoScroll">
-		    <p class="parrafos"> Con mi cámara me aseguro de capturar los momentos mas increíbles de tu vida para que los conserves por siempre.</p>
+		    <div class="afterContenedores">
+			   <p class="parrafos"> Con mi cámara me aseguro de capturar los momentos mas increíbles de tu vida para que los conserves por siempre.</p>
+		    </div>
 		</div>
 	    <div   class="contenidoMain contenidoScroll">	
 		</div>
@@ -133,22 +136,6 @@
 	    <div class="contenidoSobreMiItem contenidoScroll">
 		</div>
 	</div>
-	
-	<!-- <div class="sobreMi contenidoScroll" id="sobreMi"> -->
-	    <!-- <div class="sobreMiItem"> -->
-		    <!-- <div class="afterContenedores"> -->
-		    <!-- <h3 class="titulos">Sobre mí</h3> -->
-			    <!-- <p class="parrafos"> -->
-			        <!-- Soy Comunicadora Audiovisual, apasionada por la fotografía,  -->
-                    <!-- la cual es para mí una manera de conservar la memoria y viajar en el tiempo  -->
-                    <!-- hasta el pasado, para recordar los momentos bonitos que marcaron nuestras vidas. -->
-			    <!-- </p> -->
-			<!-- </div> -->
-		<!-- </div> -->
-	    <!-- <div class="sobreMiItem"> -->
-		    <!-- <img   src="Imagenes/Fondos/img1.jpg"> -->
-	    <!-- </div> -->
-	<!-- </div> -->
 	<div class="contacto contenidoScroll" id="contacto">
 	    <div class="contactoItem">
 		    <img   data-src="Imagenes/Fondos/img7.jpg" class="lazyload">
@@ -179,9 +166,10 @@
 	<section id="book" class="ventanas" >
 	<div class="contenedorBook">
        <div class="tituloParrafo">
-	      
-          <h3 class="titulos">Photobook</h3>
-          <p class="parrafos" >Inmortaliza tus sesiones con hermosos <br>photobooks personalizados.</p>		  
+	        <div class="afterContenedores">
+               <h3 class="titulos">Photobook</h3>
+               <p class="parrafos" >Inmortaliza tus sesiones con hermosos <br>photobooks personalizados.</p>
+            </div>			   
 		  <table>
 		      <tr>
 			      <th>Medida</th>
