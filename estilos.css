@@ -316,6 +316,34 @@ header {
 	background: linear-gradient(to bottom left, #151515, #000, #000, #000 , #000, #151515);
 	padding: .2rem;
 }
+
+.afterContenedores:after, .afterContenedores:before {
+		content: "";
+		position: absolute;
+		display: block;
+		background: #ff0000;
+		transition: 1s;
+}
+.afterContenedores:after{
+		width: 0;
+		height: 1px;
+		bottom: 0;
+		left: 0;
+}
+.afterContenedores:before{
+		width: 1px;
+		height: 0;
+		bottom: 0;
+		left: 0;
+} 
+.afterContenedores:hover:after {
+		width: 100%;
+		filter: sepia(100%) hue-rotate(90deg);
+}
+.afterContenedores:hover:before {
+		height: 100%;
+		filter: sepia(100%) hue-rotate(90deg);
+}
 .titulos, .galeriasH {
 	font-size: var(--main-font-sizeTitulos);
 	font-family: var(--main-font-family);
@@ -373,7 +401,9 @@ header {
 	color: #000;
 	text-align: center;
 	transition: .2s; 
+	position: relative;
 }
+
 .contactoItem form input:hover, .contactoItem form textarea:hover {
 	transform: scale(1.02);
 }
@@ -397,6 +427,23 @@ header {
 	font-family: var(--main-font-family);
 	text-align: center;
 	transition: .5s; 
+	position: relative;
+}
+.botones:after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 3px;
+		bottom: 0;
+		left: 50%;
+		position: absolute;
+		background: #ff0000;
+		transition: 1s;
+}
+.botones:hover:after {
+		width: 100%;
+		left: 0;
+	
 }
 .botones:hover{
 	filter: sepia(100%) hue-rotate(90deg);
