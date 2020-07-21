@@ -16,23 +16,25 @@ function preloader(){
 }
 preloader();
 
-function navegacion(evt, ventana, header){
+function navegacion(evt, ventana, header, activeLink){
 	var ventanas = document.getElementsByClassName('ventanas');
 	var links = document.getElementsByClassName('tabs');
 	var i;
 	for(i = 0; i < ventanas.length; i++){
 		ventanas[i].style.display = 'none';
 	}
-	for(i = 0; i < links.length; i++){
-		links[i].className = links[i].className.replace(" activeMain", '');
-	}
 	document.getElementById(ventana).style.display = 'block';
-	evt.currentTarget.className += ' activeMain';
 	
-	
-	
-	
-	
+	for(i = 0; i < links.length; i++){
+		links[i].style.borderBottom = 'none';
+	}
+	document.getElementById(activeLink).style.borderBottom = '1px solid #aaa';
+	document.getElementById(activeLink).style.color = '#fff';
+	// for(i = 0; i < links.length; i++){
+		// links[i].className = links[i].className.replace(" activeMain", '');
+	// }
+	// evt.currentTarget.className += ' activeMain';
+		
 	if(header === 'noHead'){
 		document.getElementById('imgSlider').style.display = 'none';
 		document.getElementById('header').style.height = 'auto';
@@ -92,10 +94,8 @@ window.onscroll = function(){
 	let desplazamiento_actual = window.pageYOffset;
 		if(scrollMain >= desplazamiento_actual){
 	      	ContendedorHMenu[0].style.transform = 'translate(0, 0)';
-	    	// document.querySelector('#irArriba').style.opacity = '1';
 	    }else {
 	     	ContendedorHMenu[0].style.transform = 'translate(0, -100%)';
-	    	// document.querySelector('#irArriba').style.opacity = '0';	
 	    }	
 	    scrollMain = desplazamiento_actual;		
 	
@@ -212,6 +212,7 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 		    fotos.src =carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num ;
 	        // fotos.classList.add('dinamicaLight');
+		if(screen.width > 450){
 			numAnim = 100;
 			var intervalAnimacion = setInterval(moviendo, 5);
 			function moviendo(){
@@ -224,6 +225,7 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 					fotos.style.transform = 'translate(-' + numAnim + 'px)';
 				}
 			}
+        }	
 }
 //**************************************//
 function prev(cambiar, numeroT, numerofoto, carpeta){

@@ -44,13 +44,13 @@
 }
 body {
 	background: var(--main-backgroundMain);
+	cursor: pointer;
 }
 html{
 	scroll-behavior: smooth;
 }
 header {
     width: 100%;
-	cursor: pointer;
 }
 #preloader{
 	display: flex;
@@ -791,6 +791,9 @@ footer{
 	}
 }
 @media (max-width:800px){
+	body {
+	    cursor: auto;
+	}
 	.irArriba i{
 	right: 10px;
 	padding: 0.2rem 0.6rem;
@@ -846,18 +849,32 @@ footer{
 	transition: .2s;
 	background: none;
 }
-.
 .textoLogoHome {font-size: 1.5rem}
 .contenedorSliderScroll .items li{
 	padding: 2rem 2rem;	
-	transition: 0.5s;
+	transition: .5s;
+	position: relative;
 } 
+.contenedorSliderScroll .items li:after {
+	content: "";
+	height: 2px;
+	width: 0;
+	display: block;
+	background: #ff0000;
+	bottom: 0;
+	left: 50%;
+	position: absolute;
+	transition: .6s;
+	 
+}
 .contenedorSliderScroll .items li a{
 	text-decoration: none;
 	color: var(--main-colorMenu);
 }
-.contenedorSliderScroll .items li:hover{
-		transform: scale(0.95);
+.contenedorSliderScroll .items li:hover:after{
+	left: 0;
+	width: 100%;
+	filter: sepia(100%) hue-rotate(90deg);
 }
 .contenedorSliderScroll .items:first-child, .contenedorSliderScroll .items:last-child {
 	padding: .9rem 0;
@@ -926,6 +943,11 @@ footer{
 	padding: 0rem 0rem 1rem 0;	
 	transition: 0.5s;
     }
+	.contenedorSliderScroll .items li:hover:after{
+	left: 0;
+	width: 0;
+	filter: none;
+}
 	.contenedorSliderScroll .items, .textoLogoHome {
 	font-size: .9rem;
 	}

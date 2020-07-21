@@ -529,7 +529,6 @@ h4 {
 	left: 0;
 	background: rgba(0, 0, 0, 0.9);
 	z-index:50;
-	cursor: pointer;
 }
 .imagenLight, .imagenLightHori {
     width:100%;
@@ -546,7 +545,6 @@ h4 {
 	height:85%;
 	max-height:700px;
 	object-fit: cover;
-	cursor: pointer;
 }
 /*horizontal*/
 .imagenLightHori img {
@@ -556,7 +554,6 @@ h4 {
 	max-width: 100%;
 	max-height: 530px;
 	position:relative;
-   cursor: pointer;
 	
 }
 
@@ -594,7 +591,6 @@ h4 {
 	color:var(--main-colorLight);
 	font-size:var(--main-font-sizeLight);
 	right: 2%;
-   cursor: pointer;
 } .cerrarLight:hover {color: #fff; transform: scale(1.2)}
 
 .hlight {
@@ -619,7 +615,6 @@ h4 {
    top:48%;
    color:var(--main-colorLight);
    font-size: var(--main-font-size2Light);
-   cursor: pointer;
 }
 .back {left: 0; border-radius: 0px 5px 5px 0px}
 .go {right: 0; border-radius: 5px 0px 0px 5px } 

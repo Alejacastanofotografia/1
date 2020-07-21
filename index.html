@@ -21,29 +21,29 @@
 			    <picture>
 				    <source srcset="Imagenes/Nslider/media/img1.jpg" media="(max-width: 600px)">
 				    <source srcset="Imagenes/Nslider/media/img1.jpg" type="image/webp">
-		            <img  class="itemImg" src="Imagenes/Nslider/img1.jpg">
-				<picture>
+		            <img  class="itemImg" src="Imagenes/Nslider/img1.jpg" alt="Retratos" title="Retratos">
+				</picture>
 	     	</div>
 	        <div class="imgagenesSlider">
 			    <picture>
 				    <source srcset="Imagenes/Nslider/media/img2.jpg" media="(max-width: 600px)">
 				    <source srcset="Imagenes/Nslider/media/img3.jpg" type="image/webp">
-		            <img  class="itemImg" src="Imagenes/Nslider/img3.jpg">
-				<picture>
+		            <img  class="itemImg" src="Imagenes/Nslider/img3.jpg" alt="Retratos" title="Retratos">
+				</picture>
 	    	</div>
 	        <div class="imgagenesSlider">
 			    <picture>
 				    <source srcset="Imagenes/Nslider/media/img3.jpg" media="(max-width: 600px)">
 				    <source srcset="Imagenes/Nslider/media/img2.jpg" type="image/webp">
-		            <img  class="itemImg" src="Imagenes/Nslider/img2.jpg">
-				<picture>
+		            <img  class="itemImg" src="Imagenes/Nslider/img2.jpg" alt="Retratos" title="Retratos">
+				</picture>
 		    </div>
 	        <div class="imgagenesSlider">
 			    <picture>
 				    <source srcset="Imagenes/Nslider/media/img4.jpg" media="(max-width: 600px)">
 				    <source srcset="Imagenes/Nslider/media/img4.jpg" type="image/webp">
-		            <img  class="itemImg" src="Imagenes/Nslider/img4.jpg">
-				<picture>
+		            <img  class="itemImg" src="Imagenes/Nslider/img4.jpg" alt="Retratos" title="Retratos">
+				</picture>
 		    </div>
 
 
@@ -54,21 +54,21 @@
 		<nav>
 		    <div class="contenedorSlider" >
 			    <div class="items" >
-				    <li class="tabs" onclick="navegacion(event, 'principal', 'Head'); window.scroll(10,800)">
+				    <li id="navInicio" class="tabs" onclick="navegacion(event, 'principal', 'Head', 'navInicio'); window.scroll(10,800)">
 				    	<a class='fas'>&#xf015; <span id="textoInicio">Inicio</span></a>
 					</li>
 				</div>
 		        <div class="items"  >
-			        <li class="tabs" onclick="navegacion(event, 'book', 'noHead'); window.scroll(0,0)">
+			        <li id="navBooks"class="tabs" onclick="navegacion(event, 'book', 'noHead', 'navBooks'); window.scroll(0,0)">
 					    <a href="#">Books</a>
 				    </li>  
 		     	</div>
 		        <div class="items" >
-			        <li class="tabs" onclick="navegacion(event, 'Galerias', 'noHead'); window.scroll(0,0)" >
+			        <li id="navSesiones"class="tabs" onclick="navegacion(event, 'Galerias', 'noHead', 'navSesiones'); window.scroll(0,0)" >
 					    <a href="#">Sesiones</a>
 					</li>  
 			    </div>
-		        <h1 class="h1Main tabs"  id="defaultClick"onclick="navegacion(event, 'principal', 'Head'); window.scroll(0,0)">Aleja Castaño<br>
+		        <h1 class="h1Main tabs"  id="defaultClick" onclick="navegacion(event, 'principal', 'Head', 'navInicio'); window.scroll(0,0)">Aleja Castaño<br>
 		            <span>F</span>
 		            <span>o</span>
 		            <span>t</span>
@@ -81,12 +81,12 @@
 		            <span>a</span>
 		        </h1>
 		        <div class="items" >
-			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')">
+			        <li id="navSobreMi"class="tabs"onclick="navegacion(event, 'principal', 'Head', 'navSobreMi')">
 					    <a href="#sobreMi" id="linkSobreMi">Sobre Mí</a>
 					</li>  
 			    </div>
 		        <div class="items" >
-			        <li class="tabs"onclick="navegacion(event, 'principal', 'Head')">
+			        <li id="navContacto"class="tabs"onclick="navegacion(event, 'principal', 'Head', 'navContacto')">
 					    <a href="#contacto">Contacto</a>
 					</li>  
 			    </div>
@@ -137,7 +137,7 @@
 		<div class="c360Item">
 		     
 		    <div class="afterContenedores">
-	        <h3 class="titulos">Fotografía 360° <div  class='fas logo360'>&#xf0ac;</div> </h3>
+	        <h2 class="titulos">Fotografía 360° <div  class='fas logo360'>&#xf0ac;</div> </h2>
 		    <p class="parrafos">
 		        Una experiencia única para conservar los
 			    momentos más especiales de tu vida en increíbles fotografías
@@ -155,7 +155,7 @@
 		</div>
 	    <div class="contenidoSobreMiItem contenidoScroll">
 		     <div class="afterContenedores">
-		        <h3 class="titulos">Sobre mí</h3>
+		        <h2 class="titulos">Sobre mí</h2>
 			    <p class="parrafos">
 			        Soy Comunicadora Audiovisual, apasionada por la fotografía, 
                     la cual es para mí una manera de conservar la memoria y viajar en el tiempo 
@@ -175,7 +175,7 @@
 	    <div class="contactoItem">
 		    <form id="formularioContacto">
 	            <div class="afterContenedores">
-		            <h3 class="titulos">Contacto</h3>
+		            <h2 class="titulos">Contacto</h2>
 			        <p class="parrafos">
 				         Puedes contactarme a través de mis redes sociales o ingresar tus datos en el siguiente formulario.
 				    </p>
@@ -199,7 +199,7 @@
 	<div class="contenedorBook">
        <div class="tituloParrafo">
 	        <div class="afterContenedores">
-               <h3 class="titulos">Photobook</h3>
+               <h2 class="titulos">Photobook</h2>
                <p class="parrafos" >Inmortaliza tus sesiones con hermosos <br>photobooks personalizados.</p>
             </div>			   
 		  <table>
@@ -233,15 +233,15 @@
     <div id="libroComunion" >	   
 	   <div class="container" >
 		    <div class="cover">
-			    <figure   class="front" ><h1 style="color: #fff; text-align:center; margin-top:30%; font-size:32px; font-style:italic;">	</h1></figure>
+			    <figure   class="front" ></figure>
 			    <figure   class="backl"></figure>
 			</div>
 			<div class="cover2">
-			    <figure   class="front2" ><h1 style="color: #fff; text-align:center; margin-top:30%; font-size:32px; font-style:italic;"></h1></figure>
+			    <figure   class="front2" ></figure>
 			    <figure   class="back2"></figure>
 			</div>
 			<div class="cover3">
-			    <figure   class="front3" ><h1 style="color: #fff; text-align:center; margin-top:55%; text-shadow: 2px 2px 2px #000;font-size:38px; font-style:italic;"></h1></figure>
+			    <figure   class="front3" ></figure>
 			    <figure   class="back3"></figure>
 			</div>
 			
@@ -250,15 +250,15 @@
 	<div id="libroInfantil"  >	   
 	   <div class="containerh" >
 		   <div class="coverInfant">
-			    <figure   class="frontInfant" ><h1 style="color: #fff; text-align:center; margin-top:30%; font-size:32px; font-style:italic;">	</h1></figure>
+			    <figure   class="frontInfant" ></figure>
 			    <figure   class="backInfant"></figure>
 			</div>
 			<div class="cover2">
-			    <figure   class="frontInfant2" ><h1 style="color: #fff; text-align:center; margin-top:30%; font-size:32px; font-style:italic;"></h1></figure>
+			    <figure   class="frontInfant2" ></figure>
 			    <figure   class="backInfant2"></figure>
 			</div>
 			<div class="cover3">
-			    <figure   class="frontInfant3" ><h1 style="color: #fff; text-align:center; margin-top:55%; text-shadow: 2px 2px 2px #000;font-size:38px; font-style:italic;"></h1></figure>
+			    <figure   class="frontInfant3" ></figure>
 			    <figure   class="backInfant3"></figure>
 			</div>   
 					
@@ -279,7 +279,7 @@
 	    <nav id="menuGalerias">
 		    <div class="menuGaleriasAfter"	>
             <ul>
-			    <h3 class="galeriasH">Galerias</h3>
+			    <h3 class="galeriasH">Sesiones</h3>
 			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'adulto')">Retrato Adulto</li>
 			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'infantil')" id="defaultOpen2">Retrato Infantil</li>
 			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'AlejandraCastano')" id="menu1Alejandra">Alejandra Castaño</li>
