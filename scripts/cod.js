@@ -201,6 +201,7 @@ function cerrarlight(cerrargaleria){
 /*seccion lightbox*/
 /*seccion lightbox*/
 var num = 1;
+var numAnim = 0;
 function next(cambiar, numeroT, numerofoto, carpeta) {
     num++;
 	var carpetafotos = document.getElementById(carpeta).value; 
@@ -210,7 +211,19 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 		var fotos = document.getElementById(cambiar);
 		    fotos.src =carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num ;
-	
+	        // fotos.classList.add('dinamicaLight');
+			numAnim = 100;
+			var intervalAnimacion = setInterval(moviendo, 5);
+			function moviendo(){
+				if(numAnim <= 0){
+					clearInterval(intervalAnimacion);
+					fotos.style.transform = 'translate(0px)';
+				}
+				else{
+					numAnim--;
+					fotos.style.transform = 'translate(-' + numAnim + 'px)';
+				}
+			}
 }
 //**************************************//
 function prev(cambiar, numeroT, numerofoto, carpeta){
