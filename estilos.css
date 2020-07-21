@@ -104,6 +104,7 @@ header {
 	.imgagenesSlider:nth-child(4){
 		display: block;
 	}
+	
 }
 .contenedorSlider {
 	position: absolute;
@@ -209,6 +210,12 @@ header {
 @keyframes fondo{
 	from{background-position:0 100%}
 	to{background-position: 0 0%}
+}
+@media (max-width: 400px) {
+	.fraseHome {
+	width: 100%;
+	background: url('Imagenes/Fondos/media/img3.jpg');	
+}
 }
 .frasehomeP{
 	width: 100%;

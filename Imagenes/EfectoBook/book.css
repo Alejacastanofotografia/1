@@ -10,9 +10,7 @@
 	border-top: 3px solid #606060;
 	border-bottom: 3px solid #606060;
 	border-style: inset;
-	
 	margin: 1rem 0;
-
 }
 .container{    
     background-image: url(img21.jpg);
@@ -26,7 +24,6 @@
 	height: 400px;
 	width: 307px;
 }
-
 .containerhnuevo {
 	height: 500px;
 	width: 375px;
@@ -94,10 +91,7 @@
 	outline-color: #303030;
 	outline-width: 1px;
 }              
-   
-
-
-/*.container:hover .cover {
+ /*.container:hover .cover {
 	transform: rotateY(-175deg);
 	transition: all 1s easy;
     
@@ -165,101 +159,47 @@ figure {
 	
 }
 /*-------------------------------------------*/ 
-figure.front {
-	background-image: url(img25.jpg);
+figure.front, figure.front2,figure.front3,
+figure.frontInfant, figure.frontInfant2, figure.frontInfant3{
 	background-size:cover;
-	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
 }
-
-figure.backl {
-	background-image: url(img26.jpg);
+figure.backl, figure.back2, figure.back3,
+figure.backInfant, figure.backInfant2,figure.backInfant3{
 	background-size:cover;
 	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-	
-	
-}  
-
-/*-------------------------------------------*/
-figure.frontInfant {
-	background-image: url(Iimgv5.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	
+	transform: rotateY(180deg);	
 }
-
-figure.backInfant {
-	background-image: url(Iimgv6.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-	
-	
-}  
-
-/*-------------------------------------------*/  
-figure.front2 {
-	background-image: url(img23.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-}
-
-figure.back2 {
-	background-image: url(img24.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-}    
-
-/*-------------------------------------------*/
-figure.frontInfant2 {
-	background-image: url(Iimgv3.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-}
- 
-figure.backInfant2 {
-	background-image: url(Iimgv4.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-}    
- 
-/*-------------------------------------------*/
-figure.front3 {
-	background-image: url(img9.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	box-shadow:10px 5px 15px #505050 inset;
-	border-left:5px solid #444;
-
-} 
-
-figure.back3 {
-	background-image: url(img22.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-	
-		
-} 
-/*-------------------------------------------*/
+figure.front {background-image: url(img25.jpg);}
+figure.backl {background-image: url(img26.jpg);}  
+figure.frontInfant {background-image: url(Iimgv5.jpg);}
+figure.backInfant {background-image: url(Iimgv6.jpg);}  
+figure.front2 {background-image: url(img23.jpg);}
+figure.back2 {background-image: url(img24.jpg);}    
+figure.frontInfant2 {background-image: url(Iimgv3.jpg);}
+figure.backInfant2 {background-image: url(Iimgv4.jpg);}    
+figure.front3 {background-image: url(img9.jpg);} 
+figure.back3 {background-image: url(img22.jpg);} 
 figure.frontInfant3 {
 	background-image: url(Iimgv1.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
 	box-shadow:10px 5px 15px #505050 inset;
 	border-left:5px solid #444 outset;
-
 } 
-	
-figure.backInfant3 {
-	background-image: url(Iimgv2.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);
-} 
-
+figure.backInfant3 {background-image: url(Iimgv2.jpg);} 
+@media (max-width: 600px){
+    figure.front {background-image: url(media/img25.jpg);}
+    figure.backl {background-image: url(media/img26.jpg);}  
+    figure.frontInfant {background-image: url(media/Iimgv5.jpg);}
+    figure.backInfant {background-image: url(media/Iimgv6.jpg);}  
+    figure.front2 {background-image: url(media/img23.jpg);}
+    figure.back2 {background-image: url(media/img24.jpg);}    
+    figure.frontInfant2 {background-image: url(media/Iimgv3.jpg);}
+    figure.backInfant2 {background-image: url(media/Iimgv4.jpg);}    
+    figure.front3 {background-image: url(media/img9.jpg);} 
+    figure.back3 {background-image: url(media/img22.jpg);} 
+    figure.frontInfant3 {background-image: url(media/Iimgv1.jpg);} 
+    figure.backInfant3 {background-image: url(media/Iimgv2.jpg);}
+}
 
  
 
