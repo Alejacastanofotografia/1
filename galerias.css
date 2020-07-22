@@ -666,7 +666,7 @@ h4 {
 /*seccion para el contenido de las galerias de usuarios*/
 /*Aquí van los id de los menus y de la seccion principal*/
 #menu2Alejandra, #menu1Alejandra, #AlejandraCastano {
-    display: none;
+    display: block;
 }
 #menu2Alejandra, #menu1Alejandra {
 	background: rgba(255,150,0, 0.3);
