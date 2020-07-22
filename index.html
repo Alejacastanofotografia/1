@@ -91,8 +91,9 @@
 					</li>  
 			    </div>
 			    <div class="items" onclick="abrirMenuLogin()" >
-				    <li class="material-icons tabs" >
-					    <a>&#xe5d2;</a>
+				    <li class=" tabs" style="display: flex; justify-content: center; align-items: center">
+					    <p class="nombreUsuariomenu"><span id="nombreUsuariomenu">Nombre usuario</span><i  class='fas'>&#xf2bd;</i></p>
+					   	<a class="material-icons">&#xe5d2;</a>
 					</li>
 				</div>
 		    </div>
@@ -100,7 +101,7 @@
 	       <div class="menuLogin" >
 			        <button class="cerrarLogin"onclick="abrirMenuLogin()">X</button>
 				    <form id="formularioLogin">
-         					<h4 class="tituloLogin">Iniciar sesión <img data-src="Imagenes/Iconos/usuario.png" class="lazyload"></h4><br>
+         					<h4 class="tituloLogin">Iniciar sesión<i  class='fas iconUser'>&#xf2bd;</i></h4><br>
 			                <p >
 				              Inicia sesión para visualizar tus fotografías y descargarlas.
 				            </p>
@@ -111,9 +112,9 @@
 				    </form>
 					
 					<div class="menuLogout">
-					    <h5 class="tituloLogin"><span id="nombreUsuario"></span> <img data-src="Imagenes/Iconos/usuario.png" class="lazyload"></h5><br>
+					    <h5 class="tituloLogin"><span id="nombreUsuario"></span><i  class='fas iconUser'>&#xf2bd;</i></h5><br>
 				        <p id="mensajeBienvenida"></p><br>
-				        <button class="botones">Cerrar Sesión</button>
+				        <button class="botones" onclick="location.reload()">Cerrar Sesión</button>
 					</div>
 			</div>	
 				
@@ -836,11 +837,10 @@
 	 <!--Seccion para el contenido de los usuarios--->
 	<section id="AlejandraCastano" class="galerias Ventanas2">
 	<article >
-
 		<div class="contenido">
-	<p class="frase">Puedes descargar tus fotografias en este enlace.
-
-	<span class="classspan">&#160;</span></p>
+	        <p class="frase" >
+                <span class="classspan" id="write8"></span><span class="maquinaEscribir">|</span>
+		    </p>
 	    </div>
 	<ul class="galeriaUser">
 	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/sobreMi/img1.jpg'">							
@@ -883,7 +883,7 @@
 		    <ul>
 			    <li class="activeFotos"><i class='fas'onclick="playfotos('usuario1Total', 'imgusuario1' )">&#xf04b;</i></li>
 			    <li class="activeFotos2"><i class='fas'onclick="Stopfotos()">&#xf04c;</i></li>		
-                <li class="activeFotos"><i class='fas '>&#xf019;</i></li>				
+                <li class="activeFotos"><a style="text-decoration: none; color: #606060"href="https://drive.google.com/drive/folders/12eDtPMPl0tAvTjRSUeE95uuYlmzdzk2J?usp=sharing" target="_blank"><i class='fas '>&#xf019;</i></a></li>				
 			</ul>
 		</nav>
 		<div class="barrausuario">   </div>

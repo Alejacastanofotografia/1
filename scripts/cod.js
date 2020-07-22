@@ -370,6 +370,7 @@ function frases(){
         var write5 = document.getElementById('write5');
         var write6 = document.getElementById('write6');
         var write7 = document.getElementById('write7');
+        var write8 = document.getElementById('write8');
 		num1 = 0; num2 = 0; num3 = 0; num4 = 0; num5 = 0; num6 = 0; num7 = 0;
 		var interval = setInterval(escribir, 100);
 		var interval2 = setInterval(escribir2, 100);
@@ -442,10 +443,12 @@ function frases(){
 		    if(num7 >= frase7.length - 1){
 				num7 = 0;
 				write7.innerHTML = ' ';
+				write8.innerHTML = ' ';
 		    }
 		    else{
 				++num7;
 				write7.innerHTML += frase7[num7];	
+				write8.innerHTML += frase7[num7];	
 		    }
 		}
 }
@@ -468,6 +471,8 @@ function abrirMenuLogin(){
 var usuario = document.getElementById('usuario');
 var documento= document.getElementById('documento');
 var login = document.getElementById('formularioLogin');
+var nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
+var nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
 login.addEventListener('submit', function(evt){
 	evt.preventDefault();
 	var documentoUsuario = documento.value;
@@ -513,7 +518,9 @@ login.addEventListener('submit', function(evt){
 			mensajeExitoso.style.display = "none";
 	     	mensajeExitoso.style.display = "block";	
             nombreUsuario.innerHTML = 	nombre;	
-
+			nombreUsuariomenu[0].style.display = 'flex';
+			nombreUsuariomenuInner.innerHTML = nombre;				
+			
             setTimeout(function(){
 				abrirMenuLogin();
 			},3000);			

@@ -508,7 +508,7 @@ header {
 }
 .menuLogout {
 	display:none;
-}
+}  
 .menuLogin form p{
 	font-size: var(--main-font-sizeParrafos);
 	color: var(--main-colorMenu);
@@ -523,10 +523,11 @@ header {
 	justify-content: center;
 	align-items: center;
 	padding: 0 0 .4rem 0;
-	border-bottom: 3px solid #00ccff;
+	border-bottom: 3px solid #aa0000;
 }
-.tituloLogin img {
-	padding: 0 1rem;	
+.iconUser {
+	font-size: 2rem;
+	padding: 0 1rem;
 }
 .cerrarLogin{
 	width: 100%;
@@ -537,7 +538,6 @@ header {
 	border: none;
 	background: none;
 }
-
 /* contenido 360 */
 .c360 {
 	margin: 4rem 0 0 0; 
@@ -950,7 +950,18 @@ footer{
 .contenedorSliderScroll .items:last-child li a{
 	font-size: 1.5rem;
 	color: #505050;
-	
+}  
+.contenedorSliderScroll .items:last-child li p{
+	justify-content: center;
+	align-items: center;
+	font-size: .8rem;
+	color: #505050;
+}    .nombreUsuariomenu{display: none}
+.contenedorSliderScroll .items:last-child li p i{
+    padding: 0 .5rem;
+	margin: 0 .5rem;
+	border-right: 1px solid #505050;
+	font-size: 1rem;	
 }
 .contenedorSliderScroll .h1Main {
 	font-size: 1.3rem;
