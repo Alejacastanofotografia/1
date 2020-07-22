@@ -450,3 +450,86 @@ function frases(){
 		}
 }
 frases();
+// login
+
+var cerrar = true;		
+function abrirMenuLogin(){
+	let menuLogin = document.getElementsByClassName('menuLogin');
+	if(cerrar){
+		menuLogin[0].style.top = '0';
+		cerrar = false;
+	}
+	else{
+		menuLogin[0].style.top = '-100%';
+		cerrar = true;
+	}
+}
+
+var usuario = document.getElementById('usuario');
+var documento= document.getElementById('documento');
+var login = document.getElementById('formularioLogin');
+login.addEventListener('submit', function(evt){
+	evt.preventDefault();
+	var documentoUsuario = documento.value;
+	var nombreUsuario = usuario.value;
+	var mensajeError = document.getElementById('mensajesFormularioLogin');
+	var mensajeExitoso = document.getElementById('mensajeBienvenida');
+	var nombreUsuario = document.getElementById('nombreUsuario');
+		mensajeError.style.display = "block";
+		mensajeExitoso.style.display = "block";
+    switch(documentoUsuario){
+	case '1':
+		colorMensajeExitoso('Violeta Golosa');
+		mensajeExitoso.innerHTML ='Bienvenida Violeta Golosa, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
+		break;
+	case '2':
+		colorMensajeExitoso('Gaby Lalaa');
+		mensajeExitoso.innerHTML ='Bienvenida Gaby Lalaa, tus fotografías se encuentran publicadas en la pestaña sesiones/Retratos';
+		break;	
+	case '123456':
+	    colorMensajeExitoso('Alejandra Castaño');
+	    mensajeExitoso.innerHTML = 'Bienvenida Alejandra Castaño, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
+		document.getElementById('menu1Alejandra').style.display = 'block';
+		document.getElementById('menu2Alejandra').style.display = 'flex';
+		document.getElementById('AlejandraCastano').style.display = 'flex';
+		document.getElementById("navSesiones").click();
+		document.getElementById("menu2Alejandra").click();
+		document.getElementById("menu1Alejandra").click();
+		break;
+    default:
+	    colorMensajeError();
+	    mensajeError.innerHTML = 'El número de documento ingresado no existe en nuestra base de datos, por favor verificalo o contactanos para más información.' ;
+	}
+	function colorMensajeError(){
+        mensajeError.style.background = "#ff0000";	
+        mensajeError.style.color = "#fff";	
+        documento.value = '';		
+	}
+	
+	
+	    function colorMensajeExitoso(nombre){
+            document.getElementsByClassName('menuLogout')[0].style.display = 'block';
+			login.style.display = 'none';
+			mensajeExitoso.style.display = "none";
+	     	mensajeExitoso.style.display = "block";	
+            nombreUsuario.innerHTML = 	nombre;	
+
+            setTimeout(function(){
+				abrirMenuLogin();
+			},3000);			
+	    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

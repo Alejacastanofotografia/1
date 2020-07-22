@@ -28,6 +28,7 @@
 @media(max-width:600px){
 	:root{
 	    --main-font-sizeParrafos: 1rem;
+	    --main-font-sizeTitulos: 1.4rem; 
 	}
 }
 ::-webkit-scrollbar {
@@ -386,7 +387,8 @@ header {
 	height: 100%;
 	background: var(--main-backgroundMain);
 }
-.contactoItem form input, .contactoItem form textarea{
+.contactoItem form input, .contactoItem form textarea,
+.menuLogin form input{
 	padding: .6rem;
 	border: none;
 	outline: none;
@@ -402,14 +404,17 @@ header {
 	position: relative;
 }
 
-.contactoItem form input:hover, .contactoItem form textarea:hover {
+.contactoItem form input:hover, .contactoItem form textarea:hover,
+.menuLogin form input:hover {
 	transform: scale(1.02);
 }
-.contactoItem form input::placeholder{
+.contactoItem form input::placeholder,
+.menuLogin form input::placeholder{
 	text-align: center;
 	color: #101010;
 }
-.contactoItem form input:focus, .contactoItem form textarea:focus {
+.contactoItem form input:focus, .contactoItem form textarea:focus,
+.menuLogin form input:focus {
 	border: 3px solid #00aaff;
 	background: #fff;
 }
@@ -447,11 +452,12 @@ header {
 	filter: sepia(100%) hue-rotate(90deg);
 	
 }
-#mensajesFormulario {
+#mensajesFormulario,#mensajesFormularioLogin, #mensajeBienvenida{
 	font-size: var(--main-font-sizeParrafos);
 	font-family: var(--main-font-family);
 	border-radius: .3rem;
 	color: #fff;
+	text-align: center;
 	
 }
 #mensajesFormularioGrave {
@@ -475,6 +481,63 @@ header {
 	text-align: center;
 	
 }
+/* login */
+.menuLogin {
+	position: fixed;
+	width: 400px;
+	background: #000;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 15px #303030;
+	top: -100%;
+	right: 0;
+	border-radius: .3rem;
+	transition: 1s;
+	z-index: 40;
+}
+.menuLogin form, .menuLogout{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	text-align: center;
+	padding: 1rem 2rem ;
+}
+.menuLogout {
+	display:none;
+}
+.menuLogin form p{
+	font-size: var(--main-font-sizeParrafos);
+	color: var(--main-colorMenu);
+	width: 100%;
+}
+.tituloLogin {
+	width: 100%;
+	color: var(--main-colorMenu);
+	font-family: var(--main-font-family);
+	font-size: var(--main-font-sizeTitulos);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 0 .4rem 0;
+	border-bottom: 3px solid #00ccff;
+}
+.tituloLogin img {
+	padding: 0 1rem;	
+}
+.cerrarLogin{
+	width: 100%;
+	padding: 2rem 0 1rem 0;
+	font-size: var(--main-font-sizeParrafos);
+	color: var(--main-colorMenu);
+	outline: none;
+	border: none;
+	background: none;
+}
+
 /* contenido 360 */
 .c360 {
 	margin: 4rem 0 0 0; 
@@ -629,6 +692,7 @@ footer{
 .por {
 	font-size:10px;
 }
+
 
 /*ir arriba*/
 #irArriba{
@@ -814,6 +878,9 @@ footer{
 	.irArriba {
 	right: 0px;
 	
+	}
+	.menuLogin {
+		width: 100%;
 	}
 }
 
