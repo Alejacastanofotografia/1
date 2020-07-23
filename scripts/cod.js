@@ -13,7 +13,7 @@ function preloader(){
 				preloader.style.height = num + '%';
 			}
 		}
-    }, 200)
+    }, 10)
 }
 preloader();
 
@@ -52,6 +52,9 @@ function navegacion(evt, ventana, header, activeLink){
 	}
 }
 document.getElementById('defaultClick').click();
+setTimeout(function(){
+	document.getElementById('buttonAdmin').click();
+}, 100);
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
@@ -212,7 +215,7 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 		var fotos = document.getElementById(cambiar);
 		    fotos.src =carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num ;
-	        // fotos.classList.add('dinamicaLight');
+		
 		if(screen.width > 450){
 			numAnim = 100;
 			var intervalAnimacion = setInterval(moviendo, 5);
@@ -371,7 +374,7 @@ function frases(){
         var write5 = document.getElementById('write5');
         var write6 = document.getElementById('write6');
         var write7 = document.getElementById('write7');
-        var write8 = document.getElementById('write8');
+        var writeuser = document.getElementsByClassName('writeuser');
 		num1 = 0; num2 = 0; num3 = 0; num4 = 0; num5 = 0; num6 = 0; num7 = 0;
 		var interval = setInterval(escribir, 100);
 		var interval2 = setInterval(escribir2, 100);
@@ -444,12 +447,16 @@ function frases(){
 		    if(num7 >= frase7.length - 1){
 				num7 = 0;
 				write7.innerHTML = ' ';
-				write8.innerHTML = ' ';
+				for (i = 0; i < writeuser.length; i++){
+					writeuser[i].innerHTML = ' ';				
+				}
 		    }
 		    else{
 				++num7;
-				write7.innerHTML += frase7[num7];	
-				write8.innerHTML += frase7[num7];	
+				write7.innerHTML += frase7[num7];
+				for (var i = 0; i < writeuser.length; i++){
+					writeuser[i].innerHTML += frase7[num7];			
+				}	
 		    }
 		}
 }
@@ -489,12 +496,17 @@ login.addEventListener('submit', function(evt){
 	if(documentoUsuario === '1'){
 		nombre = 'Violeta Golosa';
 		mensaje ='Bienvenida Violeta Golosa, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
-		colorMensajeExitoso(nombre, mensaje);		
+		let violetaSesion= document.getElementsByClassName('violetaSesion');
+		for(i = 0 ; i < violetaSesion.length; i++){
+			violetaSesion[i].click();
+			violetaSesion[i].style.display = 'flex';
+		}
+		loginExitoso(nombre, mensaje);		
 	}
 	else if(documentoUsuario === '2'){
 		nombre = 'Gaby Lalaa';
 		mensaje ='Bienvenida Gaby Lalaa, tus fotografías se encuentran publicadas en la pestaña sesiones/Retratos';
-		colorMensajeExitoso(nombre, mensaje);		
+		loginExitoso(nombre, mensaje);		
 	}
 	else if(documentoUsuario === '123456'){
 		nombre = 'Alejandra Castaño';
@@ -504,7 +516,7 @@ login.addEventListener('submit', function(evt){
 			alejandraSesion[i].click();
 			alejandraSesion[i].style.display = 'flex';
 		}
-	    colorMensajeExitoso(nombre, mensaje);		
+	    loginExitoso(nombre, mensaje);		
 	}
 	else{
 	    colorMensajeError();
@@ -516,7 +528,7 @@ login.addEventListener('submit', function(evt){
             documento.value = '';		
 	    }
 		
-	    function colorMensajeExitoso(nombre, mensaje){
+	    function loginExitoso(nombre, mensaje){
 			menuGalerias.click();
             document.getElementsByClassName('menuLogout')[0].style.display = 'block';
 			login.style.display = 'none';

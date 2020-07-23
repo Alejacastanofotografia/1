@@ -10,9 +10,73 @@ firebase.initializeApp({
 });
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
-// var Visitante = db.collection('Visitante');
-// var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
+var Visitante = db.collection('Visitante');
+var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
+var NumeroContactoForm = db.collection('Contacto_total').doc('Total');
 
+
+// consultando el formulario de contacto desde firebase
+function mostrarDatos(){
+db.collection('Contacto')
+    .get()
+	.then((snapshot) => {
+		datos(snapshot.docs)
+	});
+}
+mostrarDatos();	
+var datosfirebase = document.getElementById('datosfirebase');
+const datos = data => {
+	if(data.length){
+		document.getElementById('totalContactosbutton').value = data.length;
+		let html= '';
+		data.forEach(doc => {
+			const post = doc.data();
+			const li = `
+			<div class="afterList">
+			    <li class="lifirebase">
+				   <p>Nombre: <span class="resaltar">${post.a_nombre}</span></p>
+				   <p>Teléfono: ${post.b_teléfono}</p>
+				   <p>Correo: ${post.c_correo}</p>
+				   <p>Fecha: ${post.e_fechaMensaje}</p>
+				   <p>Mensaje:<br />${post.d_mensaje}</p>
+			   </li>
+			</div>   
+			`;
+			html += li;
+		});
+		datosfirebase.innerHTML = html;	
+	}
+	else {
+		datosfirebase.innerHTML = '<p>No existe nada</p>'; 
+	}
+}
+
+// consultando el numero total contactos
+// function DatosPrueba(){
+// db.collection('Contacto_total')
+    // .get()
+	// .then((snapshot) => {
+		// console.log(snapshot.docs);
+		// contadorContacto(snapshot.docs)
+	// });
+// }
+// DatosPrueba();
+// const contadorContacto = data => {
+	// if(data.length){ 
+	// var total;
+		// data.forEach(doc => {
+			// const post = doc.data();
+			// console.log(post);
+			// const li = `${post.Total_Contactos}`;
+			// total= li;
+			// console.log(total);
+		// });
+		// document.getElementById('totalContactosbutton').value = total;	
+	// }
+	// else {
+		// document.getElementById('totalContactosbutton').value = 'Error realizando la consulta'; 
+	// }
+// }
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
 var telefono = document.getElementById('telefono');
@@ -23,16 +87,28 @@ var formulario = document.getElementById('formularioContacto');
 var mensajeError = document.getElementById('mensajesFormulario');
 var mensajeErrorGrave = document.getElementById('mensajesFormularioGrave');
 var mensajeErrorExitoso = document.getElementById('mensajeExitoso');
+var contator = document.getElementById('totalContactosbutton');
 formulario.addEventListener('submit', function(evt){
 	evt.preventDefault();	
 	let nombreUsuario = nombre.value;
+	console.log(nombreUsuario);
 	let telefonoUsuario = telefono.value;
 	let emailUsuario = email.value;
 	let mensajeUsuario = mensaje.value;
-	let fechaMensaje = new Date();
 	let width = screen.width;
 	let height = screen.height;
-	
+	// para ordenar la lista en la base
+	let contactoNumero = parseInt(contator.value) + 1;
+	let usuarioNumero = contactoNumero + nombreUsuario;
+	//acomodando los formatos
+	let f = new Date();
+	let formatoFecha = f.toLocaleDateString();
+	let formatoHora = f.toLocaleTimeString();
+	let fechaCompleta = formatoFecha +', ' + formatoHora;
+	console.log(f);
+	console.log(formatoFecha);
+	console.log(formatoHora);
+	console.log(fechaCompleta);
 	// validar datos del formulario
 	if(nombreUsuario === null || nombreUsuario === ''){
 		mensajeError.classList.add('error');
@@ -52,16 +128,17 @@ formulario.addEventListener('submit', function(evt){
 		nombre.style.border = 'none';
 	}
 	else{	
-	    contacto.doc(nombreUsuario).set({
+	    contacto.doc(usuarioNumero).set({
 			a_nombre : nombreUsuario,
-			b_télefono : telefonoUsuario,
+			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
-			e_fechaMensaje : fechaMensaje,
+			e_fechaMensaje : fechaCompleta,
+			e_fechaMensajeLarga : f,
 		    f_Dimensiones :[width, height],
 		})
 		.then(function(){
-			console.log('Data Saved');// resetando los campos...// Confirmacion de registro
+			// resetando los campos...// Confirmacion de registro
 		        mensajeError.classList.add('EnvioExitoso');
 		        mensajeError.style.color = '#202020'; 
 				mensajeErrorExitoso.innerHTML = '&#10004;'; 
@@ -96,27 +173,36 @@ formulario.addEventListener('submit', function(evt){
 		mensajeError.style.display = 'none';
 		mensajeErrorExitoso.style.display = 'none';
 		mensajeErrorGrave.style.display = 'none';
-	}, 10000);
+	}, 8000);
 
-        
-        
+    // contar el número de personas que visitan la pagina...
+	    NumeroContactoForm.update({
+		    Total_Contactos : firebase.firestore.FieldValue.increment(1)  
+        });
 	}
 		
 });
 	   
 
 function nuevoVisitante(){
-	let fecha = new Date();
+	//acomodando los formatos
+	let f = new Date();
+	let formatoFecha = f.toLocaleDateString();
+	let formatoHora = f.toLocaleTimeString();
+	let fechaCompleta = formatoFecha +', ' + formatoHora;
+	console.log(f);
+	console.log(formatoFecha);
+	console.log(formatoHora);
+	console.log(fechaCompleta);
 	let width = screen.width;
 	let height = screen.height;
-	let widthDisponible = screen.availWidth;
-	let heightDisponible = screen.availHeight;
 	
 	if(width === 360 || width === 1440){
-			alert('welcome Ed')
+			// alert('welcome Ed');
+			console.log('welcome Ed');
 	}else{
 	    Visitante.doc().set({
-			a_fecha : fecha,
+			a_fecha : fechaCompleta,
 			dimensiones : [width , height]
 		})
 		.then(function(){
@@ -132,6 +218,7 @@ function nuevoVisitante(){
 	    });
 	}
 }
+
 
 
 //*******agregando coleccion desde cero

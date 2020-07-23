@@ -531,7 +531,7 @@ h4 {
 	}
 }
 #contenedorlight, #lightInfantil, #lightFlores, #lightAdulto, #lightBoda,
-#lightAnimales, #lightComunion, #lightPrequinces, #lightQuinces, #lightusuario1, #lightPaisajes
+#lightAnimales, #lightComunion, #lightPrequinces, #lightQuinces, #lightusuario1, #lightusuario2,#lightPaisajes
 {
     display: none;
     position: fixed;
@@ -682,8 +682,8 @@ h4 {
 	align-items: center;
 	flex-wrap: wrap;
 }
-.alejandraSesion {
-	display: none;
+.alejandraSesion, .violetaSesion {
+	display: none;	
 	justify-content: center;
 }
 .position {
