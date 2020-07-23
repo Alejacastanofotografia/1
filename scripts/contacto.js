@@ -16,40 +16,40 @@ var NumeroContactoForm = db.collection('Contacto_total').doc('Total');
 
 
 // consultando el formulario de contacto desde firebase
-function mostrarDatos(){
-db.collection('Contacto')
-    .get()
-	.then((snapshot) => {
-		datos(snapshot.docs)
-	});
-}
-mostrarDatos();	
-var datosfirebase = document.getElementById('datosfirebase');
-const datos = data => {
-	if(data.length){
-		document.getElementById('totalContactosbutton').value = data.length;
-		let html= '';
-		data.forEach(doc => {
-			const post = doc.data();
-			const li = `
-			<div class="afterList">
-			    <li class="lifirebase">
-				   <p>Nombre: <span class="resaltar">${post.a_nombre}</span></p>
-				   <p>Teléfono: ${post.b_teléfono}</p>
-				   <p>Correo: ${post.c_correo}</p>
-				   <p>Fecha: ${post.e_fechaMensaje}</p>
-				   <p>Mensaje:<br />${post.d_mensaje}</p>
-			   </li>
-			</div>   
-			`;
-			html += li;
-		});
-		datosfirebase.innerHTML = html;	
-	}
-	else {
-		datosfirebase.innerHTML = '<p>No existe nada</p>'; 
-	}
-}
+// function mostrarDatos(){
+// db.collection('Contacto')
+    // .get()
+	// .then((snapshot) => {
+		// datos(snapshot.docs)
+	// });
+// }
+// mostrarDatos();	
+// var datosfirebase = document.getElementById('datosfirebase');
+// const datos = data => {
+	// if(data.length){
+		// document.getElementById('totalContactosbutton').value = data.length;
+		// let html= '';
+		// data.forEach(doc => {
+			// const post = doc.data();
+			// const li = `
+			// <div class="afterList">
+			    // <li class="lifirebase">
+				   // <p>Nombre: <span class="resaltar">${post.a_nombre}</span></p>
+				   // <p>Teléfono: ${post.b_teléfono}</p>
+				   // <p>Correo: ${post.c_correo}</p>
+				   // <p>Fecha: ${post.e_fechaMensaje}</p>
+				   // <p>Mensaje:<br />${post.d_mensaje}</p>
+			   // </li>
+			// </div>   
+			// `;
+			// html += li;
+		// });
+		// datosfirebase.innerHTML = html;	
+	// }
+	// else {
+		// datosfirebase.innerHTML = '<p>No existe nada</p>'; 
+	// }
+// }
 
 // consultando el numero total contactos
 // function DatosPrueba(){
