@@ -64,7 +64,7 @@
 				    </li>  
 		     	</div>
 		        <div class="items" >
-			        <li id="navSesiones"class="tabs" onclick="navegacion(event, 'Galerias', 'noHead', 'navSesiones'); window.scroll(0,0)" >
+			        <li id="navSesiones" class="tabs" onclick="navegacion(event, 'Galerias', 'noHead', 'navSesiones'); window.scroll(0,0)" >
 					    <a href="#">Sesiones</a>
 					</li>  
 			    </div>
@@ -92,7 +92,7 @@
 			    </div>
 			    <div class="items" onclick="abrirMenuLogin()" >
 				    <li class=" tabs" style="display: flex; justify-content: center; align-items: center">
-					    <p class="nombreUsuariomenu"><span id="nombreUsuariomenu">Nombre usuario</span><i  class='fas'>&#xf2bd;</i></p>
+					    <p class="nombreUsuariomenu"><span id="nombreUsuariomenu"></span><i  class='fas'>&#xf2bd;</i></p>
 					   	<a class="material-icons">&#xe5d2;</a>
 					</li>
 				</div>
@@ -113,7 +113,10 @@
 					
 					<div class="menuLogout">
 					    <h5 class="tituloLogin"><span id="nombreUsuario"></span><i  class='fas iconUser'>&#xf2bd;</i></h5><br>
-				        <p id="mensajeBienvenida"></p><br>
+				        <p id="mensajeBienvenida"></p>
+						   <a class="enlaceDescargar" href="https://drive.google.com/drive/folders/12eDtPMPl0tAvTjRSUeE95uuYlmzdzk2J?usp=sharing" target="_blank">
+						       Descargalas Aquí.
+						   </a>
 				        <button class="botones" onclick="location.reload()">Cerrar Sesión</button>
 					</div>
 			</div>	
@@ -249,9 +252,6 @@
 			  </tr>
 		  </table>
        </div > 
-	  	
-
-
 	<div class="booksContainer"> 	
     <div id="libroComunion" >	   
 	   <div class="container" >
@@ -287,6 +287,7 @@
 					
        </div>
 	</div>
+		
 	<nav class="navegacionBooks">
 	    <ul>
 		    <li class="activemedidas" onclick="bookInfantil(event)" id="dim1">20x26</li>
@@ -305,8 +306,16 @@
 			    <h3 class="galeriasH">Sesiones</h3>
 			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'adulto')">Retrato Adulto</li>
 			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'infantil')" id="defaultOpen2">Retrato Infantil</li>
-			    <li class="tablinks2 " onclick="cambiarVentana2(event, 'AlejandraCastano')" id="menu1Alejandra">Alejandra Castaño</li>
-			    <li class="tablinks2" onclick="cambiarVentana2(event, 'primeraComunion')">Primera Comunión</li>
+			    
+				<!-- sesiones de los usuarios -->
+			    <li class="tablinks2 alejandraSesion" onclick="cambiarVentana2(event, 'AlejandraCastano')" >
+				    <div class="contenedorMenusUser">
+					    <i  class='fas iconUser'>&#xf2bd;</i>Alejandra Castaño
+					</div>	
+				</li>
+				<!-- sesiones de los usuarios -->
+			    
+				<li class="tablinks2" onclick="cambiarVentana2(event, 'primeraComunion')">Primera Comunión</li>
 			    <li class="tablinks2" onclick="cambiarVentana2(event, 'boda')">Boda</li>
 			    <li class="tablinks2" onclick="cambiarVentana2(event, 'Prequinces')">Prequinces</li>
 			    <li class="tablinks2" onclick="cambiarVentana2(event, 'Quinces')">Quinces</li>
@@ -321,8 +330,16 @@
 				    <ul>
 					    <li><a  onclick="cambiarVentana3(event, 'infantil', 'retratosMovil')">Retrato infantil</a></li>
 					    <li><a  onclick="cambiarVentana3(event, 'adulto' , 'retratosMovil')">Retrato Adulto</a></li>
-					    <li><a  onclick="cambiarVentana2(event, 'AlejandraCastano', 'retratosMovil')" id="menu2Alejandra">Alejandra Castaño</a></li>
-				    </ul>
+						<!-- sesiones de los usuarios -->
+					    <li class="alejandraSesion">
+						    <a onclick="cambiarVentana2(event, 'AlejandraCastano', 'retratosMovil')" >
+				                <div class="contenedorMenusUser">
+					                 <i  class='fas iconUser'>&#xf2bd;</i>Alejandra Castaño
+					            </div>	
+						    </a>
+						</li>
+                        <!-- fin sesiones de los usuarios				    -->
+				   </ul>
 				</li>
 		        <li >
 				    <a id="quincesMovil" class="opcionesMovil"><img  data-src="Imagenes/Iconos/15.png" class="lazyload">Quinces</a>

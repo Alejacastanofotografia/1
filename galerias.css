@@ -675,20 +675,17 @@ h4 {
 	width: 1px; 
 	height: 5px;
 }
-/*seccion para el contenido de las galerias de usuarios*/
-/*Aquí van los id de los menus y de la seccion principal*/
-#menu1Alejandra {
+/* estilo para controlar desde javascript */
+.contenedorMenusUser{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.alejandraSesion {
 	display: none;
+	justify-content: center;
 }
-#menu2Alejandra, #AlejandraCastano {
-    display: none;
-}
-#menu2Alejandra, #menu1Alejandra {
-	background: rgba(255,150,0, 0.3);
-	color: #fff;
-	font-weight: bold;
-}
-
 .position {
 	animation: transladar 0.5s;
 	transition: 0.7s;

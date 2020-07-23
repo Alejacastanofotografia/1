@@ -1,3 +1,4 @@
+var i;
 function preloader(){
     setTimeout(function(){
 		var num = 100;
@@ -467,12 +468,14 @@ function abrirMenuLogin(){
 		cerrar = true;
 	}
 }
-
+var menuGalerias = document.getElementById('navSesiones');
 var usuario = document.getElementById('usuario');
 var documento= document.getElementById('documento');
 var login = document.getElementById('formularioLogin');
 var nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
 var nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
+var mensaje;
+var nombre;
 login.addEventListener('submit', function(evt){
 	evt.preventDefault();
 	var documentoUsuario = documento.value;
@@ -482,47 +485,50 @@ login.addEventListener('submit', function(evt){
 	var nombreUsuario = document.getElementById('nombreUsuario');
 		mensajeError.style.display = "block";
 		mensajeExitoso.style.display = "block";
-    switch(documentoUsuario){
-	case '1':
-		colorMensajeExitoso('Violeta Golosa');
-		mensajeExitoso.innerHTML ='Bienvenida Violeta Golosa, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
-		break;
-	case '2':
-		colorMensajeExitoso('Gaby Lalaa');
-		mensajeExitoso.innerHTML ='Bienvenida Gaby Lalaa, tus fotografías se encuentran publicadas en la pestaña sesiones/Retratos';
-		break;	
-	case '123456':
-	    colorMensajeExitoso('Alejandra Castaño');
-	    mensajeExitoso.innerHTML = 'Bienvenida Alejandra Castaño, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
-		document.getElementById('menu1Alejandra').style.display = 'block';
-		document.getElementById('menu2Alejandra').style.display = 'flex';
-		document.getElementById('AlejandraCastano').style.display = 'flex';
-		document.getElementById("navSesiones").click();
-		document.getElementById("menu2Alejandra").click();
-		document.getElementById("menu1Alejandra").click();
-		break;
-    default:
+	
+	if(documentoUsuario === '1'){
+		nombre = 'Violeta Golosa';
+		mensaje ='Bienvenida Violeta Golosa, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
+		colorMensajeExitoso(nombre, mensaje);		
+	}
+	else if(documentoUsuario === '2'){
+		nombre = 'Gaby Lalaa';
+		mensaje ='Bienvenida Gaby Lalaa, tus fotografías se encuentran publicadas en la pestaña sesiones/Retratos';
+		colorMensajeExitoso(nombre, mensaje);		
+	}
+	else if(documentoUsuario === '123456'){
+		nombre = 'Alejandra Castaño';
+		mensaje ='Bienvenida Alejandra Castaño, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
+		let alejandraSesion= document.getElementsByClassName('alejandraSesion');
+		for(i = 0 ; i < alejandraSesion.length; i++){
+			alejandraSesion[i].click();
+			alejandraSesion[i].style.display = 'flex';
+		}
+	    colorMensajeExitoso(nombre, mensaje);		
+	}
+	else{
 	    colorMensajeError();
 	    mensajeError.innerHTML = 'El número de documento ingresado no existe en nuestra base de datos, por favor verificalo o contactanos para más información.' ;
 	}
-	function colorMensajeError(){
-        mensajeError.style.background = "#ff0000";	
-        mensajeError.style.color = "#fff";	
-        documento.value = '';		
-	}
-	
-	
-	    function colorMensajeExitoso(nombre){
+	    function colorMensajeError(){
+            mensajeError.style.background = "#ff0000";	
+           mensajeError.style.color = "#fff";	
+            documento.value = '';		
+	    }
+		
+	    function colorMensajeExitoso(nombre, mensaje){
+			menuGalerias.click();
             document.getElementsByClassName('menuLogout')[0].style.display = 'block';
 			login.style.display = 'none';
 			mensajeExitoso.style.display = "none";
 	     	mensajeExitoso.style.display = "block";	
+	     	mensajeExitoso.innerHTML = mensaje;	
             nombreUsuario.innerHTML = 	nombre;	
 			nombreUsuariomenu[0].style.display = 'flex';
 			nombreUsuariomenuInner.innerHTML = nombre;				
 			
             setTimeout(function(){
-				abrirMenuLogin();
+		    abrirMenuLogin();
 			},3000);			
 	    }
 });

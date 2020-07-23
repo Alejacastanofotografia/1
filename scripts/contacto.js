@@ -10,8 +10,8 @@ firebase.initializeApp({
 });
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
-var Visitante = db.collection('Visitante');
-var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
+// var Visitante = db.collection('Visitante');
+// var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
 
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
@@ -96,7 +96,7 @@ formulario.addEventListener('submit', function(evt){
 		mensajeError.style.display = 'none';
 		mensajeErrorExitoso.style.display = 'none';
 		mensajeErrorGrave.style.display = 'none';
-	}, 60000);
+	}, 10000);
 
         
         

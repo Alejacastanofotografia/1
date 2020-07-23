@@ -538,6 +538,18 @@ header {
 	border: none;
 	background: none;
 }
+.enlaceDescargar {
+	text-decoration: none;
+	color: #fff; 
+	display: block; 
+	background: linear-gradient(to bottom right, #ff0000,#aa0000); 
+	border-radius: 1rem; 
+	padding: 1rem; 
+	width: 100px;
+	margin: auto;
+	margin-top: 1rem;
+	
+}
 /* contenido 360 */
 .c360 {
 	margin: 4rem 0 0 0; 
