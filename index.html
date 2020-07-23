@@ -301,26 +301,36 @@
 	<section id="Admin" class="ventanas" >
 	    <div class="ContenedorAdmin">
             <div class="itemAdmin">		
-                <h6 class="titulosAdmin">Contacto</h6>			
+                <div class="headerAdmin">
+				    <div>
+				        <label for="totalContactosbutton" style="color: #909090;">Total:</label>
+				        <input class="totales" id="totalContactosbutton"type="text" >
+		            </div>
+                    <div>
+					    <h6 class="titulosAdmin">Contacto</h6>	
+					</div>
+					<div class="refrescar" onclick="mostrarDatos(); totalContactos()">
+      				    <i class='fas'>&#xf2ea;</i>
+					</div>
+			    </div>				
 		        <ul class="listaContacto"id="datosfirebase">
 	            </ul>
-				<div class="totalcontactos">
-				    <label for="totalContactos" style="color: #909090;">Total:</label>
-				    <input id="totalContactosbutton"type="text" >
-		        </div>
 			</div>	
 			<div class="itemAdmin">
             </div>			
-			<div class="itemAdmin">
-            <div class="itemAdmin">		
-                <h6 class="titulosAdmin">Visitas</h6>			
-		        <ul class="listaContacto"id="datosfirebaseVisitas">
-	            </ul>
-				<div class="totalcontactos">
-				    <label for="totalContactos" style="color: #909090;">Total:</label>
-				    <input id="totalVisitas"type="text" >
-		        </div>
-			</div>
+			<div class="itemAdmin">	
+                <div class="headerAdmin">
+				    <div>
+				        <label for="totalVisitas" style="color: #909090;">Total:</label>
+				        <input class="totales" id="totalVisitas"type="text" >
+		            </div>
+                    <div>	
+                        <h6 class="titulosAdmin">Visitas</h6>
+					</div>
+					<div class="refrescar" onclick="mostrarDatos(); totalContactos()">
+      				    <i class='fas'>&#xf2ea;</i>
+					</div>
+			    </div>
             </div>
 		</div>
 	</section>
