@@ -2,7 +2,7 @@
 	padding: 120px 0 0 0;
 	position: relative;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 1fr 1fr 300px;
 	width: 100%;
 	background: #101010;
  }
@@ -16,10 +16,10 @@
 }
 .headerAdmin {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;  
-	padding: 1rem 0;
-	width: 100%;
+	padding: 1rem;
+	width: 90%;
 	border-bottom: 2px solid #000;
 	
 }
@@ -62,7 +62,7 @@
 .lifirebase p:nth-child(1), .lifirebaseVisitas p:nth-child(1){
 	color: #;
 }
-.lifirebase p:nth-child(4){
+.lifirebase p:nth-child(5){
 	color: #00ccff;
 }
 .lifirebase p:last-child {
@@ -88,10 +88,16 @@
 	font-weight: bold;
 	width: 1rem;
 }
-.refrescar {
+.refrescar{
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+.refrescar i  {
+	font-size: 1.2rem;
 	color: #606060; 
-	padding: 1rem; 
-}.refrescar:hover{color: #00ff00}
+	padding: 1rem .5rem; 
+}.refrescar i:hover{color: #00ff00}
 @media(max-width:950px){
 	.ContenedorAdmin {
 	    padding: 120px 0 0 0;

@@ -1,3 +1,4 @@
+var c = 'console.log'; 
 firebase.initializeApp({
     apiKey: "AIzaSyBq-VhsTf1ip5Le7FDIAXJA-qBpQ_91W4g",
     authDomain: "contacto-de-usuarios.firebaseapp.com",
@@ -11,7 +12,6 @@ firebase.initializeApp({
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
 var Visitante = db.collection('Visitante');
-var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
 
 
 // Extrayendo los contactos
@@ -30,7 +30,8 @@ const datos = data => {
 			const post = doc.data();
 			const li = `
 			    <li class="lifirebase">
-				   <p onclick="mostrarDetalles('lifirebase')" class="nombreDetalles"> ${post.a_nombre} <i style='font-size:1rem; color: #606060' class='fas'>&#xf0dd;</i></p>
+				   <p  class="nombreDetalles"> ${post.a_nombre} </p>
+				   <p>No: ${post.a_contactoNo}</p>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
 				   <p><i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
@@ -53,54 +54,83 @@ function mostarDatos2(){
 		datos2(snapshot.docs)
 	});
 }
-// mostarDatos2();
 var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
 const datos2 = data => {
+	let num = true;
 	if(data.length){
-		let html = '';
+			let html = '';
 		data.forEach(doc => {
 			const datosVisitas = doc.data();
 			const li = `
 			    <li class="lifirebaseVisitas">
-				    <p onclick="mostrarDetalles('lifirebaseVisitas')" class="nombreDetalles"> ${datosVisitas.c_date} <i style='font-size:1rem; color: #606060' class='fas'>&#xf0dd;</i></p>
-                    <p>Visita Número: ${datosVisitas.a_No}</p> 			   
+				    <p class="nombreDetalles"> ${datosVisitas.c_date} </p>
+                    <p>No: ${datosVisitas.a_No}</p> 			   
                     <p>Dimensiones: ${datosVisitas.dimensiones}</p> 			   
 			   </li>
 			`;
 			html += li;
 		});
 	    datosfirebaseVisitas.innerHTML = html;
-	} else {
+		}
+	 else {
 		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
 	}
 }
 
 // Dinamicas de los datos en pantalla
 var detallesToggle = true;
-function mostrarDetalles(ventana){
-	var elementos = document.querySelectorAll(`.${ventana} p`);
-	var nombreDetalles = document.querySelectorAll('.nombreDetalles');
-	if(detallesToggle){
-	for( var i = 0; i < elementos.length; i++){
-	   elementos[i].style.display = 'block';		
-	}
-	for( var i = 0; i < nombreDetalles.length; i++){
-	   nombreDetalles[i].style.display = 'flex';
-	   nombreDetalles[i].style.color = '#00ff00';
+function mostrarDetalles(ventana, item, filtroD){
+	var i, elementos, nombreDetalles, filtro, Contelementos;
+	elementos = document.querySelectorAll(`.${ventana} p`);
+	Contelementos = document.querySelectorAll(`.${item} .listaContacto .${ventana}`);
+	ContelementosP = document.querySelectorAll(`.${item} .listaContacto .${ventana} p`);
+	nombreDetalles = document.querySelectorAll('.nombreDetalles');
+	
+	if(filtroD === 'tres'){
+		for(i = 0; i < Contelementos.length; i++){
+			Contelementos[i].style.display = 'none';
+			Contelementos[i].style.flexDirection = 'column';
+		}
+		Contelementos[Contelementos.length - 3].style.display = 'flex';
+		Contelementos[Contelementos.length - 2].style.display = 'flex';
+		Contelementos[Contelementos.length - 1].style.display = 'flex';
+		for(i = 0; i < ContelementosP.length; i++){
+			ContelementosP[i].style.display = 'block';
+		}
+	    for( var i = 0; i < nombreDetalles.length; i++){
+	        nombreDetalles[i].style.display = 'flex';
+	        nombreDetalles[i].style.color = '#00ff00';
+	    }
 	}
 	
-	detallesToggle = false;
-	}else{
-	for( var i = 0; i < elementos.length; i++){
-	   elementos[i].style.display = 'none';		
-	}
-	for( var i = 0; i < nombreDetalles.length; i++){
-	   nombreDetalles[i].style.display = 'flex';
-	   nombreDetalles[i].style.color = '#606060';		
-	}
-	elementos[0].style.display = 'flex';
-	detallesToggle = true;
+	else{
+		for(i = 0; i < Contelementos.length; i++){
+			Contelementos[i].style.display = 'flex';
+			Contelementos[i].style.flexDirection = 'column';
+		}
+		if(detallesToggle){
+	    for( var i = 0; i < elementos.length; i++){
+	       elementos[i].style.display = 'block';		
+	    }
+	    for( var i = 0; i < nombreDetalles.length; i++){
+	        nombreDetalles[i].style.display = 'flex';
+	        nombreDetalles[i].style.color = '#00ff00';
+	    }
+	
+	        detallesToggle = false;
+	    } 
+	    else{
+	       for( var i = 0; i < elementos.length; i++){
+	       elementos[i].style.display = 'none';		
+	     }
+	    for( var i = 0; i < nombreDetalles.length; i++){
+	        nombreDetalles[i].style.display = 'flex';
+	        nombreDetalles[i].style.color = '#606060';		
+	    }
+	    elementos[0].style.display = 'flex';
+	    detallesToggle = true;
 		
+	    }
 	}
 }
 function totalContactos(){
@@ -122,11 +152,47 @@ function totalContactos(){
 	});
 	
 	// Nuevo visitante
-	setTimeout(function(){
+	// setTimeout(function(){
+	// var numerototalvisitas = document.getElementById('totalVisitas');
+	// let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
+	// let NumeroVisita = contadorVisitas + ' View';
+	// let f = new Date();
+	// let NombreFecha = f+contadorVisitas;
+	// let formatoFecha = f.toLocaleDateString();
+	// let formatoHora = f.toLocaleTimeString();
+	// let fechaCompleta = formatoFecha +', ' + formatoHora;
+	// let width = screen.width;
+	// let height = screen.height;
+	// if(width === 360 || width === 1440){
+			// let paila = 'paila';
+	// }else{
+	    // Visitante.doc(NombreFecha).set({
+			// a_No : contadorVisitas,
+			// b_fecha : f,
+			// c_date : fechaCompleta,
+			// dimensiones : [width , height]
+		// })
+		// .then(function(){
+			// console.log('guardada ');
+		// })
+		// .catch(function(error){
+			// console.log(error);
+		// });
+		
+		// contar el número de personas que visitan la pagina...
+	    // NumeroVisitante.update({
+		    // Total : firebase.firestore.FieldValue.increment(1)
+	    // });
+	    // }
+	// }, 5000);
+}
+totalContactos();
+setTimeout(function(){
 	var numerototalvisitas = document.getElementById('totalVisitas');
 	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
 	let NumeroVisita = contadorVisitas + ' View';
 	let f = new Date();
+	let NombreFecha = f+contadorVisitas;
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
 	let fechaCompleta = formatoFecha +', ' + formatoHora;
@@ -135,7 +201,7 @@ function totalContactos(){
 	if(width === 360 || width === 1440){
 			let paila = 'paila';
 	}else{
-	    Visitante.doc(NumeroVisita).set({
+	    Visitante.doc(NombreFecha).set({
 			a_No : contadorVisitas,
 			b_fecha : f,
 			c_date : fechaCompleta,
@@ -153,9 +219,7 @@ function totalContactos(){
 		    // Total : firebase.firestore.FieldValue.increment(1)
 	    // });
 	    }
-	}, 5000);
-}
-totalContactos();
+},5000);
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
 var telefono = document.getElementById('telefono');
@@ -180,6 +244,8 @@ formulario.addEventListener('submit', function(evt){
 	let usuarioNumero = contactoNumero + nombreUsuario;
 	//acomodando los formatos
 	let f = new Date();
+	
+	let NombreFecha = f+nombreUsuario;
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
 	let fechaCompleta = formatoFecha +', ' + formatoHora;
@@ -202,8 +268,9 @@ formulario.addEventListener('submit', function(evt){
 		nombre.style.border = 'none';
 	}
 	else{	
-	    contacto.doc(usuarioNumero).set({
+	    contacto.doc(NombreFecha).set({
 			a_nombre : nombreUsuario,
+			a_contactoNo : contactoNumero,
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
@@ -251,44 +318,7 @@ formulario.addEventListener('submit', function(evt){
 	}
 		
 });
-	   
 
-function nuevoVisitante(){
-	//acomodando los formatos
-	var numerototalvisitas = document.getElementById('totalVisitas');
-	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
-	console.log(contadorVisitas);
-	let NumeroVisita = contadorVisitas + ' View';
-	console.log(NumeroVisita);
-	let f = new Date();
-	let formatoFecha = f.toLocaleDateString();
-	let formatoHora = f.toLocaleTimeString();
-	let fechaCompleta = formatoFecha +', ' + formatoHora;
-	let width = screen.width;
-	let height = screen.height;
-	if(width === 360 || width === 1440){
-			console.log('welcome Ed');
-	}else{
-	    Visitante.doc(NumeroVisita).set({
-			a_No : contadorVisitas,
-			b_fecha : f,
-			c_date : fechaCompleta,
-			dimensiones : [width , height]
-		})
-		.then(function(){
-			console.log('guardada ');
-		})
-		.catch(function(error){
-			console.log(error);
-		});
-		
-		// contar el número de personas que visitan la pagina...
-	    NumeroVisitante.update({
-		    Total : firebase.firestore.FieldValue.increment(1)
-	    });
-	}
-}
-// nuevoVisitante();
 
 
 //*******agregando coleccion desde cero

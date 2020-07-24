@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="admin.css">
 	<link href='https://fonts.googleapis.com/css?family=Della Respira' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body >
     <header id="header">
@@ -120,7 +121,7 @@
 						   </a>
 				        <button class="botones" onclick="location.reload()">Cerrar Sesión</button>
 					</div>
-			        <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navInicio')" >Admin</button>
+			        <!-- <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navInicio')" >Admin</button> -->
 			</div>	
 				
 		</nav>
@@ -300,17 +301,18 @@
 	<!--Efecto Book-->
 	<section id="Admin" class="ventanas" >
 	    <div class="ContenedorAdmin">
-            <div class="itemAdmin">		
+            <div class="itemAdmin itemUsuarios">		
                 <div class="headerAdmin">
-				    <div>
-				        <label for="totalContactosbutton" style="color: #909090;">Total:</label>
-				        <input class="totales" id="totalContactosbutton"type="text" >
-		            </div>
                     <div>
 					    <h6 class="titulosAdmin">Contacto</h6>	
 					</div>
-					<div class="refrescar" onclick="mostrarDatos(); totalContactos()">
-      				    <i class='fas'>&#xf2ea;</i>
+					<div class="refrescar" >
+      				    <i onclick="mostrarDatos(); totalContactos()" class='fas'>&#xf381;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
+				        
+						<label for="totalContactosbutton" style="color: #909090;">Total:</label>
+				        <input class="totales" id="totalContactosbutton"type="text" >						
 					</div>
 			    </div>				
 		        <ul class="listaContacto"id="datosfirebase">
@@ -318,17 +320,18 @@
 			</div>	
 			<div class="itemAdmin">
             </div>			
-			<div class="itemAdmin">	
+			<div class="itemAdmin itemVisitas">	
                 <div class="headerAdmin">
-				    <div>
-				        <label for="totalVisitas" style="color: #909090;">Total:</label>
-				        <input class="totales" id="totalVisitas"type="text" >
-		            </div>
                     <div>	
                         <h6 class="titulosAdmin">Visitas</h6>
 					</div>
-					<div class="refrescar" onclick="mostarDatos2(); totalContactos()">
-      				    <i class='fas'>&#xf2ea;</i>
+					<div class="refrescar" >
+      				    <i onclick="mostarDatos2(); totalContactos()"class='fas'>&#xf381;</i>
+						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'normal')"class='fas'>&#xf884;</i>
+						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'tres')" class="material-icons">&#xe3d2;</i>
+				        
+						<label for="totalVisitas" style="color: #909090;">Total:</label>
+				        <input class="totales" id="totalVisitas"type="text" >
 					</div>
 			    </div>			
 		        <ul class="listaContacto"id="datosfirebaseVisitas">
