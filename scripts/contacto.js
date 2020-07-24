@@ -192,6 +192,8 @@ setTimeout(function(){
 	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
 	let NumeroVisita = contadorVisitas + ' View';
 	let f = new Date();
+	let fS = f.toString();
+	console.log(fS);
 	let NombreFecha = f+contadorVisitas;
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
@@ -204,7 +206,8 @@ setTimeout(function(){
 	    Visitante.doc(NombreFecha).set({
 			a_No : contadorVisitas,
 			b_fecha : f,
-			c_date : fechaCompleta,
+			// c_date : fechaCompleta,
+			c_date : fS,
 			dimensiones : [width , height]
 		})
 		.then(function(){
@@ -219,7 +222,7 @@ setTimeout(function(){
 		    // Total : firebase.firestore.FieldValue.increment(1)
 	    // });
 	    }
-},5000);
+},8000);
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
 var telefono = document.getElementById('telefono');
@@ -244,7 +247,7 @@ formulario.addEventListener('submit', function(evt){
 	let usuarioNumero = contactoNumero + nombreUsuario;
 	//acomodando los formatos
 	let f = new Date();
-	
+	let fS = f.toString();
 	let NombreFecha = f+nombreUsuario;
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
@@ -274,7 +277,8 @@ formulario.addEventListener('submit', function(evt){
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
-			e_date : fechaCompleta,
+			// e_date : fechaCompleta,
+			e_date : fS,
 			e_fechaMensaje : f,
 		    f_Dimensiones :[width, height],
 		})
