@@ -14,9 +14,8 @@ var Visitante = db.collection('Visitante');
 var NumeroVisitante = db.collection('Visitante').doc('Total_Visitantes');
 
 
-// consultando el formulario de contacto desde firebase
+// Extrayendo los contactos
 function mostrarDatos(){
-	alert('click');
 db.collection('Contacto')
     .get()
 	.then((snapshot) => {
@@ -30,22 +29,78 @@ const datos = data => {
 		data.forEach(doc => {
 			const post = doc.data();
 			const li = `
-			<div class="afterList">
 			    <li class="lifirebase">
-				   <p>Nombre: <span class="resaltar">${post.a_nombre}</span></p>
+				   <p onclick="mostrarDetalles('lifirebase')" class="nombreDetalles"> ${post.a_nombre} <i style='font-size:1rem; color: #606060' class='fas'>&#xf0dd;</i></p>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
-				   <p>Fecha: ${post.e_date}</p>
-				   <p>Mensaje:<br />${post.d_mensaje}</p>
-			   </li>
-			</div>   
+				   <p><i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
+				   <p><i style='font-size:1rem' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
+			   </li>  
 			`;
 			html += li;
 		});
 		datosfirebase.innerHTML = html;	
 	}
 	else {
-		datosfirebase.innerHTML = '<p>No existe nada</p>'; 
+		datosfirebase.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
+	}
+}
+// extrayendo el número de visitas
+function mostarDatos2(){
+	db.collection('Visitante')
+	.get()
+	.then((snapshot) =>{
+		datos2(snapshot.docs)
+	});
+}
+// mostarDatos2();
+var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
+const datos2 = data => {
+	if(data.length){
+		let html = '';
+		data.forEach(doc => {
+			const datosVisitas = doc.data();
+			const li = `
+			    <li class="lifirebaseVisitas">
+				    <p onclick="mostrarDetalles('lifirebaseVisitas')" class="nombreDetalles"> ${datosVisitas.c_date} <i style='font-size:1rem; color: #606060' class='fas'>&#xf0dd;</i></p>
+                    <p>Visita Número: ${datosVisitas.a_No}</p> 			   
+                    <p>Dimensiones: ${datosVisitas.dimensiones}</p> 			   
+			   </li>
+			`;
+			html += li;
+		});
+	    datosfirebaseVisitas.innerHTML = html;
+	} else {
+		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
+	}
+}
+
+// Dinamicas de los datos en pantalla
+var detallesToggle = true;
+function mostrarDetalles(ventana){
+	var elementos = document.querySelectorAll(`.${ventana} p`);
+	var nombreDetalles = document.querySelectorAll('.nombreDetalles');
+	if(detallesToggle){
+	for( var i = 0; i < elementos.length; i++){
+	   elementos[i].style.display = 'block';		
+	}
+	for( var i = 0; i < nombreDetalles.length; i++){
+	   nombreDetalles[i].style.display = 'flex';
+	   nombreDetalles[i].style.color = '#00ff00';
+	}
+	
+	detallesToggle = false;
+	}else{
+	for( var i = 0; i < elementos.length; i++){
+	   elementos[i].style.display = 'none';		
+	}
+	for( var i = 0; i < nombreDetalles.length; i++){
+	   nombreDetalles[i].style.display = 'flex';
+	   nombreDetalles[i].style.color = '#606060';		
+	}
+	elementos[0].style.display = 'flex';
+	detallesToggle = true;
+		
 	}
 }
 function totalContactos(){
@@ -65,6 +120,40 @@ function totalContactos(){
 		let datosVisitantesTotal = datosVisitantes.length;
 		document.getElementById('totalVisitas').value = datosVisitantesTotal;
 	});
+	
+	// Nuevo visitante
+	setTimeout(function(){
+	var numerototalvisitas = document.getElementById('totalVisitas');
+	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
+	let NumeroVisita = contadorVisitas + ' View';
+	let f = new Date();
+	let formatoFecha = f.toLocaleDateString();
+	let formatoHora = f.toLocaleTimeString();
+	let fechaCompleta = formatoFecha +', ' + formatoHora;
+	let width = screen.width;
+	let height = screen.height;
+	if(width === 360 || width === 1440){
+			let paila = 'paila';
+	}else{
+	    Visitante.doc(NumeroVisita).set({
+			a_No : contadorVisitas,
+			b_fecha : f,
+			c_date : fechaCompleta,
+			dimensiones : [width , height]
+		})
+		.then(function(){
+			console.log('guardada ');
+		})
+		.catch(function(error){
+			console.log(error);
+		});
+		
+		// contar el número de personas que visitan la pagina...
+	    // NumeroVisitante.update({
+		    // Total : firebase.firestore.FieldValue.increment(1)
+	    // });
+	    }
+	}, 5000);
 }
 totalContactos();
 //accediendo a los elementos del formulario
@@ -81,7 +170,6 @@ var contator = document.getElementById('totalContactosbutton');
 formulario.addEventListener('submit', function(evt){
 	evt.preventDefault();	
 	let nombreUsuario = nombre.value;
-	console.log(nombreUsuario);
 	let telefonoUsuario = telefono.value;
 	let emailUsuario = email.value;
 	let mensajeUsuario = mensaje.value;
@@ -90,7 +178,6 @@ formulario.addEventListener('submit', function(evt){
 	// para ordenar la lista en la base
 	let contactoNumero = parseInt(contator.value) + 1;
 	let usuarioNumero = contactoNumero + nombreUsuario;
-	console.log('usuario numero: ' + usuarioNumero);
 	//acomodando los formatos
 	let f = new Date();
 	let formatoFecha = f.toLocaleDateString();
@@ -168,6 +255,11 @@ formulario.addEventListener('submit', function(evt){
 
 function nuevoVisitante(){
 	//acomodando los formatos
+	var numerototalvisitas = document.getElementById('totalVisitas');
+	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
+	console.log(contadorVisitas);
+	let NumeroVisita = contadorVisitas + ' View';
+	console.log(NumeroVisita);
 	let f = new Date();
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
@@ -177,9 +269,10 @@ function nuevoVisitante(){
 	if(width === 360 || width === 1440){
 			console.log('welcome Ed');
 	}else{
-	    Visitante.doc().set({
-			a_fecha : f,
-			a_date : fechaCompleta,
+	    Visitante.doc(NumeroVisita).set({
+			a_No : contadorVisitas,
+			b_fecha : f,
+			c_date : fechaCompleta,
 			dimensiones : [width , height]
 		})
 		.then(function(){
@@ -195,7 +288,7 @@ function nuevoVisitante(){
 	    });
 	}
 }
-
+// nuevoVisitante();
 
 
 //*******agregando coleccion desde cero

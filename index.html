@@ -15,7 +15,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Della Respira' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body onload="nuevoVisitante()">
+<body >
     <header id="header">
 	    <div class="slider" id="imgSlider" >
 	        <div class="imgagenesSlider">
@@ -120,7 +120,7 @@
 						   </a>
 				        <button class="botones" onclick="location.reload()">Cerrar Sesión</button>
 					</div>
-			        <!-- <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navInicio')" >Admin</button> -->
+			        <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navInicio')" >Admin</button>
 			</div>	
 				
 		</nav>
@@ -327,10 +327,12 @@
                     <div>	
                         <h6 class="titulosAdmin">Visitas</h6>
 					</div>
-					<div class="refrescar" onclick="mostrarDatos(); totalContactos()">
+					<div class="refrescar" onclick="mostarDatos2(); totalContactos()">
       				    <i class='fas'>&#xf2ea;</i>
 					</div>
-			    </div>
+			    </div>			
+		        <ul class="listaContacto"id="datosfirebaseVisitas">
+	            </ul>
             </div>
 		</div>
 	</section>

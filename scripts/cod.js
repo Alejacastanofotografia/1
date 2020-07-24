@@ -52,9 +52,9 @@ function navegacion(evt, ventana, header, activeLink){
 	}
 }
 document.getElementById('defaultClick').click();
-// setTimeout(function(){
-	// document.getElementById('buttonAdmin').click();
-// }, 100);
+setTimeout(function(){
+	document.getElementById('buttonAdmin').click();
+}, 100);
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
