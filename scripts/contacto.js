@@ -15,6 +15,24 @@ var Visitante = db.collection('Visitante');
 
 
 // Extrayendo los contactos
+function totalContactos(){
+	// total contactos
+	db.collection('Contacto')
+	.get()
+	.then((snapshot) => {
+		let datos = snapshot.docs;
+		let datosTotal = datos.length;
+		document.getElementById('totalContactosbutton').value = datosTotal;
+	});
+	// Total visitas
+	db.collection('Visitante')
+	.get()
+	.then((snapshot) =>{
+		let datosVisitantes = snapshot.docs;
+		let datosVisitantesTotal = datosVisitantes.length;
+		document.getElementById('totalVisitas').value = datosVisitantesTotal;
+	});
+}
 function mostrarDatos(){
 db.collection('Contacto')
     .get()
@@ -133,85 +151,42 @@ function mostrarDetalles(ventana, item, filtroD){
 	    }
 	}
 }
-function totalContactos(){
-	// total contactos
-	db.collection('Contacto')
+
+var totalVisi;
+var totalVisi1;
+function visitas(){
+	
+	// consultando el total de visitas
+	db.collection('Visitante')
 	.get()
 	.then((snapshot) => {
 		let datos = snapshot.docs;
 		let datosTotal = datos.length;
-		document.getElementById('totalContactosbutton').value = datosTotal;
+		 totalVisi1 = datosTotal;
+		 totalVisi = totalVisi1 +1;
 	});
-	// Total visitas
-	db.collection('Visitante')
-	.get()
-	.then((snapshot) =>{
-		let datosVisitantes = snapshot.docs;
-		let datosVisitantesTotal = datosVisitantes.length;
-		document.getElementById('totalVisitas').value = datosVisitantesTotal;
-	});
-	
-	// Nuevo visitante
-	// setTimeout(function(){
-	// var numerototalvisitas = document.getElementById('totalVisitas');
-	// let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
-	// let NumeroVisita = contadorVisitas + ' View';
-	// let f = new Date();
-	// let NombreFecha = f+contadorVisitas;
-	// let formatoFecha = f.toLocaleDateString();
-	// let formatoHora = f.toLocaleTimeString();
-	// let fechaCompleta = formatoFecha +', ' + formatoHora;
-	// let width = screen.width;
-	// let height = screen.height;
-	// if(width === 360 || width === 1440){
-			// let paila = 'paila';
-	// }else{
-	    // Visitante.doc(NombreFecha).set({
-			// a_No : contadorVisitas,
-			// b_fecha : f,
-			// c_date : fechaCompleta,
-			// dimensiones : [width , height]
-		// })
-		// .then(function(){
-			// console.log('guardada ');
-		// })
-		// .catch(function(error){
-			// console.log(error);
-		// });
-		
-		// contar el número de personas que visitan la pagina...
-	    // NumeroVisitante.update({
-		    // Total : firebase.firestore.FieldValue.increment(1)
-	    // });
-	    // }
-	// }, 5000);
-}
-totalContactos();
-setTimeout(function(){
-	var numerototalvisitas = document.getElementById('totalVisitas');
-	let contadorVisitas = parseInt(numerototalvisitas.value) + 1;
-	let NumeroVisita = contadorVisitas + ' View';
 	let f = new Date();
 	let fS = f.toString();
-	console.log(fS);
-	let NombreFecha = f+contadorVisitas;
+	
 	let formatoFecha = f.toLocaleDateString();
 	let formatoHora = f.toLocaleTimeString();
 	let fechaCompleta = formatoFecha +', ' + formatoHora;
 	let width = screen.width;
 	let height = screen.height;
+	
+	setTimeout(function(){
+	let NombreFecha = f+totalVisi;	
 	if(width === 360 || width === 1440){
-			let paila = 'paila';
+			console.log('paila');
 	}else{
 	    Visitante.doc(NombreFecha).set({
-			a_No : contadorVisitas,
+			a_No : totalVisi,
 			b_fecha : f,
-			// c_date : fechaCompleta,
 			c_date : fS,
 			dimensiones : [width , height]
 		})
 		.then(function(){
-			console.log('guardada ');
+			console.log('Thanks');
 		})
 		.catch(function(error){
 			console.log(error);
@@ -222,7 +197,8 @@ setTimeout(function(){
 		    // Total : firebase.firestore.FieldValue.increment(1)
 	    // });
 	    }
-},8000);
+	},3000);
+}
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
 var telefono = document.getElementById('telefono');
@@ -233,26 +209,32 @@ var formulario = document.getElementById('formularioContacto');
 var mensajeError = document.getElementById('mensajesFormulario');
 var mensajeErrorGrave = document.getElementById('mensajesFormularioGrave');
 var mensajeErrorExitoso = document.getElementById('mensajeExitoso');
-var contator = document.getElementById('totalContactosbutton');
+var contactoNumero;
 formulario.addEventListener('submit', function(evt){
-	evt.preventDefault();	
+	
+	evt.preventDefault();
+	
+	db.collection('Contacto')
+	.get()
+	.then((snapshot) => {
+		let datos = snapshot.docs;
+		let datosTotal = datos.length;
+		 totalVisi1 = datosTotal;
+		 totalVisi = totalVisi1 +1;
+	});	
 	let nombreUsuario = nombre.value;
 	let telefonoUsuario = telefono.value;
 	let emailUsuario = email.value;
 	let mensajeUsuario = mensaje.value;
 	let width = screen.width;
 	let height = screen.height;
-	// para ordenar la lista en la base
-	let contactoNumero = parseInt(contator.value) + 1;
-	let usuarioNumero = contactoNumero + nombreUsuario;
 	//acomodando los formatos
 	let f = new Date();
 	let fS = f.toString();
 	let NombreFecha = f+nombreUsuario;
-	let formatoFecha = f.toLocaleDateString();
-	let formatoHora = f.toLocaleTimeString();
-	let fechaCompleta = formatoFecha +', ' + formatoHora;
 	// validar datos del formulario
+	setTimeout(function(){
+	   contactoNumero = totalVisi; 
 	if(nombreUsuario === null || nombreUsuario === ''){
 		mensajeError.classList.add('error');
 		mensajeError.innerHTML = '¡Ups! El campo "Nombre" es requerido.';
@@ -277,7 +259,6 @@ formulario.addEventListener('submit', function(evt){
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
-			// e_date : fechaCompleta,
 			e_date : fS,
 			e_fechaMensaje : f,
 		    f_Dimensiones :[width, height],
@@ -320,6 +301,7 @@ formulario.addEventListener('submit', function(evt){
 		mensajeErrorGrave.style.display = 'none';
 	    }, 8000);
 	}
+	},1000);
 		
 });
 
