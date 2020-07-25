@@ -108,7 +108,7 @@
 				              Inicia sesión para visualizar tus fotografías y descargarlas.
 				            </p>
 					    <input type="text"  placeholder="Usuario" id="usuario">
-					    <input type="password"  placeholder="Documento de identidad" id="documento">
+					    <input type="password"  placeholder="Contraseña" id="documento">
 						<button class="botones">Iniciar</button>
 				        <p id="mensajesFormularioLogin"></p>
 				    </form>
@@ -121,7 +121,7 @@
 						   </a>
 				        <button class="botones" onclick="location.reload()">Cerrar Sesión</button>
 					</div>
-			        <!-- <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navInicio')" >Admin</button> -->
+			        <button id="buttonAdmin"class="botones" onclick="navegacion(event, 'Admin', 'noHead', 'navSesiones')" >Admin</button>
 			</div>	
 				
 		</nav>
@@ -307,7 +307,7 @@
 					    <h6 class="titulosAdmin">Contacto</h6>	
 					</div>
 					<div class="refrescar" >
-      				    <i onclick="mostrarDatos(); totalContactos()" class='fas'>&#xf381;</i>
+      				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
 						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
 						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
 				        
@@ -326,7 +326,7 @@
                         <h6 class="titulosAdmin">Visitas</h6>
 					</div>
 					<div class="refrescar" >
-      				    <i onclick="mostarDatos2(); totalContactos()"class='fas'>&#xf381;</i>
+      				    <i onclick="mostarDatos2()"class='fas'>&#xf381;</i>
 						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'normal')"class='fas'>&#xf884;</i>
 						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'tres')" class="material-icons">&#xe3d2;</i>
 				        

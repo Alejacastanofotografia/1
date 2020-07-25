@@ -15,24 +15,6 @@ var Visitante = db.collection('Visitante');
 
 
 // Extrayendo los contactos
-function totalContactos(){
-	// total contactos
-	db.collection('Contacto')
-	.get()
-	.then((snapshot) => {
-		let datos = snapshot.docs;
-		let datosTotal = datos.length;
-		document.getElementById('totalContactosbutton').value = datosTotal;
-	});
-	// Total visitas
-	db.collection('Visitante')
-	.get()
-	.then((snapshot) =>{
-		let datosVisitantes = snapshot.docs;
-		let datosVisitantesTotal = datosVisitantes.length;
-		document.getElementById('totalVisitas').value = datosVisitantesTotal;
-	});
-}
 function mostrarDatos(){
 db.collection('Contacto')
     .get()
@@ -43,6 +25,7 @@ db.collection('Contacto')
 var datosfirebase = document.getElementById('datosfirebase');
 const datos = data => {
 	if(data.length){
+		document.getElementById('totalContactosbutton').value = data.length;
 		let html= '';
 		data.forEach(doc => {
 			const post = doc.data();
@@ -76,12 +59,13 @@ var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
 const datos2 = data => {
 	let num = true;
 	if(data.length){
+		document.getElementById('totalVisitas').value = data.length;
 			let html = '';
 		data.forEach(doc => {
 			const datosVisitas = doc.data();
 			const li = `
 			    <li class="lifirebaseVisitas">
-				    <p class="nombreDetalles"> ${datosVisitas.c_date} </p>
+				    <p class="nombreDetalles2"> ${datosVisitas.c_date} </p>
                     <p>No: ${datosVisitas.a_No}</p> 			   
                     <p>Dimensiones: ${datosVisitas.dimensiones}</p> 			   
 			   </li>
@@ -98,11 +82,12 @@ const datos2 = data => {
 // Dinamicas de los datos en pantalla
 var detallesToggle = true;
 function mostrarDetalles(ventana, item, filtroD){
-	var i, elementos, nombreDetalles, filtro, Contelementos;
+	var i, elementos, nombreDetalles, nombreDetalles2, filtro, Contelementos;
 	elementos = document.querySelectorAll(`.${ventana} p`);
 	Contelementos = document.querySelectorAll(`.${item} .listaContacto .${ventana}`);
 	ContelementosP = document.querySelectorAll(`.${item} .listaContacto .${ventana} p`);
 	nombreDetalles = document.querySelectorAll('.nombreDetalles');
+	nombreDetalles2 = document.querySelectorAll('.nombreDetalles2');
 	
 	if(filtroD === 'tres'){
 		for(i = 0; i < Contelementos.length; i++){
@@ -115,38 +100,51 @@ function mostrarDetalles(ventana, item, filtroD){
 		for(i = 0; i < ContelementosP.length; i++){
 			ContelementosP[i].style.display = 'block';
 		}
+		if(item ==='itemUsuarios'){
 	    for( var i = 0; i < nombreDetalles.length; i++){
 	        nombreDetalles[i].style.display = 'flex';
 	        nombreDetalles[i].style.color = '#00ff00';
+  	    }}else{
+	    for( var i = 0; i < nombreDetalles2.length; i++){
+	        nombreDetalles2[i].style.display = 'flex';
+		  	nombreDetalles2[i].style.color = '#fff'}
 	    }
 	}
-	
 	else{
 		for(i = 0; i < Contelementos.length; i++){
 			Contelementos[i].style.display = 'flex';
 			Contelementos[i].style.flexDirection = 'column';
 		}
 		if(detallesToggle){
-	    for( var i = 0; i < elementos.length; i++){
-	       elementos[i].style.display = 'block';		
-	    }
+	        for( var i = 0; i < elementos.length; i++){
+	           elementos[i].style.display = 'block';		
+	        }
+		if(item ==='itemUsuarios'){
 	    for( var i = 0; i < nombreDetalles.length; i++){
 	        nombreDetalles[i].style.display = 'flex';
 	        nombreDetalles[i].style.color = '#00ff00';
+  	    }}else{
+	    for( var i = 0; i < nombreDetalles2.length; i++){
+	        nombreDetalles2[i].style.display = 'flex';
+		  	nombreDetalles2[i].style.color = '#00ccff'}
 	    }
 	
 	        detallesToggle = false;
 	    } 
 	    else{
-	       for( var i = 0; i < elementos.length; i++){
-	       elementos[i].style.display = 'none';		
-	     }
+	        for( var i = 0; i < elementos.length; i++){
+	            elementos[i].style.display = 'none';		
+	        }
+		if(item ==='itemUsuarios'){
 	    for( var i = 0; i < nombreDetalles.length; i++){
 	        nombreDetalles[i].style.display = 'flex';
-	        nombreDetalles[i].style.color = '#606060';		
+	        nombreDetalles[i].style.color = '#606060';
+  	    }}else{
+	    for( var i = 0; i < nombreDetalles2.length; i++){
+	        nombreDetalles2[i].style.display = 'flex';
+		  	nombreDetalles2[i].style.color = '#606060'}
 	    }
-	    elementos[0].style.display = 'flex';
-	    detallesToggle = true;
+	        detallesToggle = true;
 		
 	    }
 	}

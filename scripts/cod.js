@@ -1,4 +1,8 @@
 var i;
+// document.getElementById('defaultClick').click();
+setTimeout(function(){
+	document.getElementById('buttonAdmin').click();
+}, 100);
 function preloader(){
     setTimeout(function(){
 		var num = 100;
@@ -50,11 +54,19 @@ function navegacion(evt, ventana, header, activeLink){
         window.addEventListener('scroll', mostrarScroll);
 		
 	}
+	var vent = document.querySelectorAll('.contenedorSliderScroll .items');
+	var headM = document.getElementsByClassName('contenedorSliderScroll');
+	if(ventana === 'Admin'){
+		headM[0].style.background = `var(--main-background-adminHeader)`;
+		headM[0].style.borderBottom = 'none';
+		vent[1].style.display = 'none';	vent[2].style.display = 'none';	vent[3].style.display = 'none';	vent[4].style.display = 'none';
+	} else{
+		headM[0].style.background = `var(--main-backgroundmenuHeader)`;
+		headM[0].style.borderBottom = '1px solid #202020';
+		vent[1].style.display = 'block';	vent[2].style.display = 'block';	vent[3].style.display = 'block';	vent[4].style.display = 'block';
+	}
 }
-document.getElementById('defaultClick').click();
-// setTimeout(function(){
-	// document.getElementById('buttonAdmin').click();
-// }, 100);
+
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
@@ -517,6 +529,15 @@ login.addEventListener('submit', function(evt){
 			alejandraSesion[i].style.display = 'flex';
 		}
 	    loginExitoso(nombre, mensaje);		
+	}
+	else if(documentoUsuario === 'Aleja2020'){
+            document.getElementsByClassName('menuLogout')[0].style.display = 'block';
+			login.style.display = 'none';
+            nombreUsuario.innerHTML = 	'Administrador';	
+			nombreUsuariomenu[0].style.display = 'flex';
+			nombreUsuariomenuInner.innerHTML = 'Administrador';	
+            document.getElementById('buttonAdmin').style.display = 'block';			
+            document.getElementsByClassName('enlaceDescargar')[0].style.display = 'none';			
 	}
 	else{
 	    colorMensajeError();
