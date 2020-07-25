@@ -39,7 +39,6 @@
 	position: relative;
 	padding: .5rem;
 	background: #080808;
-	width: 95%;
 	border-radius: .6rem;
 	width: 90%;
 	padding: .3rem;
@@ -52,15 +51,24 @@
 	/* margin: .3rem 0; */
 	/* border-radius: .9rem; */
 /* } */
+.lifirebase input {
+	background: none;
+	outline: none;
+	border: none;
+	color: var(--main-color-adminHeader);
+	font-size: 1rem;
+	padding: .2rem 0;
+	cursor: pointer;
+	width: 100%;
+	z-index: 5;
+}
 .lifirebase p, .lifirebaseVisitas p{
 	color: var(--main-color-adminHeader);
 	font-size: 1rem;
 	line-height: 1.2rem;
 	padding: .2rem 0;
 }
-.lifirebase p:nth-child(1), .lifirebaseVisitas p:nth-child(1){
-	color: #;
-}
+
 .lifirebase p:nth-child(5){
 	color: #00ccff;
 }
@@ -71,13 +79,14 @@
 	text-align: center;
 	background: #121212;
 }
+.lifirebase p, .lifirebaseVisitas p{
+	display: none;
+}
 .lifirebase .nombreDetalles, .lifirebaseVisitas .nombreDetalles2{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-.lifirebase p, .lifirebaseVisitas p{
-	display: none;
+	width: 100%;
 }
 .totales {
 	color: #00ff00;
@@ -100,6 +109,20 @@
 	transition: .5s;
 	border-left: 1px solid #000;
 }.refrescar i:hover{color: #00ff00}
+.refrescar i:nth-child(4):hover{
+	color: #ff0000;
+}
+.lifirebase button{
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	color: #ff0000;
+	border: none;
+	background: none;
+	outline: none;
+	z-index: 1;
+	display: none;
+}
 @media(max-width:950px){
 	.ContenedorAdmin {
 	    padding: 120px 0 0 0;

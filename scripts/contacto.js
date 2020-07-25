@@ -31,12 +31,14 @@ const datos = data => {
 			const post = doc.data();
 			const li = `
 			    <li class="lifirebase">
-				   <p  class="nombreDetalles"> ${post.a_nombre} </p>
+				   
+				   <p  class="nombreDetalles" ><input type="text" value="${post.a_nombre}" onclick="extraer(event)" class="nombreDetalles" ></p>
 				   <p>No: ${post.a_contactoNo}</p>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
 				   <p><i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
 				   <p><i style='font-size:1rem' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
+				   <button class="deleteContacto">Del</button>
 			   </li>  
 			`;
 			html += li;
@@ -55,6 +57,7 @@ function mostarDatos2(){
 		datos2(snapshot.docs)
 	});
 }
+
 var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
 const datos2 = data => {
 	let num = true;
@@ -67,7 +70,7 @@ const datos2 = data => {
 			    <li class="lifirebaseVisitas">
 				    <p class="nombreDetalles2"> ${datosVisitas.c_date} </p>
                     <p>No: ${datosVisitas.a_No}</p> 			   
-                    <p>Dimensiones: ${datosVisitas.dimensiones}</p> 			   
+                    <p>Dimensiones: ${datosVisitas.dimensiones}</p> 	   
 			   </li>
 			`;
 			html += li;
@@ -302,6 +305,65 @@ formulario.addEventListener('submit', function(evt){
 	},1000);
 		
 });
+
+// Elimiar un documento
+var delll = true;
+function showdelete(){
+	var Contelementos = document.querySelectorAll('.deleteContacto');
+	if(delll){
+		for(i = 0; i < Contelementos.length; i++){
+			Contelementos[i].style.display = 'block';
+		}
+		delll= false;
+	}else{
+		for(i = 0; i < Contelementos.length; i++){
+			Contelementos[i].style.display = 'none';
+		}
+		delll= true;
+	}
+		
+	
+}
+function extraer(e){
+	e.currentTarget.style.color = '#ff0000';
+	let v = e.currentTarget.value;
+	console.log(v);
+	alert('seguro quieres eliminar este archivo?, ya no hay vuelta atrás.');
+}
+var idconsulta;
+var paraEliminar;
+function consultarId(){
+db.collection("Visitante").where('c_date', '==', 'Fri Jul 24 2020 21:01:29 GMT-0500 (hora estándar de Colombia)')
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+			idconsulta = doc.id;
+			
+			
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+	setTimeout(function(){
+		
+	let consulta = idconsulta;
+	console.log('este es el Id a eliminar:' + consulta);
+	
+	
+	db.collection('Visitante').doc(consulta)
+	.delete()
+	.then(function(){
+		console.log('eliminado: ' + consulta);
+	})
+	.catch(function(error){
+		console.log(error);
+	});
+	
+	}, 3000);
+}
 
 
 

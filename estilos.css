@@ -1018,7 +1018,7 @@ footer{
     }
 	.contenedorSliderScroll .items:last-child{
 		top: 0;
-	    padding: 0 	.8rem; 
+	    padding: .5rem .4rem; 
 	}
 	.contenedorSliderScroll .items:first-child {
 	position: static;
