@@ -175,6 +175,6 @@ position: relative;
 	    grid-template-columns: 1fr;
     }
 }
-/* #buttonAdmin { */
-	/* display: none; */
-/* } */
+#buttonAdmin {
+	display: none;
+}

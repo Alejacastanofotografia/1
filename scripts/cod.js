@@ -1,8 +1,4 @@
 var i;
-// document.getElementById('defaultClick').click();
-setTimeout(function(){
-	document.getElementById('buttonAdmin').click();
-}, 100);
 function preloader(){
     setTimeout(function(){
 		var num = 100;
@@ -19,7 +15,7 @@ function preloader(){
 		}
     }, 10)
 }
-preloader();
+// preloader();
 
 function navegacion(evt, ventana, header, activeLink){
 	var ventanas = document.getElementsByClassName('ventanas');
@@ -54,19 +50,33 @@ function navegacion(evt, ventana, header, activeLink){
         window.addEventListener('scroll', mostrarScroll);
 		
 	}
-	var vent = document.querySelectorAll('.contenedorSliderScroll .items');
+	
+	var vent = document.querySelectorAll('.contenedorSlider .items');
 	var headM = document.getElementsByClassName('contenedorSliderScroll');
+	var headM1 = document.getElementsByClassName('contenedorSlider');
 	if(ventana === 'Admin'){
-		headM[0].style.background = `var(--main-background-adminHeader)`;
-		headM[0].style.borderBottom = 'none';
-		vent[1].style.display = 'none';	vent[2].style.display = 'none';	vent[3].style.display = 'none';	vent[4].style.display = 'none';
-	} else{
-		headM[0].style.background = `var(--main-backgroundmenuHeader)`;
-		headM[0].style.borderBottom = '1px solid #202020';
+		for(var i = 0; i < headM1.length; i++){
+		headM1[i].style.background = '#101010';
+		headM1[i].style.borderBottom = 'none';
+			
+		}
+		
+		vent[1].style.display = 'none';	vent[2].style.display = 'none';	vent[3].style.display = 'none';	vent[4].style.display = 'none';}
+	else{
+		document.getElementsByClassName('contenedorSliderScroll')[0].style.borderBottom = '1px solid #202020';
 		vent[1].style.display = 'block';	vent[2].style.display = 'block';	vent[3].style.display = 'block';	vent[4].style.display = 'block';
-	}
+	 }
 }
-
+function cambiosAdmin(){
+		
+}
+document.getElementById('defaultClick').click();
+// setTimeout(function(){
+	// document.getElementById('buttonAdmin').click();
+// }, 100);
+// setTimeout(function(){
+	// document.getElementById('navSesiones').click();
+// }, 100);
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("Ventanas2");
@@ -272,7 +282,7 @@ function playfotos(totalfotos, cambiar){
         }
    automatico = setInterval(cambiarSola, 2500);
   
-   function cambiarSola(){
+      function cambiarSola(){
        if( num == total){
 	      clearInterval(automatico);
 		  activecambiar =  document.getElementsByClassName('cambiarsola2');
@@ -483,7 +493,7 @@ function abrirMenuLogin(){
 		cerrar = false;
 	}
 	else{
-		menuLogin[0].style.top = '-100%';
+		menuLogin[0].style.top = '-150%';
 		cerrar = true;
 	}
 }
@@ -493,84 +503,98 @@ var documento= document.getElementById('documento');
 var login = document.getElementById('formularioLogin');
 var nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
 var nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
+
+
+var	nombreUsuario = document.getElementsByClassName('nameUser');
 var mensaje;
 var nombre;
 login.addEventListener('submit', function(evt){
 	evt.preventDefault();
+	// formulario
 	var documentoUsuario = documento.value;
-	var nombreUsuario = usuario.value;
+	var usuarioLogin = usuario.value;
+	// mensajes
 	var mensajeError = document.getElementById('mensajesFormularioLogin');
 	var mensajeExitoso = document.getElementById('mensajeBienvenida');
-	var nombreUsuario = document.getElementById('nombreUsuario');
+	var nombreUsuarioTitulo = document.getElementById('nombreUsuarioTitulo');
 		mensajeError.style.display = "block";
 		mensajeExitoso.style.display = "block";
 	
-	if(documentoUsuario === '1'){
-		nombre = 'Violeta Golosa';
-		mensaje ='Bienvenida Violeta Golosa, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
-		let violetaSesion= document.getElementsByClassName('violetaSesion');
-		for(i = 0 ; i < violetaSesion.length; i++){
-			violetaSesion[i].click();
-			violetaSesion[i].style.display = 'flex';
-		}
-		loginExitoso(nombre, mensaje);		
+	if(documentoUsuario === '1' & usuarioLogin ==='1'){
+		nombre = ['Violeta', 'Violeta Golosa',  '10'];
+		loginExitoso(nombre);		
 	}
-	else if(documentoUsuario === '2'){
-		nombre = 'Gaby Lalaa';
-		mensaje ='Bienvenida Gaby Lalaa, tus fotografías se encuentran publicadas en la pestaña sesiones/Retratos';
-		loginExitoso(nombre, mensaje);		
+	else if(documentoUsuario === '2'& usuarioLogin ==='2'){
+		nombre = ['Gaby', 'Gaby Yurfary','11'];
+		loginExitoso(nombre);		
 	}
-	else if(documentoUsuario === '123456'){
-		nombre = 'Alejandra Castaño';
-		mensaje ='Bienvenida Alejandra Castaño, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos';
-		let alejandraSesion= document.getElementsByClassName('alejandraSesion');
-		for(i = 0 ; i < alejandraSesion.length; i++){
-			alejandraSesion[i].click();
-			alejandraSesion[i].style.display = 'flex';
-		}
-	    loginExitoso(nombre, mensaje);		
+	else if(documentoUsuario === '123456'& usuarioLogin ==='123456'){
+		nombre = ['Alejandra','Alejandra Castaño',  '11'];		
+	    loginExitoso(nombre);		
 	}
 	else if(documentoUsuario === 'Aleja2020'){
             document.getElementsByClassName('menuLogout')[0].style.display = 'block';
 			login.style.display = 'none';
-            nombreUsuario.innerHTML = 	'Administrador';	
+            nombreUsuarioTitulo.innerHTML = 	'Administrador';	
 			nombreUsuariomenu[0].style.display = 'flex';
 			nombreUsuariomenuInner.innerHTML = 'Administrador';	
             document.getElementById('buttonAdmin').style.display = 'block';			
             document.getElementsByClassName('enlaceDescargar')[0].style.display = 'none';			
 	}
 	else{
-	    colorMensajeError();
-	    mensajeError.innerHTML = 'El número de documento ingresado no existe en nuestra base de datos, por favor verificalo o contactanos para más información.' ;
+		mensajeError.innerHTML = 'El número de documento ingresado no existe en nuestra base de datos, por favor verificalo o contactanos para más información.' ;
+	    mensajeError.style.background = "#ff0000";	
+        mensajeError.style.color = "#fff";	
+        documento.value = '';	
 	}
-	    function colorMensajeError(){
-            mensajeError.style.background = "#ff0000";	
-           mensajeError.style.color = "#fff";	
-            documento.value = '';		
-	    }
-		
-	    function loginExitoso(nombre, mensaje){
+	function loginExitoso(nombre, mensaje){
+		let userSesion= document.getElementsByClassName('userSesion');
+		    for(i = 0 ; i < userSesion.length; i++){
+			userSesion[i].click();
+			userSesion[i].style.display = 'flex';
+		    }				
+			for(i = 0; i < nombreUsuario.length; i++){nombreUsuario[i].value = nombre[0]}
 			menuGalerias.click();
             document.getElementsByClassName('menuLogout')[0].style.display = 'block';
-			login.style.display = 'none';
+			// login.style.display = 'none';
 			mensajeExitoso.style.display = "none";
 	     	mensajeExitoso.style.display = "block";	
-	     	mensajeExitoso.innerHTML = mensaje;	
-            nombreUsuario.innerHTML = 	nombre;	
+	     	mensajeExitoso.innerHTML = `Hola ${nombre[0]}, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos`;	
+            nombreUsuarioTitulo.innerHTML = nombre[1];	
 			nombreUsuariomenu[0].style.display = 'flex';
-			nombreUsuariomenuInner.innerHTML = nombre;				
+			nombreUsuariomenuInner.innerHTML = nombre[1];
 			
+	        document.getElementById('usuariosTotal').value = `${nombre[2]}`;
             setTimeout(function(){
-		    abrirMenuLogin();
-			},3000);			
-	    }
+		    // abrirMen	uLogin();
+			mostrarGaleriaUser();
+			},1000);			
+	}
 });
 
 
-var plasmarUser = document.getElementById('Usuarioslogeados');
-function mostrarGaleriaUser(){
-	
+function mostrarGaleriaUser(){ 
+	let folderTotal = document.getElementById('usuariosTotal').value;
+	let folderName = document.getElementsByClassName('nameUser')[0].value;
+	let listaFotosUser = document.getElementById('listaFotosUser');
+	// document.getElementById('usuariosTotal').value = `${folderTotal}`;
+	document.getElementById('carpetausuarios').value = `Imagenes/Galerias/usuarios/${folderName}`;
+	let html = '';
+	let html2 = '';
+    for(var i = 1; i <= 10; i++){
+		
+	    const contenedor = `
+	            <li>
+			        <a href="#" onclick="abrirlight('lightusuarios');document.getElementById('imgusuarios').src = 'Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg'">							
+		                <img class="lazyload" data-src="Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg" >
+			        </a>
+		        </li>
+	    `;
+	    html += contenedor;
+    }
+	listaFotosUser.innerHTML = html;
 }
+
 
 
 

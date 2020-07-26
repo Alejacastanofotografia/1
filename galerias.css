@@ -500,7 +500,7 @@ h4 {
 	}
 }
 #contenedorlight, #lightInfantil, #lightFlores, #lightAdulto, #lightBoda,
-#lightAnimales, #lightComunion, #lightPrequinces, #lightQuinces, #lightusuario1, #lightusuario2,#lightPaisajes
+#lightAnimales, #lightComunion, #lightPrequinces, #lightQuinces,#lightusuarios, #lightPaisajes,  #lightusuario1, #lightusuario2
 {
     display: none;
     position: fixed;
@@ -651,9 +651,17 @@ h4 {
 	align-items: center;
 	flex-wrap: wrap;
 }
-.alejandraSesion, .violetaSesion {
+.userSesion{
 	display: none;	
-	justify-content: center;
+	justify-content: center;	
+}
+.nameUser {
+	outline: none;
+	background: none;
+	border: none;
+    font-size: 16px;
+    font-family:FreeMono, monospace;
+	color: #fff;
 }
 .position {
 	animation: transladar 0.5s;

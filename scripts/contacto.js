@@ -28,7 +28,7 @@ const datos = data => {
 	if(data.length){
 		document.getElementById('totalContactosbutton').value = data.length;
 		let html= '';
-		data.forEach(doc => {
+		data.forEach(doc => {	
 			nummm++;
 			const post = doc.data();
 			const li = `

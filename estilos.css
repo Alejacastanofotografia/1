@@ -339,12 +339,10 @@ header {
 		left: 0;
 } 
 .afterContenedores:hover:after {
-		width: 100%;
-		filter: sepia(100%) hue-rotate(90deg);
+		width: 100%; 
 }
 .afterContenedores:hover:before {
 		height: 100%;
-		filter: sepia(100%) hue-rotate(90deg);
 }
 .titulos, .galeriasH {
 	font-size: var(--main-font-sizeTitulos);
@@ -450,10 +448,7 @@ header {
 		left: 0;
 	
 }
-.botones:hover{
-	filter: sepia(100%) hue-rotate(90deg);
-	
-}
+
 #mensajesFormulario,#mensajesFormularioLogin, #mensajeBienvenida{
 	font-size: var(--main-font-sizeParrafos);
 	font-family: var(--main-font-family);
@@ -953,7 +948,6 @@ footer{
 .contenedorSliderScroll .items li:hover:after{
 	left: 0;
 	width: 100%;
-	filter: sepia(100%) hue-rotate(90deg);
 }
 .contenedorSliderScroll .items:first-child, .contenedorSliderScroll .items:last-child {
 	padding: .9rem 0;
