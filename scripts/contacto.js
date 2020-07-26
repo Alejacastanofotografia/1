@@ -382,21 +382,62 @@ function extraer(e){
     }  
 }
 
-
-
-//*******agregando coleccion desde cero
-// db.collection("nombreDeColeccion").add({
-    // first: "Ada",
-    // last: "Lovelace",
-    // born: 1815
-// })
-// .then(function(docRef) {
-    // console.log("Document written with ID: ", docRef.id);
-// })
-// .catch(function(error) {
-    // console.error("Error adding document: ", error);
-// }); 
-
+var loginDeUusarios = db.collection('LoginDeUsuarios');
+function pruebasLogin(){
+	let fecha = new Date().toString();
+	let nameUserShort = 'Dany';
+	let nameUserLong = 'Dany Elionore Zass';
+	let id = 104502369;
+	let totalFotos = 15;
+	loginDeUusarios.doc(nameUserLong)
+	    .set({
+			a_name : nameUserLong,
+            b_folder : nameUserShort,	
+			c_id : id, 
+            d_folderTotal : totalFotos,  
+            e_fecha_creación : fecha,			
+		})
+		.then(function(){
+			console.log('usuario creado con Id: ' + nameUserLong)
+		})
+		.catch(function(error){
+			console.log(error)
+		});
+}
+let IDingresado = 1045024329; 
+function extrayendoDatos(){
+	loginDeUusarios.where('c_id', '==', IDingresado)
+	.get()
+	.then(function(querySnapshot){
+		querySnapshot.forEach(function(doc){
+			console.log(doc.id, '=>', doc.data());
+			let datos = doc.data();
+			let nombre = datos.a_name; 
+			let nombreCarpeta = datos.b_folder; 
+			let id = datos.c_id; 
+			let folderTotal = datos.d_folderTotal;
+            console.log(nombre);			
+            console.log(nombreCarpeta);			
+            console.log(id);			
+            console.log(folderTotal);			
+		});
+	})
+	.catch(function(error){
+		console.log(error)
+	})
+}
+extrayendoDatos();
+// var contacto = db.collection('contactoprueba'); //global
+// contacto.doc('idDocumento').set({
+			// name : 'laila',
+			// age : '20',
+		// })
+		// .then(function(){
+			// console.log('guardada ');
+		// })
+		// .catch(function(error){
+			// console.log(error);
+		// });
 //***** enviado con variable
 // var contacto = db.collection('contactoprueba'); //global
 // contacto.doc().set({
@@ -410,16 +451,16 @@ function extraer(e){
 			// console.log(error);
 		// });
 		
-
+//*******agregando coleccion desde cero
+// db.collection("nombreDeColeccion").add({
+    // first: "Ada",
+    // last: "Lovelace",
+    // born: 1815
+// })
+// .then(function(docRef) {
+    // console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+    // console.error("Error adding document: ", error);
+// }); 
 //******especificando el nombre del id de documento
-// var contacto = db.collection('contactoprueba'); //global
-// contacto.doc('idDocumento').set({
-			// name : 'laila',
-			// age : '20',
-		// })
-		// .then(function(){
-			// console.log('guardada ');
-		// })
-		// .catch(function(error){
-			// console.log(error);
-		// });

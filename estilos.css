@@ -714,8 +714,7 @@ footer{
 }
 .irArriba i{
 	color: #fff;
-	background: var(--main-backgroundMain);
-	background: #900000;
+	background: #400000;
 	font-size: 2rem;
 	padding: 0.5rem 1rem;
 	border-radius: 50%;
