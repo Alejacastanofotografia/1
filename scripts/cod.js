@@ -567,6 +567,10 @@ login.addEventListener('submit', function(evt){
 });
 
 
+var plasmarUser = document.getElementById('Usuarioslogeados');
+function mostrarGaleriaUser(){
+	
+}
 
 
 

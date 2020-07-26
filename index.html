@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<meta 	name="viewport" content="width = device-width, initial-scale = 1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Aleja Castaño Fotografía</title>
 	<link rel="shortcut icon" type="image/x-icon"href="favicon.ico"/>	
@@ -126,12 +126,7 @@
 				
 		</nav>
     </header>
-	<div id="preloader">
-	    <img src="Imagenes/Iconos/loader.png">
-	</div>
-	<div id="irArriba" class="irArriba" onclick="window.scroll(0, 0)">
-        <i class='fas'>&#xf106;</i>
-	</div>
+	
 	<section class="ventanas" id="principal">
 	<div   class="fraseHome">
 	    <p class="frasehomeP">
@@ -299,47 +294,6 @@
 </div>   
 </section>
 	<!--Efecto Book-->
-	<section id="Admin" class="ventanas" >
-	    <div class="ContenedorAdmin">
-            <div class="itemAdmin itemUsuarios">		
-                <div class="headerAdmin">
-                    <div>
-					    <h6 class="titulosAdmin">Contacto</h6>	
-					</div>
-					<div class="refrescar" >
-      				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
-						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
-						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
-				        <i class="material-icons" onclick="showdelete()">&#xe872;</i>
-						
-						<label for="totalContactosbutton" style="color: #909090;">Total:</label>
-				        <input class="totales" id="totalContactosbutton"type="text" >					
-					</div>
-			    </div>				
-		        <ul class="listaContacto"id="datosfirebase">
-	            </ul>
-			</div>	
-			<div class="itemAdmin">
-            </div>			
-			<div class="itemAdmin itemVisitas">	
-                <div class="headerAdmin">
-                    <div>	
-                        <h6 class="titulosAdmin">Visitas</h6>
-					</div>
-					<div class="refrescar" >
-      				    <i onclick="mostarDatos2()"class='fas'>&#xf381;</i>
-						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'normal')"class='fas'>&#xf884;</i>
-						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'tres')" class="material-icons">&#xe3d2;</i>
-				        
-						<label for="totalVisitas" style="color: #909090;">Total:</label>
-				        <input class="totales" id="totalVisitas"type="text" >
-					</div>
-			    </div>			
-		        <ul class="listaContacto"id="datosfirebaseVisitas">
-	            </ul>
-            </div>
-		</div>
-	</section>
 	<section id="Galerias" class="ventanas">
 	    <nav id="menuGalerias">
 		    <div class="menuGaleriasAfter"	>
@@ -357,6 +311,12 @@
 			    <li class="tablinks2 violetaSesion" onclick="cambiarVentana2(event, 'VioletaGolosa')" >
 				    <div class="contenedorMenusUser">
 					    <i  class='fas iconUser'>&#xf2bd;</i>Violeta Golosa
+					</div>	
+				</li>
+				<!-- prueba con js -->
+				<li class="tablinks2 " onclick="cambiarVentana2(event, 'Usuarioslogeados')">
+				    <div class="contenedorMenusUser">
+					    <i  class='fas iconUser'>&#xf2bd;</i>Alejandra Castaño
 					</div>	
 				</li>
 				<!-- sesiones de los usuarios -->
@@ -527,7 +487,6 @@
   
 	<!--*********************************************************************-->
     </section>
-	<!--***************************************************************************************************-->
 	<section id="Prequinces" class="galerias Ventanas2">
 	<article >
 		<div class="contenido">
@@ -638,7 +597,6 @@
 	</div>
 	</article>
 	</section>
-	<!--*****************************************VERTICALES***********************************************************************************-->
 	<section id="boda" class="galerias Ventanas2">
 	<article >
 		<div class="contenido">
@@ -697,8 +655,7 @@
 		    
 	</article>
 	</section>   
-	<!--***************************************************************************************************-->
-    <section id="adulto" class="galerias Ventanas2">
+	<section id="adulto" class="galerias Ventanas2">
 	 <article >
 		<div class="contenido">
 	        <p class="frase" >
@@ -758,7 +715,6 @@
 
 	</article>
 	</section>
-	<!--*****************************************************************-->
 	<section id="Colecciones" class="galerias Ventanas2 ">
 		<article >
 		<div class="contenido">
@@ -908,18 +864,15 @@
 	<section id="AlejandraCastano" class="galerias Ventanas2">
 	<article >
 		<div class="contenido">
-	        <p class="frase" >
-                <span class="classspan writeuser" ></span><span class="maquinaEscribir">|</span>
-		    </p>
 	    </div>
-	<ul class="galeriaUser">
+	<ul class="galeriaV">
 	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/sobreMi/img1.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/sobreMi/img1.jpg" ></a></li>
 	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/sobreMi/img2.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/sobreMi/img2.jpg" ></a></li>
-	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/usuarios/sobreMi/img3.jpg'">							
+	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/sobreMi/img3.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/sobreMi/img3.jpg" ></a></li>
-	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/usuarios/sobreMi/img4.jpg'">							
+	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/sobreMi/img4.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/sobreMi/img4.jpg" ></a></li>
 	    <li><a href="#" onclick="abrirlight('lightusuario1');document.getElementById('imgusuario1').src = 'Imagenes/Galerias/usuarios/sobreMi/img5.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/sobreMi/img5.jpg" ></a></li>
@@ -964,11 +917,11 @@
     <section id="VioletaGolosa" class="galerias Ventanas2">
 	<article >
 		<div class="contenido">
-	        <p class="frase" >
-                <span class="classspan writeuser" ></span><span class="maquinaEscribir">|</span>
-		    </p>
+	        <!-- <p class="frase" > -->
+                <!-- <span class="classspan writeuser" ></span><span class="maquinaEscribir">|</span> -->
+		    <!-- </p> -->
 	    </div>
-	<ul class="galeriaUser">
+	<ul class="galeriaV">
 	    <li><a href="#" onclick="abrirlight('lightusuario2');document.getElementById('imgusuario2').src = 'Imagenes/Galerias/usuarios/VioletaGolosa/img1.jpg'">							
 		                                                                        <img class="imgUsuarios lazyload" data-src="Imagenes/Galerias/usuarios/VioletaGolosa/img1.jpg" ></a></li>
 	    <li><a href="#" onclick="abrirlight('lightusuario2');document.getElementById('imgusuario2').src = 'Imagenes/Galerias/usuarios/VioletaGolosa/img2.jpg'">							
@@ -1017,8 +970,65 @@
 		    
 	</article>
 	</section>   
-   </section>
-   <footer>
+    <section id="Usuarioslogeados" class="galerias Ventanas2">  
+    </section>
+   <div id="preloader">
+	    <img src="Imagenes/Iconos/loader.png">
+	</div>
+	<div id="irArriba" class="irArriba" onclick="window.scroll(0, 0)">
+        <i class='fas'>&#xf106;</i>
+	</div>
+	<section id="Admin" class="ventanas" >
+	    <div class="ContenedorAdmin">
+            <div class="itemAdmin itemUsuarios">		
+                <div class="headerAdmin">
+                    <div>
+					    <h6 class="titulosAdmin">Contacto</h6>	
+					</div>
+					<div class="refrescar" >
+      				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
+				        <i class="material-icons" onclick="showdelete()">&#xe872;</i>
+						
+						<label for="totalContactosbutton" style="color: #909090;"><i class='fas'>&#xf500;</i></label>
+				        <input class="totales" id="totalContactosbutton"type="text" >					
+					</div>
+					<div id="AlertaEliminar">
+					     <p><span>&#9888;</span><br>Se eliminara el archivo de manera pemanente.<br></p>
+						 <p>
+						     <i  class='fas'>&#xf65d;</i>
+						     <input type="button" id="archivoEliminar">
+						 </p>
+						 <button class="botones" onclick="extraer(event)">Continuar</button>
+						 <button class="botones" onclick="showdelete()">Cancelar</button>
+					</div>
+			    </div>				
+		        <ul class="listaContacto"id="datosfirebase">
+	            </ul>
+			</div>	
+			<div class="itemAdmin">
+            </div>			
+			<div class="itemAdmin itemVisitas">	
+                <div class="headerAdmin">
+                    <div>	
+                        <h6 class="titulosAdmin">Visitas</h6>
+					</div>
+					<div class="refrescar" >
+      				    <i onclick="mostarDatos2()"class='fas'>&#xf381;</i>
+						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'normal')"class='fas'>&#xf884;</i>
+						<i onclick="mostrarDetalles('lifirebaseVisitas', 'itemVisitas', 'tres')" class="material-icons">&#xe3d2;</i>
+				        
+						<label for="totalVisitas" style="color: #909090;"><i  class='fas'>&#xf500;</i></label>
+				        <input class="totales" id="totalVisitas"type="text" >
+					</div>
+			    </div>			
+		        <ul class="listaContacto"id="datosfirebaseVisitas">
+	            </ul>
+            </div>
+		</div>
+	</section>
+  <footer>
         <div class="contenedorRedes">
 		   <a  href="https://web.facebook.com/daleja16" target="_blank"><img src="Imagenes/Iconos/facebook.png"></a>
 		   <a  href="https://www.instagram.com/aleja.c_a/?hl=es-la" target="_blank"><img src="Imagenes/Iconos/instagram.png"></a>

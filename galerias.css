@@ -273,7 +273,7 @@ h4 {
 		}
 	}
 
-.galeria {
+.galeria, .galeriaUser {
 	width: 100%;
 	margin: auto;
 	list-style: none;
@@ -282,39 +282,26 @@ h4 {
 	flex-wrap: wrap; /*para que se acomoden en tamaños reducidos*/
 	justify-content: space-around
 }
-.galeria li{
+.galeria li, .galeriaUser li{
 	margin-top: 25px;
 	overflow: hidden;
 }
-.galeria img {
+.galeria img, .galeriaUser img {
 	width: 360px; /*medida global de la imagen*/
 	height: 240px;
 	object-fit: cover;	
 	transition: 1s;
  }
-
-.galeria li:hover img{
-	transform: scale( 1.1);
-}
-
-.galeriaUser {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-}
-.galeriaUser li {
-	overflow: hidden;
-}
-.galeriaUser .imgUsuarios {
-	height: 300px;
-    width: 100%; /*medida global de la imagen*/
+  .galeriaUser img {
+	width: 245px; 
+	height: 350px;
 	object-fit: cover;	
 	transition: 1s;
-}
-.galeriaUser li:hover img{
+ }
+
+.galeria li:hover img, .galeriaUser li:hover img{
 	transform: scale( 1.1);
-}	
+}
 /*ESTILOS AFTER PARA PROTEGER IMAGEN*/
 
 .afterImg {
@@ -354,18 +341,9 @@ h4 {
 	}
 }
 @media(max-width:768px){
-	.galeria img {
+	.galeria img, .galeriaUser img {
 	    width: 280px; /*medida global de la imagen*/
 	    height: 196px;
-	    object-fit: cover;
-	}
-	.galeriaUser {
-	    grid-template-columns: repeat(2, 1fr);
-	    gap: 1rem;
-	 }
-	.galeriaUser .imgUsuarios {
-	    height: 200px;
-        width: 100%; /*medida global de la imagen*/
 	    object-fit: cover;
 	}
 	.new {
@@ -374,8 +352,8 @@ h4 {
 
 	}
 }
-@media (max-width:424px){
-	.galeria img {
+@media (max-width:424px){  
+	.galeria img, .galeriaUser img {
 	    width: 150px; /*medida global de la imagen*/
 	    height: 98px;
 	    object-fit: cover;
@@ -385,15 +363,6 @@ h4 {
 	    width: 145px; /*medida global de la imagen*/
 	    height: 98px;
 	}
-	.galeriaUser {
-	    grid-template-columns: repeat(2, 1fr);
-	    gap: 1rem;
-	}
-	.galeriaUser .imgUsuarios {
-	    height: 120px;
-        width: 100%; /*medida global de la imagen*/
-	    object-fit: cover;	
-    }
 }
 @media (max-width:424px){
 	.new img:nth-child(1),.new img:nth-child(2) {

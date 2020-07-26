@@ -22,6 +22,7 @@
 	padding: 1rem;
 	width: 90%;
 	border-bottom: 2px solid #000;
+	position: relative;
 	
 }
 .titulosAdmin {
@@ -43,6 +44,7 @@
 	width: 90%;
 	padding: .3rem;
 	margin: .3rem 0;
+	display: block;
 }	
 /* .afterList { */
 	/* background: linear-gradient( to bottom right, #080808, #101010); */
@@ -57,16 +59,17 @@
 	border: none;
 	color: var(--main-color-adminHeader);
 	font-size: 1rem;
-	padding: .2rem 0;
+	padding: .3rem .8rem;
 	cursor: pointer;
 	width: 100%;
 	z-index: 5;
+	text-align: center;
 }
 .lifirebase p, .lifirebaseVisitas p{
 	color: var(--main-color-adminHeader);
 	font-size: 1rem;
 	line-height: 1.2rem;
-	padding: .2rem 0;
+	padding: .2rem;
 }
 
 .lifirebase p:nth-child(5){
@@ -92,7 +95,7 @@
 	color: #00ff00;
 	background: none;
 	border: none;
-	outline: none;
+	outline: none;  
 	font-weight: bold;
 	width: 1rem;
 	text-align: center;
@@ -100,7 +103,8 @@
 .refrescar{
 	display: flex;
 	justify-content: center;
-	align-items: center;	
+	align-items: center;
+position: relative;	   
 }
 .refrescar i  {
 	font-size: 1.2rem;
@@ -112,16 +116,57 @@
 .refrescar i:nth-child(4):hover{
 	color: #ff0000;
 }
+#AlertaEliminar {
+	display: none;
+	position: absolute;
+	top: 6rem;
+	left: 3rem;
+	right: 3rem;
+	background: #000;
+	border-radius: 1rem;
+	padding: 1rem;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 100;
+	border: 1px solid #303030;
+}   
+#AlertaEliminar p{
+	color: #fff; 
+	font-size: 1.5rem;
+	text-align: center;
+}
+#AlertaEliminar p span {
+	color: #ff0000;
+	font-weight: bold;
+	padding: .6rem;
+	
+}
+#AlertaEliminar button{
+	padding: .6rem;
+	}
+#AlertaEliminar input {
+	background: none;
+	border: none;
+	outline: none;
+	color: #ff0000;
+}
+#AlertaEliminar p:nth-child(2){
+	color: #ff0000; 
+    padding: .6rem;
+	font-size: 1rem;
+}
 .lifirebase button{
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
+	top: .5rem;
+	right: .5rem;
 	color: #ff0000;
 	border: none;
 	background: none;
 	outline: none;
 	z-index: 1;
 	display: none;
+	font-size: 1.5rem;
 }
 @media(max-width:950px){
 	.ContenedorAdmin {

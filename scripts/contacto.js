@@ -24,21 +24,23 @@ db.collection('Contacto')
 }
 var datosfirebase = document.getElementById('datosfirebase');
 const datos = data => {
+			let nummm = 0;
 	if(data.length){
 		document.getElementById('totalContactosbutton').value = data.length;
 		let html= '';
 		data.forEach(doc => {
+			nummm++;
 			const post = doc.data();
 			const li = `
 			    <li class="lifirebase">
 				   
-				   <p  class="nombreDetalles" ><input type="text" value="${post.a_nombre}" onclick="extraer(event)" class="nombreDetalles" ></p>
-				   <p>No: ${post.a_contactoNo}</p>
+				   <p  class="nombreDetalles" ><input type="button" value="${post.a_nombre}" onclick="extraer(event)" class="nombreDetalles"></p>
+				   <p>No: ${nummm}</p>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
 				   <p><i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
 				   <p><i style='font-size:1rem' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
-				   <button class="deleteContacto">Del</button>
+				   <button class="deleteContacto material-icons">&#xe872;</button>
 			   </li>  
 			`;
 			html += li;
@@ -155,6 +157,8 @@ function mostrarDetalles(ventana, item, filtroD){
 
 var totalVisi;
 var totalVisi1;
+var totalContac;
+var totalContac1;
 function visitas(){
 	
 	// consultando el total de visitas
@@ -212,6 +216,9 @@ var mensajeErrorGrave = document.getElementById('mensajesFormularioGrave');
 var mensajeErrorExitoso = document.getElementById('mensajeExitoso');
 var contactoNumero;
 formulario.addEventListener('submit', function(evt){
+		mensajeError.style.display = 'flex';
+		mensajeErrorExitoso.style.display = 'flex';
+		mensajeErrorGrave.style.display = 'flex';
 	
 	evt.preventDefault();
 	
@@ -220,8 +227,8 @@ formulario.addEventListener('submit', function(evt){
 	.then((snapshot) => {
 		let datos = snapshot.docs;
 		let datosTotal = datos.length;
-		 totalVisi1 = datosTotal;
-		 totalVisi = totalVisi1 +1;
+		 totalContac1 = datosTotal;
+		 totalContac = totalContac1 +1;
 	});	
 	let nombreUsuario = nombre.value;
 	let telefonoUsuario = telefono.value;
@@ -235,7 +242,7 @@ formulario.addEventListener('submit', function(evt){
 	let NombreFecha = f+nombreUsuario;
 	// validar datos del formulario
 	setTimeout(function(){
-	   contactoNumero = totalVisi; 
+	   contactoNumero = totalContac; 
 	if(nombreUsuario === null || nombreUsuario === ''){
 		mensajeError.classList.add('error');
 		mensajeError.innerHTML = '¡Ups! El campo "Nombre" es requerido.';
@@ -314,55 +321,65 @@ function showdelete(){
 		for(i = 0; i < Contelementos.length; i++){
 			Contelementos[i].style.display = 'block';
 		}
+		
 		delll= false;
 	}else{
 		for(i = 0; i < Contelementos.length; i++){
 			Contelementos[i].style.display = 'none';
+		    document.getElementById('AlertaEliminar').style.display = 'none';
 		}
 		delll= true;
+		validar = true
 	}
 		
 	
 }
-function extraer(e){
-	e.currentTarget.style.color = '#ff0000';
-	let v = e.currentTarget.value;
-	console.log(v);
-	alert('seguro quieres eliminar este archivo?, ya no hay vuelta atrás.');
-}
 var idconsulta;
-var paraEliminar;
-function consultarId(){
-db.collection("Visitante").where('c_date', '==', 'Fri Jul 24 2020 21:01:29 GMT-0500 (hora estándar de Colombia)')
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-			idconsulta = doc.id;
-			
-			
-        });
-    })
-    .catch(function(error) {
+var validar = true;
+var valorIdEliminar;
+var valorIdEliminarFinal;
+function extraer(e){
+	    valorIdEliminar = e.currentTarget.value;
+    if(validar){
+		    document.getElementById('AlertaEliminar').style.display = 'flex';
+	    	document.getElementById('archivoEliminar').value = valorIdEliminar;
+	    	let elimartemporal= document.getElementById('archivoEliminar');
+	    	valorIdEliminarFinal = elimartemporal.value;
+	    	validar = false;
+	}
+	else{
+	
+	    db.collection("Contacto").where('a_nombre', '==', valorIdEliminarFinal)
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                
+                console.log(doc.id, " => ", doc.data());
+	    		idconsulta = doc.id;
+		});
+        })
+       .catch(function(error) {
         console.log("Error getting documents: ", error);
-    });
+        });
 	setTimeout(function(){
 		
-	let consulta = idconsulta;
-	console.log('este es el Id a eliminar:' + consulta);
+	    let consulta = idconsulta;	
 	
-	
-	db.collection('Visitante').doc(consulta)
-	.delete()
-	.then(function(){
-		console.log('eliminado: ' + consulta);
-	})
-	.catch(function(error){
-		console.log(error);
-	});
-	
-	}, 3000);
+	    db.collection('Contacto').doc(consulta)
+	    .delete()
+	    .then(function(){
+	     	console.log('eliminado: ' + consulta);
+	    })
+	    .catch(function(error){
+	     	console.log(error);
+	    });
+	    
+		
+		mostrarDatos();
+	    }, 1000);
+		showdelete();
+		validar = true
+    }  
 }
 
 
