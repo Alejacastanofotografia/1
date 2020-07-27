@@ -47,7 +47,7 @@
 }
 body {
 	background: var(--main-backgroundMain);
-	cursor: url("Imagenes/Iconos/cursor.png"), auto;
+
 }
 html{
 	scroll-behavior: smooth;

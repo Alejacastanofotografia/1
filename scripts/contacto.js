@@ -354,7 +354,6 @@ function extraer(e){
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 
-                console.log(doc.id, " => ", doc.data());
 	    		idconsulta = doc.id;
 		});
         })
@@ -368,7 +367,7 @@ function extraer(e){
 	    db.collection('Contacto').doc(consulta)
 	    .delete()
 	    .then(function(){
-	     	console.log('eliminado: ' + consulta);
+	     	console.log('eliminado: ');
 	    })
 	    .catch(function(error){
 	     	console.log(error);
@@ -383,12 +382,21 @@ function extraer(e){
 }
 
 var loginDeUusarios = db.collection('LoginDeUsuarios');
-function pruebasLogin(){
+function reemplazardatos(){
+	loginDeUusarios.doc('Administrador')
+	.update({
+		'c_id' : 2020
+	})
+	.then(function(){
+		console.log('actualizado')
+	});
+}
+function crearUsuario(){
 	let fecha = new Date().toString();
-	let nameUserShort = 'Dany';
-	let nameUserLong = 'Dany Elionore Zass';
-	let id = 104502369;
-	let totalFotos = 15;
+	let nameUserShort = 'Alejacastanofotografia';
+	let nameUserLong = 'Administrador';
+	let id = 2020;
+	let totalFotos = '1';
 	loginDeUusarios.doc(nameUserLong)
 	    .set({
 			a_name : nameUserLong,
@@ -404,63 +412,134 @@ function pruebasLogin(){
 			console.log(error)
 		});
 }
-let IDingresado = 1045024329; 
-function extrayendoDatos(){
-	loginDeUusarios.where('c_id', '==', IDingresado)
+var nombreuserLog,	nombreCarpeta, idUsuarios, totalFotografias, n, nC, id, fT;  
+// login
+var cerrar = true;		
+function abrirMenuLogin(){
+	let menuLogin = document.getElementsByClassName('menuLogin');
+	if(cerrar){
+		menuLogin[0].style.top = '0';
+		cerrar = false;
+	}
+	else{
+		menuLogin[0].style.top = '-150%';
+		cerrar = true;
+	}
+}
+var menuGalerias = document.getElementById('navSesiones');
+var usuario = document.getElementById('usuario');
+var login = document.getElementById('formularioLogin');
+var nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
+var nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
+var	nombreUsuario = document.getElementsByClassName('nameUser');
+var documento = document.getElementById('documento');
+var documentoUsuario2, documentoUsuario3, mensaje, nombreArr, nombreUsuario2, usuarioLogin;
+login.addEventListener('submit', ValidacionLogin);
+function ValidacionLogin(evt){
+	evt.preventDefault();
+	// var documentoUsuario = document.getElementById('documento').value;
+	usuarioLogin = usuario.value;
+	nombreUsuario2 = parseInt(usuarioLogin);
+    documentoUsuario2 = documento.value;
+    documentoUsuario3 = parseInt(documentoUsuario2);
+	// mensajes
+	var mensajeError = document.getElementById('mensajesFormularioLogin');
+	var mensajeExitoso = document.getElementById('mensajeBienvenida');
+	var nombreUsuarioTitulo = document.getElementById('nombreUsuarioTitulo');
+		mensajeError.style.display = "block";
+		mensajeExitoso.style.display = "block";
+	//buscando el usuario en Firebase
+	db.collection("LoginDeUsuarios").where('c_id', '==', documentoUsuario3)
 	.get()
 	.then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
-			console.log(doc.id, '=>', doc.data());
 			let datos = doc.data();
-			let nombre = datos.a_name; 
-			let nombreCarpeta = datos.b_folder; 
-			let id = datos.c_id; 
-			let folderTotal = datos.d_folderTotal;
-            console.log(nombre);			
-            console.log(nombreCarpeta);			
-            console.log(id);			
-            console.log(folderTotal);			
+			n = datos.a_name; 
+			nC = datos.b_folder; 
+			id = datos.c_id; 
+			fT = datos.d_folderTotal;
 		});
 	})
 	.catch(function(error){
 		console.log(error)
-	})
+	});
+	setTimeout(function(){
+			nombre = n;
+			nombreCarpeta = nC;
+			idUsuarios = id;
+			totalFotografias = fT; 
+	
+	
+	if(documentoUsuario3 === idUsuarios & nombreUsuario2 === idUsuarios & nombreCarpeta  === 'Violeta'){
+		nombreArr = [nombreCarpeta, nombre,  totalFotografias];
+		loginExitoso(nombreArr);		
+	}
+	else if(documentoUsuario3 === idUsuarios & nombreUsuario2 === idUsuarios & nombreCarpeta  === 'Alejandra'){
+		nombreArr = [nombreCarpeta, nombre,  totalFotografias];		
+	    loginExitoso(nombreArr);		
+	}
+	else if(documentoUsuario3 === idUsuarios & nombreUsuario2 === idUsuarios & nombreCarpeta  === 'Alejacastanofotografia'){
+            document.getElementsByClassName('menuLogout')[0].style.display = 'block';
+			login.style.display = 'none';
+            nombreUsuarioTitulo.innerHTML = 	'Administrador';	
+			nombreUsuariomenu[0].style.display = 'flex';
+			nombreUsuariomenuInner.innerHTML = 'Administrador';	
+            document.getElementById('buttonAdmin').style.display = 'block';			
+            document.getElementsByClassName('enlaceDescargar')[0].style.display = 'none';			
+	}
+	else{
+		mensajeError.innerHTML = 'El número de documento ingresado no existe en nuestra base de datos, por favor verificalo o contactanos para más información.' ;
+	    mensajeError.style.background = "#ff0000";	
+        mensajeError.style.color = "#fff";	
+        documento.value = '';	
+	}
+	    function loginExitoso(nombreArr, mensaje){
+		    let userSesion= document.getElementsByClassName('userSesion');
+		    for(i = 0 ; i < userSesion.length; i++){
+			userSesion[i].click();
+			userSesion[i].style.display = 'flex';
+		    }				
+			for(i = 0; i < nombreUsuario.length; i++){nombreUsuario[i].value = nombreArr[0]}
+			menuGalerias.click();
+            document.getElementsByClassName('menuLogout')[0].style.display = 'block';
+login.style.display = 'none';
+			mensajeExitoso.style.display = "none";
+	     	mensajeExitoso.style.display = "block";	
+	     	mensajeExitoso.innerHTML = `Hola ${nombreArr[0]}, tus fotografías se encuentran publicadas en la pestaña Sesiones/Retratos`;	
+            nombreUsuarioTitulo.innerHTML = nombreArr[1];	
+			nombreUsuariomenu[0].style.display = 'flex';
+			nombreUsuariomenuInner.innerHTML = nombreArr[1];
+			
+	        document.getElementById('usuariosTotal').value = `${nombreArr[2]}`;
+            setTimeout(function(){
+abrirMenuLogin();
+			mostrarGaleriaUser();
+			},500);			
+	    }
+    	
+	},500);
 }
-extrayendoDatos();
-// var contacto = db.collection('contactoprueba'); //global
-// contacto.doc('idDocumento').set({
-			// name : 'laila',
-			// age : '20',
-		// })
-		// .then(function(){
-			// console.log('guardada ');
-		// })
-		// .catch(function(error){
-			// console.log(error);
-		// });
-//***** enviado con variable
-// var contacto = db.collection('contactoprueba'); //global
-// contacto.doc().set({
-			// name : 'laila',
-			// age : '20',
-		// })
-		// .then(function(){
-			// console.log('guardada ');
-		// })
-		// .catch(function(error){
-			// console.log(error);
-		// });
+
+
+function mostrarGaleriaUser(){ 
+	let folderTotal = document.getElementById('usuariosTotal').value;
+	let folderName = document.getElementsByClassName('nameUser')[0].value;
+	let listaFotosUser = document.getElementById('listaFotosUser');
+	// document.getElementById('usuariosTotal').value = `${folderTotal}`;
+	document.getElementById('carpetausuarios').value = `Imagenes/Galerias/usuarios/${folderName}`;
+	let html = '';
+	let html2 = '';
+    for(var i = 1; i <= 10; i++){
 		
-//*******agregando coleccion desde cero
-// db.collection("nombreDeColeccion").add({
-    // first: "Ada",
-    // last: "Lovelace",
-    // born: 1815
-// })
-// .then(function(docRef) {
-    // console.log("Document written with ID: ", docRef.id);
-// })
-// .catch(function(error) {
-    // console.error("Error adding document: ", error);
-// }); 
-//******especificando el nombre del id de documento
+	    const contenedor = `
+	            <li>
+			        <a href="#" onclick="abrirlight('lightusuarios');document.getElementById('imgusuarios').src = 'Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg'">							
+		                <img class="lazyload" data-src="Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg" >
+			        </a>
+		        </li>
+	    `;
+	    html += contenedor;
+    }
+	listaFotosUser.innerHTML = html;
+}
+

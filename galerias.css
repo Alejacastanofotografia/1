@@ -651,7 +651,7 @@ h4 {
 	align-items: center;
 	flex-wrap: wrap;
 }
-.userSesion{
+.userSesion{  
 	display: none;	
 	justify-content: center;	
 }
