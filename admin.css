@@ -61,8 +61,7 @@
 	font-size: 1rem;
 	padding: .3rem .8rem;
 	cursor: pointer;
-	width: 100%;
-	z-index: 5;
+	/* z-index: 5; */
 	text-align: center;
 }
 .lifirebase p, .lifirebaseVisitas p{
@@ -72,16 +71,6 @@
 	padding: .2rem;
 }
 
-.lifirebase p:nth-child(5){
-	color: #00ccff;
-}
-.lifirebase p:last-child {
-	background: #101010;
-	border-radius: .3rem;
-	padding: 0 .5rem;
-	text-align: center;
-	background: #121212;
-}
 .lifirebase p, .lifirebaseVisitas p{
 	display: none;
 }
@@ -90,6 +79,13 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	min-width: 300px;
+}
+.comentariosPost {
+	border-radius: .3rem;
+	padding: .8rem;
+	text-align: center;
+	border: 1px solid #151515;
 }
 .totales {
 	color: #00ff00;
@@ -116,10 +112,11 @@ position: relative;
 .refrescar i:nth-child(4):hover{
 	color: #ff0000;
 }
-#AlertaEliminar {
+#AlertaEliminar, #AlertaEditar {
 	display: none;
-	position: absolute;
-	top: 6rem;
+	position: fixed;
+	top: 20%;
+	max-width: 600px;
 	left: 3rem;
 	right: 3rem;
 	background: #000;
@@ -130,26 +127,51 @@ position: relative;
 	flex-direction: column;
 	z-index: 100;
 	border: 1px solid #303030;
-}   
-#AlertaEliminar p{
+} 
+#AlertaEliminar p, #AlertaEditar p{
 	color: #fff; 
 	font-size: 1.5rem;
 	text-align: center;
 }
-#AlertaEliminar p span {
+#AlertaEliminar p i, #AlertaEditar  i {
 	color: #ff0000;
 	font-weight: bold;
+	padding: .6rem;	
+}#AlertaEliminar p i{color: #ff0000}
+#AlertaEliminar button, #AlertaEditar button{
 	padding: .6rem;
-	
 }
-#AlertaEliminar button{
-	padding: .6rem;
-	}
-#AlertaEliminar input {
+#AlertaEliminar input, #AlertaEditar input{
 	background: none;
 	border: none;
 	outline: none;
-	color: #ff0000;
+	font-size: 1rem;
+}
+#AlertaEliminar input{color: #ff0000;}
+#AlertaEditar input, #AlertaEditar i{color: #fff}
+#AlertaEditar .newComent {
+	padding: .6rem 0;
+	border-radius: .3rem;
+	background: #aaa;
+	color: #000;
+	outline: none;
+	border: none;
+	width: 90%;
+	text-align: center;
+	overflow: auto;
+}
+#idselect {
+	background: #000;
+	border: 1px solid #404040;
+	outline: none;
+	border-radius: .3rem;
+	padding: .8rem;
+	color: #909090;
+	font-size: 1rem;
+	margin-top: .8rem;
+}
+#idselect:focus{
+	border: 1px solid #00ccff;
 }
 #AlertaEliminar p:nth-child(2){
 	color: #ff0000; 
@@ -158,16 +180,48 @@ position: relative;
 }
 .lifirebase button{
 	position: absolute;
-	top: .5rem;
-	right: .5rem;
-	color: #ff0000;
 	border: none;
 	background: none;
 	outline: none;
 	z-index: 1;
-	display: none;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	color: #303030;
 }
+.deleteContacto {
+	top: .5rem;
+	right: .5rem;
+}
+.editContacto {
+	top: .5rem;
+	right: 2rem;
+}
+.listaComentarios {	
+	padding: .5rem 0;
+	text-align: right;
+	position: relative;
+}
+.listaComentarios i{
+	color: #00aaff;
+	
+}
+.listaComentarios input{
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	bottom: 100%;
+	padding: 1rem;
+	background: #ddd;
+	border: none;
+	border-radius: .5rem;
+	color: #202020;
+	display: none;
+	z-index: 150;
+}
+.listaComentarios:hover input{
+	display:block;
+}
+.deleteContacto:hover{color: #ff0000;}
+.editContacto:hover{color: #00ccff;	}
 @media(max-width:950px){
 	.ContenedorAdmin {
 	    padding: 120px 0 0 0;
@@ -175,6 +229,6 @@ position: relative;
 	    grid-template-columns: 1fr;
     }
 }
-#buttonAdmin {
-	display: none;
-}
+/* #buttonAdmin { */
+	/* display: none; */
+/* } */

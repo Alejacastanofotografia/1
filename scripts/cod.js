@@ -71,9 +71,9 @@ function cambiosAdmin(){
 		
 }
 document.getElementById('defaultClick').click();
-// setTimeout(function(){
-	// document.getElementById('buttonAdmin').click();
-// }, 100);
+setTimeout(function(){
+	document.getElementById('buttonAdmin').click();
+}, 100);
 // setTimeout(function(){
 	// document.getElementById('navSesiones').click();
 // }, 100);

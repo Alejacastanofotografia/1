@@ -16,13 +16,15 @@ var Visitante = db.collection('Visitante');
 
 // Extrayendo los contactos
 function mostrarDatos(){
-db.collection('Contacto')
+db.collection('Contacto').orderBy('a_contactoNo')	
     .get()
 	.then((snapshot) => {
 		datos(snapshot.docs)
 	});
 }
+mostrarDatos();
 var datosfirebase = document.getElementById('datosfirebase');
+const deletetask = id => db.collection('Contacto').doc(id).delete();
 const datos = data => {
 			let nummm = 0;
 	if(data.length){
@@ -33,33 +35,57 @@ const datos = data => {
 			const post = doc.data();
 			const li = `
 			    <li class="lifirebase">
+				   <p  class="nombreDetalles" >
+				       <input type="button" value="${post.a_nombre}" class="nombreDetalles">
+				   </p>
 				   
-				   <p  class="nombreDetalles" ><input type="button" value="${post.a_nombre}" onclick="extraer(event)" class="nombreDetalles"></p>
+				   <div style="display: flex; justify-content: space-between; width: 100%;">
 				   <p>No: ${nummm}</p>
+				   <p class="listaComentarios">
+				       <i><span style="color: #909090">Estado: </span><span> ${post.aa_estado}</span></i>
+					   <i class='far'>&#xf059;</i>
+				      
+					   <input type="button" value="${post.g_Observaciones}" >
+				   </p>
+				   </div>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
-				   <p><i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
-				   <p><i style='font-size:1rem' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
-				   <button class="deleteContacto material-icons">&#xe872;</button>
+				   <p> <i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
+				   <p class="comentariosPost"><i style='font-size:1rem; padding: .4rem; color:#202020' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
+				   <button class="deleteContacto material-icons btndelete" data-id="${doc.id}" >&#xe872;</button>
+				   <button class='editContacto far btnEdit' data-id="${doc.id}" >&#xf044;</button>
 			   </li>  
 			`;
 			html += li;
 		});
-		datosfirebase.innerHTML = html;	
+		datosfirebase.innerHTML = html;
 	}
 	else {
 		datosfirebase.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
-	}
+	}	
+			const btndelete = document.querySelectorAll('.btndelete');
+			btndelete.forEach(deleteContacto => {
+			    deleteContacto.addEventListener('click', (e) => {
+					deletetaskf(e.target.dataset.id);
+					
+			    })
+			});
+			const btnEdit = document.querySelectorAll('.btnEdit');
+			btnEdit.forEach(editContacto => {
+				editContacto.addEventListener('click', (e) =>{
+					editarContacto(e.target.dataset.id);
+				} )
+				
+			});
 }
 // extrayendo el número de visitas
 function mostarDatos2(){
-	db.collection('Visitante')
+	db.collection('Visitante').orderBy('a_No')
 	.get()
 	.then((snapshot) =>{
 		datos2(snapshot.docs)
 	});
 }
-
 var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
 const datos2 = data => {
 	let num = true;
@@ -83,8 +109,6 @@ const datos2 = data => {
 		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
 	}
 }
-
-// Dinamicas de los datos en pantalla
 var detallesToggle = true;
 function mostrarDetalles(ventana, item, filtroD){
 	var i, elementos, nombreDetalles, nombreDetalles2, filtro, Contelementos;
@@ -261,15 +285,18 @@ formulario.addEventListener('submit', function(evt){
 		nombre.style.border = 'none';
 	}
 	else{	
-	    contacto.doc(NombreFecha).set({
+	    contacto.doc(nombreUsuario).set({
 			a_nombre : nombreUsuario,
 			a_contactoNo : contactoNumero,
+			aa_estado : 'Pendiente',
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
 			e_date : fS,
 			e_fechaMensaje : f,
 		    f_Dimensiones :[width, height],
+			g_Observaciones : 'No hay observaciones.'
+			
 		})
 		.then(function(){
 			// resetando los campos...// Confirmacion de registro
@@ -313,84 +340,86 @@ formulario.addEventListener('submit', function(evt){
 		
 });
 
-// Elimiar un documento
-var delll = true;
-function showdelete(){
-	var Contelementos = document.querySelectorAll('.deleteContacto');
-	if(delll){
-		for(i = 0; i < Contelementos.length; i++){
-			Contelementos[i].style.display = 'block';
-		}
-		
-		delll= false;
-	}else{
-		for(i = 0; i < Contelementos.length; i++){
-			Contelementos[i].style.display = 'none';
-		    document.getElementById('AlertaEliminar').style.display = 'none';
-		}
-		delll= true;
-		validar = true
-	}
-		
-	
-}
-var idconsulta;
 var validar = true;
-var valorIdEliminar;
-var valorIdEliminarFinal;
-function extraer(e){
-	    valorIdEliminar = e.currentTarget.value;
+var deleteT; 
+var deleteF; 
+function showdelete(){
+	document.getElementById('AlertaEliminar').style.display = 'none';
+	validar = true
+}
+function showEditar(){
+	document.getElementById('AlertaEditar').style.display = 'none';
+	document.getElementById('nuevosComentarios').value = 'Sin comentarios';
+	document.getElementById('nuevosComentarios').style.background = '#aaa';
+	validarEdit = true; escribiendo = true;
+}
+function deletetaskf(id){
     if(validar){
 		    document.getElementById('AlertaEliminar').style.display = 'flex';
-	    	document.getElementById('archivoEliminar').value = valorIdEliminar;
-	    	let elimartemporal= document.getElementById('archivoEliminar');
-	    	valorIdEliminarFinal = elimartemporal.value;
-	    	validar = false;
+	    	document.getElementById('archivoEliminar').value = id;
+			deleteT = document.getElementById('archivoEliminar');
+			validar = false;
 	}
 	else{
+	deleteF = deleteT.value; 
 	
-	    db.collection("Contacto").where('a_nombre', '==', valorIdEliminarFinal)
-        .get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                
-	    		idconsulta = doc.id;
-		});
-        })
-       .catch(function(error) {
-        console.log("Error getting documents: ", error);
-        });
-	setTimeout(function(){
-		
-	    let consulta = idconsulta;	
-	
-	    db.collection('Contacto').doc(consulta)
-	    .delete()
-	    .then(function(){
-	     	console.log('eliminado: ');
-	    })
-	    .catch(function(error){
-	     	console.log(error);
-	    });
-	    
-		
-		mostrarDatos();
-	    }, 1000);
-		showdelete();
-		validar = true
-    }  
-}
-
-var loginDeUusarios = db.collection('LoginDeUsuarios');
-function reemplazardatos(){
-	loginDeUusarios.doc('Administrador')
-	.update({
-		'c_id' : 2020
-	})
+	db.collection('Contacto').doc(deleteF)
+	.delete()
 	.then(function(){
-		console.log('actualizado')
+		console.log('se ha eliminado el documento con Id= ' + deleteF)
 	});
+	validar = true;
+	setTimeout(()=>{
+	mostrarDatos();
+	}, 1000);
+	}
 }
+var validarEdit = true;
+var editT, editF, editOption, editOptionF, newComent, newComentF; 
+var validarInput = document.getElementById('nuevosComentarios');
+var escribiendo = true;
+validarInput.addEventListener('input', () =>{
+	if(escribiendo){
+	document.getElementById('nuevosComentarios').value = '';
+    escribiendo = false;
+    }
+	else{
+		document.getElementById('nuevosComentarios').style.background = '#fff';
+		}
+});
+function editarContacto(id){
+	if(validarEdit){
+		document.getElementById('AlertaEditar').style.display = 'flex';
+		document.getElementById('archivoEditar').value = id;
+		editT = document.getElementById('archivoEditar');
+		editOption = document.getElementById('idselect');
+	    newComent = document.getElementById('nuevosComentarios');
+		validarEdit = false
+	}else{
+		editF = editT.value;
+		editOptionF = editOption.value;
+		newComentF = newComent.value;
+		db.collection('Contacto').doc(editF)
+		.update({
+			'aa_estado': editOptionF,
+			'g_Observaciones': newComentF,
+		})
+		
+	    .then(function(){
+	     	console.log('actualizado')
+	    });
+		showEditar();
+		validarEdit = true;
+		
+	    document.getElementById('nuevosComentarios').value = 'Sin comentarios';
+	    document.getElementById('nuevosComentarios').style.background = '#aaa';
+	    escribiendo = true;
+		setTimeout( ()=>{
+			mostrarDatos();
+		}, 1000);
+	}
+}
+var loginDeUusarios = db.collection('LoginDeUsuarios');
 function crearUsuario(){
 	let fecha = new Date().toString();
 	let nameUserShort = 'Alejacastanofotografia';

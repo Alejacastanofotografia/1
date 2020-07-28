@@ -888,19 +888,39 @@
       				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
 						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
 						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
-				        <i class="material-icons" onclick="showdelete()">&#xe872;</i>
 						
 						<label for="totalContactosbutton" style="color: #909090;"><i class='fas'>&#xf500;</i></label>
 				        <input class="totales" id="totalContactosbutton"type="text" >					
 					</div>
 					<div id="AlertaEliminar">
-					     <p><span>&#9888;</span><br>Se eliminara el archivo de manera pemanente.<br></p>
+					     <p>Se eliminara el archivo de manera pemanente.<br></p>
 						 <p>
 						     <i  class='fas'>&#xf65d;</i>
 						     <input type="button" id="archivoEliminar">
 						 </p>
-						 <button class="botones" onclick="extraer(event)">Continuar</button>
-						 <button class="botones" onclick="showdelete()">Cancelar</button>
+						 <p>
+						     <button class="botones" onclick="deletetaskf()">Continuar</button>
+						     <button class="botones" onclick="showdelete()">Cancelar</button>
+						 </p>
+					</div>
+					<div id="AlertaEditar">
+						 <p>
+						     <i  class='fas'>&#xf65d;</i> 
+						     <input type="button" id="archivoEditar">
+						 </p>
+						 <select id="idselect">
+						     <option>Fijar nuevo estado</option>
+						     <option>Pendiente</option>
+						     <option>Contactado</option>
+						     <option>En proceso</option>
+						     <option>Imposible contactar</option>
+						 </select><br>
+						 <input class="newComent"type="text" id="nuevosComentarios" value="Sin comentarios.">
+						 
+						 <p>
+						     <button class="botones" onclick="editarContacto()">Guardar</button>
+						     <button class="botones" onclick="showEditar()">Cancelar</button>
+						 </p>
 					</div>
 			    </div>				
 		        <ul class="listaContacto"id="datosfirebase">
