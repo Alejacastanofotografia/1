@@ -35,26 +35,26 @@ const datos = data => {
 			const post = doc.data();
 			const li = `
 			    <li class="lifirebase">
-				   <p  class="nombreDetalles" >
-				       <input type="button" value="${post.a_nombre}" class="nombreDetalles">
-				   </p>
-				   
-				   <div style="display: flex; justify-content: space-between; width: 100%;">
-				   <p>No: ${nummm}</p>
-				   <p class="listaComentarios">
-				       <i><span style="color: #909090">Estado: </span><span> ${post.aa_estado}</span></i>
-					   <i class='far'>&#xf059;</i>
-				      
-					   <input type="button" value="${post.g_Observaciones}" >
-				   </p>
-				   </div>
+				    <div class="contenedorEstadoNum">
+					    <input type="button" value="${post.a_nombre}" class="nombreDetalles">
+						<div style="display: flex; align-items: center;">
+				            <button class='editContacto fas btnEdit' data-id="${doc.id}" >&#xf4ff;</button>
+						    <button class="deleteContacto material-icons btndelete" data-id="${doc.id}" >&#xe92b;</button>
+			  			</div>
+					</div>
+				    <div class="contenedorEstadoNum">
+				        <p>No: ${nummm}</p>
+				        <p class="listaComentarios">
+				           <i><span style="color: #909090">Estado: </span><span> ${post.aa_estado}</span></i>
+					       <i class='far'>&#xf059;</i>
+						   <span class="comentariosInternos">${post.g_Observaciones}</span>
+				        </p>
+				    </div>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
 				   <p> <i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
 				   <p class="comentariosPost"><i style='font-size:1rem; padding: .4rem; color:#202020' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
-				   <button class="deleteContacto material-icons btndelete" data-id="${doc.id}" >&#xe872;</button>
-				   <button class='editContacto far btnEdit' data-id="${doc.id}" >&#xf044;</button>
-			   </li>  
+				</li>  
 			`;
 			html += li;
 		});
@@ -151,7 +151,7 @@ function mostrarDetalles(ventana, item, filtroD){
 		if(item ==='itemUsuarios'){
 	    for( var i = 0; i < nombreDetalles.length; i++){
 	        nombreDetalles[i].style.display = 'flex';
-	        nombreDetalles[i].style.color = '#00ff00';
+	        nombreDetalles[i].style.color = '#fff';
   	    }}else{
 	    for( var i = 0; i < nombreDetalles2.length; i++){
 	        nombreDetalles2[i].style.display = 'flex';
@@ -288,14 +288,14 @@ formulario.addEventListener('submit', function(evt){
 	    contacto.doc(nombreUsuario).set({
 			a_nombre : nombreUsuario,
 			a_contactoNo : contactoNumero,
-			aa_estado : 'Pendiente',
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
 			e_date : fS,
 			e_fechaMensaje : f,
 		    f_Dimensiones :[width, height],
-			g_Observaciones : 'No hay observaciones.'
+			aa_estado : 'Pendiente',
+			g_Observaciones : 'Sin comentatios.'
 			
 		})
 		.then(function(){

@@ -878,7 +878,7 @@
         <i class='fas'>&#xf106;</i>
 	</div>
 	<section id="Admin" class="ventanas" >
-	    <div class="ContenedorAdmin">
+	    <div class="ContenedorAdmin">	
             <div class="itemAdmin itemUsuarios">		
                 <div class="headerAdmin">
                     <div>
@@ -887,7 +887,7 @@
 					<div class="refrescar" >
       				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
 						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
-						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="material-icons">&#xe3d2;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="fas">&#xf0b0;</i>
 						
 						<label for="totalContactosbutton" style="color: #909090;"><i class='fas'>&#xf500;</i></label>
 				        <input class="totales" id="totalContactosbutton"type="text" >					
@@ -904,10 +904,11 @@
 						 </p>
 					</div>
 					<div id="AlertaEditar">
-						 <p>
+						 <p class="nombreFileEdit">
 						     <i  class='fas'>&#xf65d;</i> 
 						     <input type="button" id="archivoEditar">
 						 </p>
+						 <input class="newComent"type="text" id="nuevosComentarios" value="Sin comentarios.">
 						 <select id="idselect">
 						     <option>Fijar nuevo estado</option>
 						     <option>Pendiente</option>
@@ -915,7 +916,6 @@
 						     <option>En proceso</option>
 						     <option>Imposible contactar</option>
 						 </select><br>
-						 <input class="newComent"type="text" id="nuevosComentarios" value="Sin comentarios.">
 						 
 						 <p>
 						     <button class="botones" onclick="editarContacto()">Guardar</button>
@@ -927,7 +927,7 @@
 	            </ul>
 			</div>	
 			<div class="itemAdmin">
-            </div>			
+            </div>		
 			<div class="itemAdmin itemVisitas">	
                 <div class="headerAdmin">
                     <div>	
