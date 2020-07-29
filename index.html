@@ -885,12 +885,21 @@
 					    <h6 class="titulosAdmin">Contacto</h6>	
 					</div>
 					<div class="refrescar" >
-      				    <i onclick="mostrarDatos()" class='fas'>&#xf381;</i>
-						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'normal')"class='fas'>&#xf884;</i>
-						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios', 'tres')" class="fas">&#xf0b0;</i>
-						
+      				    <i onclick="mostrarDatos('Todos')" class='fas'>&#xf381;</i>
+						<i onclick="mostrarDetalles('lifirebase', 'itemUsuarios')"class='fas'>&#xf884;</i>
+						<i onclick="mostrarFiltros()" class="fas">&#xf0b0;</i>
 						<label for="totalContactosbutton" style="color: #909090;"><i class='fas'>&#xf500;</i></label>
 				        <input class="totales" id="totalContactosbutton"type="text" >					
+						
+						<div class="contenedorFiltros">
+						    <ul>
+							    <li onclick="mostrarDatos('Todos'); mostrarFiltros()">Todos</li>
+							    <li onclick="mostrarDatos('Pendiente'); mostrarFiltros()">Pendiente</li>
+							    <li onclick="mostrarDatos('Contactado'); mostrarFiltros()">Contactado</li>
+							    <li onclick="mostrarDatos('En proceso'); mostrarFiltros()">En proceso</li>
+							    <li onclick="mostrarDatos('Imposible contactar'); mostrarFiltros()">Imposible contactar</li>
+						    </ul>
+						</div>
 					</div>
 					<div id="AlertaEliminar">
 					     <p>Se eliminara el archivo de manera pemanente.<br></p>
@@ -899,7 +908,7 @@
 						     <input type="button" id="archivoEliminar">
 						 </p>
 						 <p>
-						     <button class="botones" onclick="deletetaskf()">Continuar</button>
+						     <button class="botones" onclick="deletetaskf(); showdelete()">Continuar</button>
 						     <button class="botones" onclick="showdelete()">Cancelar</button>
 						 </p>
 					</div>

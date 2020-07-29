@@ -12,17 +12,36 @@ firebase.initializeApp({
 var db = firebase.firestore();
 var contacto = db.collection('Contacto');
 var Visitante = db.collection('Visitante');
+// contadores	
+var contadorContacto = db.collection('ContactoContador').doc('Total');
+var contadorVisitas = db.collection('VisitanteContador').doc('Total');
 
 
 // Extrayendo los contactos
-function mostrarDatos(){
-db.collection('Contacto').orderBy('a_contactoNo')	
-    .get()
-	.then((snapshot) => {
-		datos(snapshot.docs)
-	});
+function mostrarDatos(tipoFiltro){
+	if(tipoFiltro === 'Pendiente'){
+    db.collection('Contacto').where('aa_estado', '==', 'Pendiente').get()
+	.then((snapshot) => {datos(snapshot.docs)});
+	}
+	else if(tipoFiltro === 'Contactado'){
+    db.collection('Contacto').where('aa_estado', '==', 'Contactado').get()
+	.then((snapshot) => {datos(snapshot.docs)	   });
+	}
+	else if(tipoFiltro === 'En proceso'){
+    db.collection('Contacto').where('aa_estado', '==', 'En proceso').get()
+	.then((snapshot) => {datos(snapshot.docs)});
+	}
+	else if(tipoFiltro === 'Imposible contactar'){
+    db.collection('Contacto').where('aa_estado', '==', 'Imposible contactar').get()
+	.then((snapshot) => {datos(snapshot.docs)});
+	}
+	else{
+    db.collection('Contacto').orderBy('a_contactoNo')	
+    .get().then((snapshot) => {datos(snapshot.docs)});
+	}
+		
 }
-mostrarDatos();
+
 var datosfirebase = document.getElementById('datosfirebase');
 const deletetask = id => db.collection('Contacto').doc(id).delete();
 const datos = data => {
@@ -52,7 +71,7 @@ const datos = data => {
 				    </div>
 				   <p>Teléfono: ${post.b_teléfono}</p>
 				   <p>Correo: ${post.c_correo}</p>
-				   <p> <i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_date}</p>
+				   <p> <i style='font-size:1rem' class='far'>&#xf073;</i> ${post.e_fechaMensaje}</p>
 				   <p class="comentariosPost"><i style='font-size:1rem; padding: .4rem; color:#202020' class='far'>&#xf4ad;</i><br />${post.d_mensaje}</p>
 				</li>  
 			`;
@@ -61,7 +80,8 @@ const datos = data => {
 		datosfirebase.innerHTML = html;
 	}
 	else {
-		datosfirebase.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
+		document.getElementById('totalContactosbutton').value = 0;
+		datosfirebase.innerHTML = `<p style="color: #ff0000; padding: 2rem; font-size:1rem"> No existen registros</p>`;
 	}	
 			const btndelete = document.querySelectorAll('.btndelete');
 			btndelete.forEach(deleteContacto => {
@@ -96,7 +116,7 @@ const datos2 = data => {
 			const datosVisitas = doc.data();
 			const li = `
 			    <li class="lifirebaseVisitas">
-				    <p class="nombreDetalles2"> ${datosVisitas.c_date} </p>
+				    <p class="nombreDetalles2"> ${datosVisitas.b_fecha} </p>
                     <p>No: ${datosVisitas.a_No}</p> 			   
                     <p>Dimensiones: ${datosVisitas.dimensiones}</p> 	   
 			   </li>
@@ -106,11 +126,11 @@ const datos2 = data => {
 	    datosfirebaseVisitas.innerHTML = html;
 		}
 	 else {
-		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; font-size:1.5rem">Parce... Algo salió mal =(, Bendito sea mi Dios.</p>`;
+		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; padding: 2rem; font-size:1rem"> No existen registros</p>`;
 	}
 }
 var detallesToggle = true;
-function mostrarDetalles(ventana, item, filtroD){
+function mostrarDetalles(ventana, item){
 	var i, elementos, nombreDetalles, nombreDetalles2, filtro, Contelementos;
 	elementos = document.querySelectorAll(`.${ventana} p`);
 	Contelementos = document.querySelectorAll(`.${item} .listaContacto .${ventana}`);
@@ -118,28 +138,6 @@ function mostrarDetalles(ventana, item, filtroD){
 	nombreDetalles = document.querySelectorAll('.nombreDetalles');
 	nombreDetalles2 = document.querySelectorAll('.nombreDetalles2');
 	
-	if(filtroD === 'tres'){
-		for(i = 0; i < Contelementos.length; i++){
-			Contelementos[i].style.display = 'none';
-			Contelementos[i].style.flexDirection = 'column';
-		}
-		Contelementos[Contelementos.length - 3].style.display = 'flex';
-		Contelementos[Contelementos.length - 2].style.display = 'flex';
-		Contelementos[Contelementos.length - 1].style.display = 'flex';
-		for(i = 0; i < ContelementosP.length; i++){
-			ContelementosP[i].style.display = 'block';
-		}
-		if(item ==='itemUsuarios'){
-	    for( var i = 0; i < nombreDetalles.length; i++){
-	        nombreDetalles[i].style.display = 'flex';
-	        nombreDetalles[i].style.color = '#00ff00';
-  	    }}else{
-	    for( var i = 0; i < nombreDetalles2.length; i++){
-	        nombreDetalles2[i].style.display = 'flex';
-		  	nombreDetalles2[i].style.color = '#fff'}
-	    }
-	}
-	else{
 		for(i = 0; i < Contelementos.length; i++){
 			Contelementos[i].style.display = 'flex';
 			Contelementos[i].style.flexDirection = 'column';
@@ -176,7 +174,7 @@ function mostrarDetalles(ventana, item, filtroD){
 	        detallesToggle = true;
 		
 	    }
-	}
+	
 }
 
 var totalVisi;
@@ -186,13 +184,16 @@ var totalContac1;
 function visitas(){
 	
 	// consultando el total de visitas
-	db.collection('Visitante')
+	db.collection('VisitanteContador')
 	.get()
 	.then((snapshot) => {
-		let datos = snapshot.docs;
-		let datosTotal = datos.length;
-		 totalVisi1 = datosTotal;
-		 totalVisi = totalVisi1 +1;
+		snapshot.forEach((doc) => {
+			let datos = doc.data();
+			let numero = datos.No;
+		 totalVisi = numero +1;
+			
+		})
+		
 	});
 	let f = new Date();
 	let fS = f.toString();
@@ -204,13 +205,13 @@ function visitas(){
 	let height = screen.height;
 	
 	setTimeout(function(){
-	let NombreFecha = f+totalVisi;	
+	let NombreFecha = fS+totalVisi;	
 	if(width === 360 || width === 1440){
 			console.log('paila');
 	}else{
 	    Visitante.doc(NombreFecha).set({
 			a_No : totalVisi,
-			b_fecha : f,
+			b_fecha : fechaCompleta,
 			c_date : fS,
 			dimensiones : [width , height]
 		})
@@ -221,10 +222,10 @@ function visitas(){
 			console.log(error);
 		});
 		
-		// contar el número de personas que visitan la pagina...
-	    // NumeroVisitante.update({
-		    // Total : firebase.firestore.FieldValue.increment(1)
-	    // });
+	
+	    contadorVisitas.update({
+		    No: firebase.firestore.FieldValue.increment(1)
+	    });
 	    }
 	},3000);
 }
@@ -246,23 +247,30 @@ formulario.addEventListener('submit', function(evt){
 	
 	evt.preventDefault();
 	
-	db.collection('Contacto')
+	db.collection('ContactoContador')
 	.get()
 	.then((snapshot) => {
-		let datos = snapshot.docs;
-		let datosTotal = datos.length;
-		 totalContac1 = datosTotal;
-		 totalContac = totalContac1 +1;
+		snapshot.forEach((doc) =>{
+			 let datos = doc.data();
+		 totalContac1 = datos.No;
+		 totalContac = parseInt(totalContac1) +1;
+		 console.log(totalContac);
+		})
+		
 	});	
 	let nombreUsuario = nombre.value;
 	let telefonoUsuario = telefono.value;
 	let emailUsuario = email.value;
 	let mensajeUsuario = mensaje.value;
 	let width = screen.width;
-	let height = screen.height;
+	let height = screen.height;	
 	//acomodando los formatos
-	let f = new Date();
-	let fS = f.toString();
+	let f2 = new Date();
+	let fS2 = f.toString();
+	
+	let formatoFecha2 = f2.toLocaleDateString();
+	let formatoHora2 = f2.toLocaleTimeString();
+	let fechaCompleta2 = formatoFecha2 +', ' + formatoHora2;
 	let NombreFecha = f+nombreUsuario;
 	// validar datos del formulario
 	setTimeout(function(){
@@ -292,7 +300,7 @@ formulario.addEventListener('submit', function(evt){
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
 			e_date : fS,
-			e_fechaMensaje : f,
+			e_fechaMensaje : fechaCompleta2,
 		    f_Dimensiones :[width, height],
 			aa_estado : 'Pendiente',
 			g_Observaciones : 'Sin comentatios.'
@@ -329,7 +337,11 @@ formulario.addEventListener('submit', function(evt){
 		    nombre.style.border = 'none';
 		    telefono.style.border = 'none';
 		});
-
+       
+	   
+	    contadorContacto.update({
+			No: firebase.firestore.FieldValue.increment(1)
+		});
     setTimeout(function(){
 		mensajeError.style.display = 'none';
 		mensajeErrorExitoso.style.display = 'none';
@@ -341,8 +353,15 @@ formulario.addEventListener('submit', function(evt){
 });
 
 var validar = true;
+var validarFiltro = true;
 var deleteT; 
 var deleteF; 
+function mostrarFiltros(){
+	if(validarFiltro){document.querySelector('.contenedorFiltros').style.display = 'block';
+	    validarFiltro = false}
+	else{document.querySelector('.contenedorFiltros').style.display = 'none';
+	    validarFiltro = true}
+}
 function showdelete(){
 	document.getElementById('AlertaEliminar').style.display = 'none';
 	validar = true
@@ -381,10 +400,13 @@ var escribiendo = true;
 validarInput.addEventListener('input', () =>{
 	if(escribiendo){
 	document.getElementById('nuevosComentarios').value = '';
+		document.getElementById('nuevosComentarios').style.width = 'auto';
+		document.getElementById('nuevosComentarios').style.background = '#aaa';
     escribiendo = false;
     }
 	else{
 		document.getElementById('nuevosComentarios').style.background = '#fff';
+		document.getElementById('nuevosComentarios').style.width = '100%';
 		}
 });
 function editarContacto(id){

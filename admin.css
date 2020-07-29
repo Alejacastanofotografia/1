@@ -2,7 +2,7 @@
 	padding: 100px 0 0 0;
 	position: relative;
 	display: grid;
-	grid-template-columns: 1fr 1fr 300px;
+	grid-template-columns: 1fr 300px 300px;
 	width: 100%;
 	background: var(--main-background-adminHeader);
  }
@@ -14,6 +14,7 @@
 	flex-direction: column;
 	max-height: 700px;
 	overflow: auto;
+	padding: 0 0 2rem 0;
 }
 .headerAdmin {
 	display: flex;
@@ -46,8 +47,9 @@
 	padding: .6rem;
 	margin: .1rem 0;
 	display: block;
-	min-width: 300px;
-}	
+}
+.lifirebase{min-width: 450px;}
+/* .lifirebaseVisitas 	 */
 .lifirebase input {
 	background: none;
 	outline: none;
@@ -166,6 +168,26 @@ position: relative;
 .refrescar i:nth-child(4):hover{
 	color: #ff0000;
 }
+.contenedorFiltros {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 100;
+	border-radius: .3rem;
+	padding: 0 .4rem;
+	background: #080808;
+	box-shadow: 0px 5px 8px #000;
+	border: 1px solid #151515;
+}
+.contenedorFiltros ul li{
+	color: var(--main-color-adminHeader);
+	padding: .8rem;
+	text-align: center;
+	list-style: none;
+	cursor: pointer;
+}
+.contenedorFiltros ul li:hover{transform: scale(1.01)}
 #AlertaEliminar, #AlertaEditar {
 	display: none;
 	position: fixed;
@@ -173,14 +195,15 @@ position: relative;
 	max-width: 600px;
 	left: 3rem;
 	right: 3rem;
-	background: #000;
 	border-radius: 1rem;
 	padding: 1rem;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	z-index: 100;
-	border: 1px solid #303030;
+	border: 1px solid #151515;
+	background: #080808;
+	box-shadow: 0px 5px 8px #000;
 } 
 #AlertaEliminar p{
 	color: #fff; 
@@ -213,9 +236,9 @@ position: relative;
 	color: #000;
 	outline: none;
 	border: none;
-	width: 90%;
 	text-align: center;
 	overflow: auto;
+	transition: .5s;
 }
 #idselect {
 	background: #000;
@@ -245,6 +268,10 @@ position: relative;
 	.listaComentarios input {
 		font-size: .8rem;
 	}
+}	
+@media(max-width:480px){
+	
+	.lifirebase{min-width: 300px;}
 }	
 /* #buttonAdmin { */
 	/* display: none; */
