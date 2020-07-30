@@ -71,11 +71,11 @@ function cambiosAdmin(){
 		
 }
 document.getElementById('defaultClick').click();
-setTimeout(function(){
-	document.getElementById('buttonAdmin').click();
-}, 100);
 // setTimeout(function(){
-	// document.getElementById('navSesiones').click();
+	// document.getElementById('buttonAdmin').click();
+// }, 100);
+// setTimeout(function(){
+	// document.getElementById('navBooks').click();
 // }, 100);
 function cambiarVentana2(evt, ventanaNombre) {
   var i, tabcontent, tablinks;

@@ -251,34 +251,72 @@
     <div id="libroComunion" >	   
 	   <div class="container" >
 		    <div class="cover">
-			    <figure   class="front" ></figure>
-			    <figure   class="backl"></figure>
+			    <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img25.jpg" media="(max-width: 600px)" >
+		            <img   class="front lazyload" data-src="Imagenes/EfectoBook/img25.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img26.jpg" media="(max-width: 600px)">
+		            <img  class="backl lazyload" data-src="Imagenes/EfectoBook/img26.jpg" alt="books" title="Retratos">
+			    </picture>
 			</div>
 			<div class="cover2">
-			    <figure   class="front2" ></figure>
-			    <figure   class="back2"></figure>
+			    <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img23.jpg" media="(max-width: 600px)" >
+		            <img   class="front2 lazyload" data-src="Imagenes/EfectoBook/img23.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img24.jpg" media="(max-width: 600px)">
+		            <img  class="back2 lazyload" data-src="Imagenes/EfectoBook/img24.jpg" alt="books" title="Retratos">
+			    </picture>
 			</div>
 			<div class="cover3">
-			    <figure   class="front3" ></figure>
-			    <figure   class="back3"></figure>
+			    <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img9.jpg" media="(max-width: 600px)" >
+		            <img   class="front3 lazyload" data-src="Imagenes/EfectoBook/img9.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/img22.jpg" media="(max-width: 600px)">
+		            <img  class="back3 lazyload" data-src="Imagenes/EfectoBook/img22.jpg" alt="books" title="Retratos">
+			    </picture>
 			</div>
 			
         </div>
 	</div>
+	
+	<!-- nuevos estilos -->
 	<div id="libroInfantil"  >	   
 	   <div class="containerh" >
 		   <div class="coverInfant">
-			    <figure   class="frontInfant" ></figure>
-			    <figure   class="backInfant"></figure>
+			    <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv5.jpg" media="(max-width: 600px)" >
+		            <img   class="frontInfant lazyload" data-src="Imagenes/EfectoBook/Iimgv5.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv6.jpg" media="(max-width: 600px)">
+		            <img  class="backInfant lazyload" data-src="Imagenes/EfectoBook/Iimgv6.jpg" alt="books" title="Retratos">
+			    </picture>
 			</div>
 			<div class="cover2">
-			    <figure   class="frontInfant2" ></figure>
-			    <figure   class="backInfant2"></figure>
+			    <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv3.jpg" media="(max-width: 600px)" >
+		            <img   class="frontInfant2 lazyload" data-src="Imagenes/EfectoBook/Iimgv3.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv4.jpg" media="(max-width: 600px)">
+		            <img  class="backInfant2 lazyload" data-src="Imagenes/EfectoBook/Iimgv4.jpg" alt="books" title="Retratos">
+			    </picture>
 			</div>
 			<div class="cover3">
-			    <figure   class="frontInfant3" ></figure>
-			    <figure   class="backInfant3"></figure>
-			</div>   
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv1.jpg" media="(max-width: 600px)" >
+		            <img   class="lazyload" data-src="Imagenes/EfectoBook/Iimgv1.jpg" alt="books" title="Retratos">
+			    </picture>
+		        <picture>
+				    <source srcset="Imagenes/EfectoBook/media/Iimgv2.jpg" media="(max-width: 600px)">
+		            <img  class="backInfant3 lazyload" data-src="Imagenes/EfectoBook/Iimgv2.jpg" alt="books" title="Retratos">
+			    </picture>
+			</div>  
 					
        </div>
 	</div>
@@ -397,7 +435,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightInfantil'); Stopfotos()">X</p>
 		    <div class="imagenLight">
-				<img id="imgInfantil"src="Imagenes/Galerias/Infantil/img1.jpg" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil')">
+				<img id="imgInfantil"src="" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil')">
 			</div>
 		<div class="back" onclick="prev('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgInfantil', 'intantilTotal', 'indexcambiainfantil', 'carpetaInfantil'); Stopfotos()"> > </div>
@@ -452,7 +490,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightComunion'); Stopfotos()">X</p>
 		    <div class="imagenLightHori">
-				<img  loading="lazy" id="imgComunion"src="Imagenes/Galerias/Pcomunion/img1.jpg" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion')">
+				<img  id="imgComunion"src="" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion')">
 			</div>
 		<div class="back" onclick="prev('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgComunion', 'ComunionTotal', 'indexcambiaComunion', 'carpetaComunion'); Stopfotos()"> > </div>
@@ -507,7 +545,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightPrequinces'); Stopfotos()">X</p>
 		    <div class="imagenLightHori">
-				<img id="imgPrequinces"src="Imagenes/Galerias/Prequinces/img1.jpg" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces')">
+				<img id="imgPrequinces"src="" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces')">
 			</div>
 		<div class="back" onclick="prev('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgPrequinces', 'PreqincesTotal', 'indexcambiaPrequinces', 'carpetaPrequinces'); Stopfotos()"> > </div>
@@ -563,7 +601,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightQuinces'); Stopfotos()">X</p>
 		    <div class="imagenLightHori">
-				<img  loading="lazy" id="imgQuinces"src="Imagenes/Galerias/Quinces/img1.jpg" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces')">
+				<img id="imgQuinces"src="" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces')">
 			</div>
 		<div class="back" onclick="prev('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgQuinces', 'QuincesTotal', 'indexcambiaQuinces', 'carpetaQuinces'); Stopfotos()"> > </div>
@@ -620,7 +658,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightBoda'); Stopfotos()">X</p>
 		    <div class="imagenLight">
-				<img  loading="lazy" id="imgBoda"src="Imagenes/Galerias/Boda/img1.jpg" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda')">
+				<img  id="imgBoda"src="" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda')">
 			</div>
 		<div class="back" onclick="prev('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgBoda', 'BodaTotal', 'indexcambiaBoda', 'carpetaBoda'); Stopfotos()"> > </div>
@@ -679,7 +717,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightAdulto'); Stopfotos()">X</p>
 		    <div class="imagenLight">
-				<img  loading="lazy" id="imgAdulto"src="Imagenes/Galerias/Adulto/img1.jpg" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto')">
+				<img id="imgAdulto"src="" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto')">
 			</div>
 		<div class="back" onclick="prev('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgAdulto', 'adultoTotal', 'indexcambiaadulto', 'carpetaadulto'); Stopfotos()"> > </div>
@@ -778,7 +816,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightAnimales'); Stopfotos()">X</p>
 		    <div class="imagenLightHori">
-				<img  loading="lazy" id="imgAnimales"src="Imagenes/Galerias/Animales/img1.jpg" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales')">
+				<img id="imgAnimales"src="" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales')">
 			</div>
 		<div class="back" onclick="prev('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgAnimales', 'AnimalesTotal', 'indexcambiaAnimales', 'carpetaAnimales'); Stopfotos()"> > </div>
@@ -799,7 +837,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightFlores'); Stopfotos()">X</p>
 		    <div class="imagenLight">
-				<img  loading="lazy" id="imgFlores"src="Imagenes/Galerias/flores/img1.jpg" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores')">
+				<img id="imgFlores"src="" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores')">
 			</div>
 		<div class="back" onclick="prev('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgFlores', 'floreslTotal', 'indexcambiaflores', 'carpetafores'); Stopfotos()"> > </div>
@@ -821,7 +859,7 @@
 		</div>
 		<p class="cerrarLight" onclick="cerrarlight('lightPaisajes'); Stopfotos()">X</p>
 		    <div class="imagenLightHori">
-				<img  loading="lazy" id="imgPaisajes"src="Imagenes/Galerias/Paisajes/img1.jpg" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes')">
+				<img  id="imgPaisajes"src="" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes')">
 			</div>
 		<div class="back" onclick="prev('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes'); Stopfotos()">&#60; </div>	
 		<div class="go" onclick="next('imgPaisajes', 'PaisajeTotal', 'indexcambiaPaisajes', 'carpetaPaisajes'); Stopfotos()"> > </div>
@@ -958,10 +996,10 @@
 	</section>
   <footer>
         <div class="contenedorRedes">
-		   <a  href="https://web.facebook.com/daleja16" target="_blank"><img src="Imagenes/Iconos/facebook.png"></a>
-		   <a  href="https://www.instagram.com/aleja.c_a/?hl=es-la" target="_blank"><img src="Imagenes/Iconos/instagram.png"></a>
-	       <a  href="https://web.whatsapp.com/" target="_blank"><img src="Imagenes/Iconos/whatsapp.png"></a>
-	       <a  href="https://co.pinterest.com/alejadu16/pins/" target="_blank"><img src="Imagenes/Iconos/pinterest.png"></a>
+		   <a  href="https://web.facebook.com/daleja16" target="_blank"><img data-src="Imagenes/Iconos/facebook.png" class="lazyload"></a>
+		   <a  href="https://www.instagram.com/aleja.c_a/?hl=es-la" target="_blank"><img data-src="Imagenes/Iconos/instagram.png" class="lazyload"></a>
+	       <a  href="https://web.whatsapp.com/" target="_blank"><img data-src="Imagenes/Iconos/whatsapp.png" class="lazyload"></a>
+	       <a  href="https://co.pinterest.com/alejadu16/pins/" target="_blank"><img data-src="Imagenes/Iconos/pinterest.png" class="lazyload"></a>
 	   	</div>
 	    <p class="por">Diseñado por:</p>
         <p>Edwar Castaño 2020 </br>Todos los derechos reservados</p>

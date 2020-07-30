@@ -148,57 +148,21 @@
  
 }
  /*Fin animacion*/                                                           
-figure {
+
+.containerh img, .container img {
 	margin:0;
 	display: block;
 	position: absolute;
 	width:100%;
 	height: 100%;
+	object-fit: cover;
 	backface-visibility: hidden;	
 	
 }
-/*-------------------------------------------*/ 
-figure.front, figure.front2,figure.front3,
-figure.frontInfant, figure.frontInfant2, figure.frontInfant3{
-	background-size:cover;
-	background-repeat:no-repeat;	
+.containerh .backInfant,.container .backl,
+.containerh .backInfant2,.container .back2,
+.containerh .backInfant3, .container .back3{
+	transform:rotateY(180deg);
 }
-figure.backl, figure.back2, figure.back3,
-figure.backInfant, figure.backInfant2,figure.backInfant3{
-	background-size:cover;
-	background-repeat:no-repeat;
-	transform: rotateY(180deg);	
-}
-figure.front {background-image: url(img25.jpg);}
-figure.backl {background-image: url(img26.jpg);} 
-figure.front2 {background-image: url(img23.jpg);}
-figure.back2 {background-image: url(img24.jpg);}     
-figure.front3 {background-image: url(img9.jpg);} 
-figure.back3 {background-image: url(img22.jpg);}  
-figure.frontInfant {background-image: url(Iimgv5.jpg);}
-figure.backInfant {background-image: url(Iimgv6.jpg);}     
-figure.frontInfant2 {background-image: url(Iimgv3.jpg);}
-figure.backInfant2 {background-image: url(Iimgv4.jpg);}
-figure.frontInfant3 {
-	background-image: url(Iimgv1.jpg);
-	box-shadow:10px 5px 15px #505050 inset;
-	border-left:5px solid #444 outset;
-} 
-figure.backInfant3 {background-image: url(Iimgv2.jpg);} 
-@media (max-width: 600px){
-    figure.front {background-image: url(media/img25.jpg);}
-    figure.backl {background-image: url(media/img26.jpg);}  
-    figure.frontInfant {background-image: url(media/Iimgv5.jpg);}
-    figure.backInfant {background-image: url(media/Iimgv6.jpg);}  
-    figure.front2 {background-image: url(media/img23.jpg);}
-    figure.back2 {background-image: url(media/img24.jpg);}    
-    figure.frontInfant2 {background-image: url(media/Iimgv3.jpg);}
-    figure.backInfant2 {background-image: url(media/Iimgv4.jpg);}    
-    figure.front3 {background-image: url(media/img9.jpg);} 
-    figure.back3 {background-image: url(media/img22.jpg);} 
-    figure.frontInfant3 {background-image: url(media/Iimgv1.jpg);} 
-    figure.backInfant3 {background-image: url(media/Iimgv2.jpg);}
-}
-
  
 

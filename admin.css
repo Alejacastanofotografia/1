@@ -273,6 +273,6 @@ position: relative;
 	
 	.lifirebase{min-width: 300px;}
 }	
-/* #buttonAdmin { */
-	/* display: none; */
-/* } */
+#buttonAdmin {
+	display: none;
+}
