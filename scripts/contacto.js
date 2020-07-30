@@ -266,12 +266,11 @@ formulario.addEventListener('submit', function(evt){
 	let height = screen.height;	
 	//acomodando los formatos
 	let f2 = new Date();
-	let fS2 = f.toString();
+	let fS2 = f2.toString();
 	
 	let formatoFecha2 = f2.toLocaleDateString();
 	let formatoHora2 = f2.toLocaleTimeString();
-	let fechaCompleta2 = formatoFecha2 +', ' + formatoHora2;
-	let NombreFecha = f+nombreUsuario;
+	let fechaCompleta2 = formatoFecha2 +', ' + formatoHora2;	 
 	// validar datos del formulario
 	setTimeout(function(){
 	   contactoNumero = totalContac; 
@@ -299,7 +298,7 @@ formulario.addEventListener('submit', function(evt){
 			b_teléfono : telefonoUsuario,
 			c_correo : emailUsuario,
 			d_mensaje : mensajeUsuario,
-			e_date : fS,
+			e_date : fS2,
 			e_fechaMensaje : fechaCompleta2,
 		    f_Dimensiones :[width, height],
 			aa_estado : 'Pendiente',
