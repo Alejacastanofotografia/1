@@ -36,7 +36,7 @@ function navegacion(evt, ventana, header, activeLink){
 	// }
 	// evt.currentTarget.className += ' activeMain';
 		
-	if(header === 'noHead'){
+	if(header){
 		document.getElementById('imgSlider').style.display = 'none';
 		document.getElementById('header').style.height = 'auto';
 		for(var i = 0; i < ContendedorHMenu.length; i++){
@@ -66,9 +66,6 @@ function navegacion(evt, ventana, header, activeLink){
 		document.getElementsByClassName('contenedorSliderScroll')[0].style.borderBottom = '1px solid #202020';
 		vent[1].style.display = 'block';	vent[2].style.display = 'block';	vent[3].style.display = 'block';	vent[4].style.display = 'block';
 	 }
-}
-function cambiosAdmin(){
-		
 }
 document.getElementById('defaultClick').click();
 // setTimeout(function(){

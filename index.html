@@ -16,7 +16,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
 </head>
-<body onload="visitas()">
+<body onload="consultaCantidad()">
     <header id="header">
 	    <div class="slider" id="imgSlider" >
 	        <div class="imgagenesSlider">
@@ -56,21 +56,21 @@
 		<nav>
 		    <div class="contenedorSlider" >
 			    <div class="items" >
-				    <li id="navInicio" class="tabs" onclick="navegacion(event, 'principal', 'Head', 'navInicio'); window.scroll(10,800)">
+				    <li id="navInicio" class="tabs" onclick="navegacion(event, 'principal', false, 'navInicio'); window.scroll(10,800)">
 				    	<a class='fas'>&#xf015; <span id="textoInicio">Inicio</span></a>
 					</li>
 				</div>
 		        <div class="items"  >
-			        <li id="navBooks"class="tabs" onclick="navegacion(event, 'book', 'noHead', 'navBooks'); window.scroll(0,0)">
+			        <li id="navBooks"class="tabs" onclick="navegacion(event, 'book', true, 'navBooks'); window.scroll(0,0)">
 					    <a href="#">Books</a>
 				    </li>  
 		     	</div>
 		        <div class="items" >
-			        <li id="navSesiones" class="tabs" onclick="navegacion(event, 'Galerias', 'noHead', 'navSesiones'); window.scroll(0,0)" >
+			        <li id="navSesiones" class="tabs" onclick="navegacion(event, 'Galerias', true, 'navSesiones'); window.scroll(0,0)" >
 					    <a href="#">Sesiones</a>
 					</li>  
 			    </div>
-		        <h1 class="h1Main tabs"  id="defaultClick" onclick="navegacion(event, 'principal', 'Head', 'navInicio'); window.scroll(0,0)">Aleja Castaño<br>
+		        <h1 class="h1Main tabs"  id="defaultClick" onclick="navegacion(event, 'principal', false, 'navInicio'); window.scroll(0,0)">Aleja Castaño<br>
 		            <span>F</span>
 		            <span>o</span>
 		            <span>t</span>
@@ -83,12 +83,12 @@
 		            <span>a</span>
 		        </h1>
 		        <div class="items" >
-			        <li id="navSobreMi"class="tabs"onclick="navegacion(event, 'principal', 'Head', 'navSobreMi')">
+			        <li id="navSobreMi"class="tabs"onclick="navegacion(event, 'principal', false, 'navSobreMi')">
 					    <a href="#sobreMi" id="linkSobreMi">Sobre Mí</a>
 					</li>  
 			    </div>
 		        <div class="items" >
-			        <li id="navContacto"class="tabs"onclick="navegacion(event, 'principal', 'Head', 'navContacto')">
+			        <li id="navContacto"class="tabs"onclick="navegacion(event, 'principal', false, 'navContacto')">
 					    <a href="#contacto">Contacto</a>
 					</li>  
 			    </div>

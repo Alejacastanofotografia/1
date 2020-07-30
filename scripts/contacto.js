@@ -36,7 +36,7 @@ function mostrarDatos(tipoFiltro){
 	.then((snapshot) => {datos(snapshot.docs)});
 	}
 	else{
-    db.collection('Contacto').orderBy('a_contactoNo')	
+    db.collection('Contacto').orderBy('a_contactoNo', 'desc')	
     .get().then((snapshot) => {datos(snapshot.docs)});
 	}
 		
@@ -62,7 +62,7 @@ const datos = data => {
 			  			</div>
 					</div>
 				    <div class="contenedorEstadoNum">
-				        <p>No: ${nummm}</p>
+				        <p>No: ${post.a_contactoNo}</p>
 				        <p class="listaComentarios">
 				           <i><span style="color: #909090">Estado: </span><span> ${post.aa_estado}</span></i>
 					       <i class='far'>&#xf059;</i>
@@ -100,7 +100,7 @@ const datos = data => {
 }
 // extrayendo el número de visitas
 function mostarDatos2(){
-	db.collection('Visitante').orderBy('a_No')
+	db.collection('Visitante').orderBy('a_No', 'desc')
 	.get()
 	.then((snapshot) =>{
 		datos2(snapshot.docs)
@@ -181,9 +181,8 @@ var totalVisi;
 var totalVisi1;
 var totalContac;
 var totalContac1;
-function visitas(){
-	
-	// consultando el total de visitas
+
+const consultaCantidad = () =>{
 	db.collection('VisitanteContador')
 	.get()
 	.then((snapshot) => {
@@ -191,10 +190,11 @@ function visitas(){
 			let datos = doc.data();
 			let numero = datos.No;
 		 totalVisi = numero +1;
-			
-		})
-		
-	});
+		 visitas(totalVisi)			
+		})		
+	});	
+}
+const visitas = (VisiTotal) => {	
 	let f = new Date();
 	let fS = f.toString();
 	
@@ -204,13 +204,13 @@ function visitas(){
 	let width = screen.width;
 	let height = screen.height;
 	
-	setTimeout(function(){
-	let NombreFecha = fS+totalVisi;	
+	
+	let NombreFecha = fS+VisiTotal;	
 	if(width === 360 || width === 1440){
 			console.log('paila');
 	}else{
 	    Visitante.doc(NombreFecha).set({
-			a_No : totalVisi,
+			a_No : VisiTotal,
 			b_fecha : fechaCompleta,
 			c_date : fS,
 			dimensiones : [width , height]
@@ -221,13 +221,11 @@ function visitas(){
 		.catch(function(error){
 			console.log(error);
 		});
-		
-	
-	    contadorVisitas.update({
+		    contadorVisitas.update({
 		    No: firebase.firestore.FieldValue.increment(1)
 	    });
 	    }
-	},3000);
+	
 }
 //accediendo a los elementos del formulario
 var nombre = document.getElementById('name');
@@ -254,10 +252,13 @@ formulario.addEventListener('submit', function(evt){
 			 let datos = doc.data();
 		 totalContac1 = datos.No;
 		 totalContac = parseInt(totalContac1) +1;
-		 console.log(totalContac);
+		 nuevoContacto(totalContac);
 		})
 		
 	});	
+// añadido	
+});
+const nuevoContacto = (totalContactos) => {	
 	let nombreUsuario = nombre.value;
 	let telefonoUsuario = telefono.value;
 	let emailUsuario = email.value;
@@ -272,8 +273,7 @@ formulario.addEventListener('submit', function(evt){
 	let formatoHora2 = f2.toLocaleTimeString();
 	let fechaCompleta2 = formatoFecha2 +', ' + formatoHora2;	 
 	// validar datos del formulario
-	setTimeout(function(){
-	   contactoNumero = totalContac; 
+	   contactoNumero = totalContactos; 
 	if(nombreUsuario === null || nombreUsuario === ''){
 		mensajeError.classList.add('error');
 		mensajeError.innerHTML = '¡Ups! El campo "Nombre" es requerido.';
@@ -347,9 +347,9 @@ formulario.addEventListener('submit', function(evt){
 		mensajeErrorGrave.style.display = 'none';
 	    }, 8000);
 	}
-	},1000);
+}
 		
-});
+
 
 var validar = true;
 var validarFiltro = true;
