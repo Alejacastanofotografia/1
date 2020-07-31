@@ -106,7 +106,7 @@ function mostarDatos2(){
 		datos2(snapshot.docs)
 	});
 }
-var datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
+let datosfirebaseVisitas = document.getElementById('datosfirebaseVisitas');
 const datos2 = data => {
 	let num = true;
 	if(data.length){
@@ -129,7 +129,7 @@ const datos2 = data => {
 		datosfirebaseVisitas.innerHTML = `<p style="color: #ff0000; padding: 2rem; font-size:1rem"> No existen registros</p>`;
 	}
 }
-var detallesToggle = true;
+let detallesToggle = true;
 function mostrarDetalles(ventana, item){
 	var i, elementos, nombreDetalles, nombreDetalles2, filtro, Contelementos;
 	elementos = document.querySelectorAll(`.${ventana} p`);
@@ -177,10 +177,10 @@ function mostrarDetalles(ventana, item){
 	
 }
 
-var totalVisi;
-var totalVisi1;
-var totalContac;
-var totalContac1;
+let totalVisi;
+let totalVisi1;
+let totalContac;
+let totalContac1;
 
 const consultaCantidad = () =>{
 	db.collection('VisitanteContador')
@@ -228,16 +228,16 @@ const visitas = (VisiTotal) => {
 	
 }
 //accediendo a los elementos del formulario
-var nombre = document.getElementById('name');
-var telefono = document.getElementById('telefono');
-var email = document.getElementById('email');
-var mensaje = document.getElementById('mensaje');
+let nombre = document.getElementById('name');
+let telefono = document.getElementById('telefono');
+let email = document.getElementById('email');
+let mensaje = document.getElementById('mensaje');
 
-var formulario = document.getElementById('formularioContacto');
-var mensajeError = document.getElementById('mensajesFormulario');
-var mensajeErrorGrave = document.getElementById('mensajesFormularioGrave');
-var mensajeErrorExitoso = document.getElementById('mensajeExitoso');
-var contactoNumero;
+let formulario = document.getElementById('formularioContacto');
+let mensajeError = document.getElementById('mensajesFormulario');
+let mensajeErrorGrave = document.getElementById('mensajesFormularioGrave');
+let mensajeErrorExitoso = document.getElementById('mensajeExitoso');
+let contactoNumero;
 formulario.addEventListener('submit', function(evt){
 		mensajeError.style.display = 'flex';
 		mensajeErrorExitoso.style.display = 'flex';
@@ -384,12 +384,10 @@ function deletetaskf(id){
 	db.collection('Contacto').doc(deleteF)
 	.delete()
 	.then(function(){
-		console.log('se ha eliminado el documento con Id= ' + deleteF)
+		console.log('se ha eliminado el documento con Id= ' + deleteF);
+		mostrarDatos()
 	});
 	validar = true;
-	setTimeout(()=>{
-	mostrarDatos();
-	}, 1000);
 	}
 }
 var validarEdit = true;
@@ -427,7 +425,8 @@ function editarContacto(id){
 		})
 		
 	    .then(function(){
-	     	console.log('actualizado')
+			 console.log('actualizado');
+			 mostrarDatos()
 	    });
 		showEditar();
 		validarEdit = true;
@@ -435,9 +434,6 @@ function editarContacto(id){
 	    document.getElementById('nuevosComentarios').value = 'Sin comentarios';
 	    document.getElementById('nuevosComentarios').style.background = '#aaa';
 	    escribiendo = true;
-		setTimeout( ()=>{
-			mostrarDatos();
-		}, 1000);
 	}
 }
 var loginDeUusarios = db.collection('LoginDeUsuarios');
@@ -462,7 +458,7 @@ function crearUsuario(){
 			console.log(error)
 		});
 }
-var nombreuserLog,	nombreCarpeta, idUsuarios, totalFotografias, n, nC, id, fT;  
+var nombreuserLog,	nombreCarpeta, idUsuarios, totalFotografias;  
 // login
 var cerrar = true;		
 function abrirMenuLogin(){
@@ -476,26 +472,20 @@ function abrirMenuLogin(){
 		cerrar = true;
 	}
 }
-var menuGalerias = document.getElementById('navSesiones');
-var usuario = document.getElementById('usuario');
-var login = document.getElementById('formularioLogin');
-var nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
-var nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
-var	nombreUsuario = document.getElementsByClassName('nameUser');
-var documento = document.getElementById('documento');
-var documentoUsuario2, documentoUsuario3, mensaje, nombreArr, nombreUsuario2, usuarioLogin;
+let menuGalerias = document.getElementById('navSesiones');
+let usuario = document.getElementById('usuario');
+let login = document.getElementById('formularioLogin');
+let nombreUsuariomenuInner = document.getElementById('nombreUsuariomenu');
+let nombreUsuariomenu = document.getElementsByClassName('nombreUsuariomenu');
+let	nombreUsuario = document.getElementsByClassName('nameUser');
+let documento = document.getElementById('documento');
+let documentoUsuario2, documentoUsuario3, nombreArr, nombreUsuario2, usuarioLogin;
 login.addEventListener('submit', ValidacionLogin);
 function ValidacionLogin(evt){
 	evt.preventDefault();
 	// var documentoUsuario = document.getElementById('documento').value;
-	usuarioLogin = usuario.value;
-	nombreUsuario2 = parseInt(usuarioLogin);
     documentoUsuario2 = documento.value;
     documentoUsuario3 = parseInt(documentoUsuario2);
-	// mensajes
-	var mensajeError = document.getElementById('mensajesFormularioLogin');
-	var mensajeExitoso = document.getElementById('mensajeBienvenida');
-	var nombreUsuarioTitulo = document.getElementById('nombreUsuarioTitulo');
 		mensajeError.style.display = "block";
 		mensajeExitoso.style.display = "block";
 	//buscando el usuario en Firebase
@@ -504,20 +494,30 @@ function ValidacionLogin(evt){
 	.then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
 			let datos = doc.data();
-			n = datos.a_name; 
-			nC = datos.b_folder; 
-			id = datos.c_id; 
-			fT = datos.d_folderTotal;
+			let n = datos.a_name; 
+			let nC = datos.b_folder; 
+			let id = datos.c_id; 
+			let fT = datos.d_folderTotal;
+			validarFormulario(n, nC, id, fT);
 		});
 	})
 	.catch(function(error){
 		console.log(error)
 	});
-	setTimeout(function(){
-			nombre = n;
-			nombreCarpeta = nC;
-			idUsuarios = id;
-			totalFotografias = fT; 
+
+}	
+	
+const validarFormulario = (n2, nC2, id2, ft2) => {
+			nombre = n2;
+			nombreCarpeta = nC2;
+			idUsuarios = id2;
+			totalFotografias = ft2; 
+			usuarioLogin = usuario.value;
+			nombreUsuario2 = parseInt(usuarioLogin);
+			// mensajes
+			var mensajeError = document.getElementById('mensajesFormularioLogin');
+			var mensajeExitoso = document.getElementById('mensajeBienvenida');
+			var nombreUsuarioTitulo = document.getElementById('nombreUsuarioTitulo');
 	
 	
 	if(documentoUsuario3 === idUsuarios & nombreUsuario2 === idUsuarios & nombreCarpeta  === 'Violeta'){
@@ -543,7 +543,9 @@ function ValidacionLogin(evt){
         mensajeError.style.color = "#fff";	
         documento.value = '';	
 	}
-	    function loginExitoso(nombreArr, mensaje){
+	  
+		// const loginExitoso =  () => {	
+		function loginExitoso(nombreArr, mensaje){
 		    let userSesion= document.getElementsByClassName('userSesion');
 		    for(i = 0 ; i < userSesion.length; i++){
 			userSesion[i].click();
@@ -566,12 +568,10 @@ abrirMenuLogin();
 			mostrarGaleriaUser();
 			},500);			
 	    }
-    	
-	},500);
+
 }
 
-
-function mostrarGaleriaUser(){ 
+const mostrarGaleriaUser = () => {
 	let folderTotal = document.getElementById('usuariosTotal').value;
 	let folderName = document.getElementsByClassName('nameUser')[0].value;
 	let listaFotosUser = document.getElementById('listaFotosUser');
@@ -584,7 +584,7 @@ function mostrarGaleriaUser(){
 	    const contenedor = `
 	            <li>
 			        <a href="#" onclick="abrirlight('lightusuarios');document.getElementById('imgusuarios').src = 'Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg'">							
-		                <img class="lazyload" data-src="Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg" >
+		                <img class="lazyload" data-src="Imagenes/Galerias/usuarios/${folderName}/img${i}.jpg" ><div class="new" ></div>
 			        </a>
 		        </li>
 	    `;

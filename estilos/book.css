@@ -13,13 +13,13 @@
 	margin: 1rem 0;
 }
 .container{    
-    background-image: url(img21.jpg);
+    background-image: url(../Imagenes/EfectoBook/img21.jpg);
 	background-size:cover;
 	width: 400px;
 	height: 307px;
 }
 .containerh{	    
-    background-image: url(Iimgv7.jpg);
+    background-image: url(../Imagenes/EfectoBook/Iimgv7.jpg);
 	background-size:cover;
 	height: 400px;
 	width: 307px;

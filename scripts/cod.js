@@ -1,4 +1,5 @@
 var i;
+
 function preloader(){
     setTimeout(function(){
 		var num = 100;
@@ -29,19 +30,22 @@ function navegacion(evt, ventana, header, activeLink){
 	for(i = 0; i < links.length; i++){
 		links[i].style.borderBottom = 'none';
 	}
-	document.getElementById(activeLink).style.borderBottom = '1px solid #aaa';
+	document.getElementById(activeLink).style.borderBottom = '2px solid #ff0000';
 	document.getElementById(activeLink).style.color = '#fff';
-	// for(i = 0; i < links.length; i++){
-		// links[i].className = links[i].className.replace(" activeMain", '');
-	// }
-	// evt.currentTarget.className += ' activeMain';
-		
+	for(i = 0; i < links.length; i++){
+		links[i].className = links[i].className.replace(" activeMain", '');
+	}
+	evt.currentTarget.className += ' activeMain';
+	
+	let vent = document.querySelectorAll('.contenedorSlider .items');
+	let headM1 = document.getElementsByClassName('contenedorSlider');	
 	if(header){
 		document.getElementById('imgSlider').style.display = 'none';
 		document.getElementById('header').style.height = 'auto';
 		for(var i = 0; i < ContendedorHMenu.length; i++){
 			ContendedorHMenu[i].classList.add("contenedorSliderScroll");
 		}	
+		headM1[0].style.background = `var(--main-backgroundmenuHeader)`;
 		
         window.removeEventListener('scroll', mostrarScroll);
 	} 
@@ -51,21 +55,15 @@ function navegacion(evt, ventana, header, activeLink){
 		
 	}
 	
-	var vent = document.querySelectorAll('.contenedorSlider .items');
-	var headM = document.getElementsByClassName('contenedorSliderScroll');
-	var headM1 = document.getElementsByClassName('contenedorSlider');
 	if(ventana === 'Admin'){
-		for(var i = 0; i < headM1.length; i++){
-		headM1[i].style.background = '#101010';
-		headM1[i].style.borderBottom = 'none';
-			
-		}
-		
+		headM1[0].style.background = `var(--main-background-adminHeader)`;
+		headM1[0].style.borderBottom = 'none';
 		vent[1].style.display = 'none';	vent[2].style.display = 'none';	vent[3].style.display = 'none';	vent[4].style.display = 'none';}
 	else{
-		document.getElementsByClassName('contenedorSliderScroll')[0].style.borderBottom = '1px solid #202020';
 		vent[1].style.display = 'block';	vent[2].style.display = 'block';	vent[3].style.display = 'block';	vent[4].style.display = 'block';
-	 }
+		headM1[0].style.borderBottom =  '1px solid #202020';
+		// headM1[0].style.background = `var(--main-backgroundmenuHeader)`;
+	}
 }
 document.getElementById('defaultClick').click();
 // setTimeout(function(){
@@ -109,6 +107,7 @@ document.getElementById("defaultOpen2").click();
 //mostrar navegacion al hacer scroll
 
 let contenedor = document.getElementsByClassName('contenidoScroll');
+let contenedor2 = document.getElementsByClassName('scrollRight');
 let ContendedorHMenu = document.getElementsByClassName('contenedorSlider');
 let itemsMenuMain = document.getElementsByClassName('items');
 var scrollTop;
@@ -135,14 +134,25 @@ function mostrarScroll(){
 			contenedor[i].classList.remove("position");
 		}
 	}
+	for(var i = 0; i < contenedor2.length; i++){
+		let alturaAnimado = contenedor2[i].offsetTop;
+		if(alturaAnimado - 600 < scrollTop){
+			contenedor2[i].classList.add("positionright");
+		}
+		else{
+			contenedor2[i].classList.remove("positionright");
+		}
+	}
 	
 	for(var i = 0; i < ContendedorHMenu.length; i++){
 		let alturaAnimado = ContendedorHMenu[i].offsetTop;
 		if(alturaAnimado < scrollTop){
 			ContendedorHMenu[i].classList.add("contenedorSliderScroll");
+			ContendedorHMenu[i].style.background = `var(--main-backgroundmenuHeader)`;
 		}
 		else{
 			ContendedorHMenu[i].classList.remove("contenedorSliderScroll");
+		    ContendedorHMenu[i].style.background = 'none';
 		}
 	}
 }
@@ -223,8 +233,8 @@ function cerrarlight(cerrargaleria){
     document.getElementById(cerrargaleria).style.display = 'none';}
 /*seccion lightbox*/
 /*seccion lightbox*/
-var num = 1;
-var numAnim = 0;
+let num = 1;
+let numAnim = 0;
 function next(cambiar, numeroT, numerofoto, carpeta) {
     num++;
 	var carpetafotos = document.getElementById(carpeta).value; 
@@ -250,7 +260,6 @@ function next(cambiar, numeroT, numerofoto, carpeta) {
 			}
         }	
 }
-//**************************************//
 function prev(cambiar, numeroT, numerofoto, carpeta){
     num--;
 	var carpetafotos = document.getElementById(carpeta).value; 
@@ -260,6 +269,21 @@ function prev(cambiar, numeroT, numerofoto, carpeta){
 		var fotos = document.getElementById(cambiar);
 		    fotos.src = carpetafotos+'/img'+num+'.jpg';
 			document.getElementById(numerofoto).innerHTML= num;
+		
+		if(screen.width > 450){
+			numAnim = 100;
+			var intervalAnimacion = setInterval(moviendo, 5);
+			function moviendo(){
+				if(numAnim <= 0){
+					clearInterval(intervalAnimacion);
+					fotos.style.transform = 'translate(0px)';
+				}
+				else{
+					numAnim--;
+					fotos.style.transform = 'translate(' + numAnim + 'px)';
+				}
+			}
+        }	
 }
 
 //cambiaticamente
@@ -480,11 +504,3 @@ function frases(){
 		}
 }
 frases();
-
-
-
-
-
-
-
-
