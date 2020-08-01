@@ -44,25 +44,25 @@
 	z-index: 50;
 }        
  @keyframes cambiarfondomenu {
-        0%{background: url('Imagenes/Iconos/img4.jpg');
+        0%{background: url('../Imagenes/Iconos/img4.jpg');
 		   background-repeat: repeat;
 	       background-size: cover}
-		   30%{background: url('Imagenes/Iconos/img4.jpg');
+		   30%{background: url('../Imagenes/Iconos/img4.jpg');
 		       background-repeat: repeat;
 	           background-size: cover}   
-	    35%{background: url('Imagenes/Iconos/img8.jpg'); 
+	    35%{background: url('../Imagenes/Iconos/img8.jpg'); 
 		    background-repeat: repeat;
 	        background-size: cover;
 			}
-			65%{background: url('Imagenes/Iconos/img8.jpg'); 
+			65%{background: url('../Imagenes/Iconos/img8.jpg'); 
 		        background-repeat: repeat;
 	            background-size: cover;
 								}
-		70%{background: url('Imagenes/Iconos/img7.jpg'); 
+		70%{background: url('../Imagenes/Iconos/img7.jpg'); 
 		    background-repeat: repeat;  
 	        background-size: cover;
 			}
-			100%{background: url('Imagenes/Iconos/img7.jpg'); 
+			100%{background: url('../Imagenes/Iconos/img7.jpg'); 
 		        background-repeat: repeat;
 	            background-size: cover;}
      }
@@ -246,7 +246,7 @@
 	
 }
 .new:before{
-	content: url(Imagenes/Iconos/cursor.png);
+	content: url(../Imagenes/Iconos/flechas.png);
 	position: absolute;
 	top: .3rem;
 	right: 1rem;

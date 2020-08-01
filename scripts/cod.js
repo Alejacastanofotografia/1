@@ -30,7 +30,7 @@ function navegacion(evt, ventana, header, activeLink){
 	for(i = 0; i < links.length; i++){
 		links[i].style.borderBottom = 'none';
 	}
-	document.getElementById(activeLink).style.borderBottom = '2px solid #ff0000';
+	document.getElementById(activeLink).style.borderBottom = '2px solid #a00';
 	document.getElementById(activeLink).style.color = '#fff';
 	for(i = 0; i < links.length; i++){
 		links[i].className = links[i].className.replace(" activeMain", '');
@@ -144,17 +144,20 @@ function mostrarScroll(){
 		}
 	}
 	
-	for(var i = 0; i < ContendedorHMenu.length; i++){
-		let alturaAnimado = ContendedorHMenu[i].offsetTop;
-		if(alturaAnimado < scrollTop){
-			ContendedorHMenu[i].classList.add("contenedorSliderScroll");
-			ContendedorHMenu[i].style.background = `var(--main-backgroundmenuHeader)`;
-		}
-		else{
-			ContendedorHMenu[i].classList.remove("contenedorSliderScroll");
-		    ContendedorHMenu[i].style.background = 'none';
-		}
-	}
+	let medidas = screen.width;
+	if(medidas >= 600){
+	    for(var i = 0; i < ContendedorHMenu.length; i++){
+	    	let alturaAnimado = ContendedorHMenu[i].offsetTop;
+	    	if(alturaAnimado < scrollTop){
+	    		ContendedorHMenu[i].classList.add("contenedorSliderScroll");
+	    		ContendedorHMenu[i].style.background = `var(--main-backgroundmenuHeader)`;
+	    	}
+	    	else{
+	    		ContendedorHMenu[i].classList.remove("contenedorSliderScroll");
+	    	    ContendedorHMenu[i].style.background = 'none';
+	    	}
+	    }
+    }
 }
 
 window.addEventListener('scroll', mostrarScroll);
